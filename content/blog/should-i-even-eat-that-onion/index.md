@@ -13,13 +13,13 @@ Every Xiaomi product has a sticker that you can scratch to reveal a number, whic
 
 And, this is what I got instead of a scratch-off sticker:
 
-[![Fake Verification Sticker on Fake Xiaomi Product](/fakexiaomi.jpg)](/fakexiaomi.jpg)
+[![Fake Verification Sticker on Fake Xiaomi Product](fakexiaomi.jpg)](fakexiaomi.jpg)
 
 A piece of paper that only looked like it could be scratched. Things don't get any faker than this!
 
 Their delivery service was amazing, now it was time to see if their customer service was equally good. It was time for an email to their customer service:
 
-[![Email to Daraz](/darazemail.png)](darazemail.png)
+[![Email to Daraz](darazemail.png)](darazemail.png)
 
 After sending them that email, it took 3 days for them to reply with an acknowledgment and apology. Not bad for a store selling fake products.
 
@@ -35,7 +35,7 @@ I thought to myself: thank goodness they don't sell food.
 
 Well, turns out, they are selling onions now (at a price of Tk 9 per kilogram only):
 
-[![Spam From Daraz](/onionspam.png)](onionspam.png)
+[![Spam From Daraz](onionspam.png)](onionspam.png)
 
 I should have saved that voucher code I suppose. At that price, that's a _ton_ of onions I could have bought. It would have been fun to see what fake onions look like. And, if they are not fake, that's actually a pretty good price.
 

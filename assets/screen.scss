@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('/rubik-regular-webfont.woff2') format('woff2'),
+        url('/rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rubik';
+    src: url('/rubik-italic-webfont.woff2') format('woff2'),
+        url('/rubik-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Rubik';
+    src: url('/rubik-medium-webfont.woff2') format('woff2'),
+        url('/rubik-medium-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rubik';
+    src: url('/rubik-mediumitalic-webfont.woff2') format('woff2'),
+        url('/rubik-mediumitalic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 2.5em;
+    font: 16px/1.75em 'Rubik';
+    {{$bgpng := resources.Get "crossword.png" | fingerprint}}
+    background: url({{$bgpng.RelPermalink}});
+}
+.page {
+    max-width: 750px;
+}
+a, a:hover {
+    text-decoration: none;
+    color: #0099e5;
+}
+header {
+    margin-bottom: 3em;
+}
+h1 {
+    font-weight: medium;
+}
+dfn {
+    border-bottom: 1px dotted black;
+    font-style: normal;
+    cursor: help;
+}
+pre code {
+    font-family: monospace;
+}
+ul.posts {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+ul.posts li {
+    margin-bottom: 1.5em;
+}
+article p > img,
+article p > a > img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.highlight {
+    margin-bottom: 1rem;
+
+    pre {
+        margin: 0;
+        padding: 5px 10px;
+        line-height: 1.3rem;
+    }
+
+    table td:first-child pre {
+        padding: 5px 0 5px 5px;
+    }
+}
