@@ -4,3 +4,24 @@ title = "hjr265.me"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[deployment]
+order = [".jpg$", ".gif$"]
+
+[[deployment.targets]]
+name = "production"
+url = "s3://hjr265.me?region=ap-south-1&endpoint=ap-south-1.linodeobjects.com&s3ForcePathStyle=true"
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
