@@ -26,6 +26,14 @@
     font-weight: bold;
     font-style: italic;
 }
+@font-face {
+    font-family: 'Agave';
+    src: url('/Agave-Regular.woff2') format('woff2'),
+        url('/Agave-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 html,
 body {
@@ -56,8 +64,9 @@ dfn {
     font-style: normal;
     cursor: help;
 }
+p code,
 pre code {
-    font-family: monospace;
+    font-family: Agave, monospace;
 }
 ul.posts {
     list-style: none;
