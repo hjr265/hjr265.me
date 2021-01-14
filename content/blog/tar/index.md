@@ -3,7 +3,7 @@ title: "tar"
 date: 2014-08-26T00:00:00+06:00
 ---
 
-[![xkcd: tar](//imgs.xkcd.com/comics/tar.png)](http://xkcd.com/1168/)
+[![xkcd: tar](tar.png)](http://xkcd.com/1168/)
 
 Tar is a file format that allows you to archive files and directories while preserving flags and other file information. Tar is also the name of the Unix utility that manipulates these files and is also popular for being notoriously enigmatic.
 
