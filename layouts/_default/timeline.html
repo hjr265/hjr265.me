@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	{{partial "head.html" .}}
+
+	<body>
+		<div class="page">
+			<header>
+				<h1><a href="/">hjr265.me</a> / timeline</h1>
+			</header>
+			<ul class="timeline">
+				{{$events := .Resources.Match "*.md"}}
+				{{range $i, $event := $events}}
+					{{$event = index $events (sub (len $events) (add $i 1))}}
+					<li>
+						<div class="time">{{$event.Date.Format "January 2006"}}</div>
+						{{$event.Title}}
+					</li>
+				{{end}}
+			</ul>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.15.2/gitgraph.min.js"></script>
+		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+	</body>
+</html>

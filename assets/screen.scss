@@ -72,9 +72,29 @@ ul.posts {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+
+    li {
+        margin-bottom: 1.5em;
+    }
 }
-ul.posts li {
-    margin-bottom: 1.5em;
+ul.timeline {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 1.5em;
+
+        .time {
+            margin-right: 10px;
+            text-decoration: underline;
+        }
+    }
+}
+ul.timeline li ion-icon {
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
 }
 article p > img,
 article p > a > img {
