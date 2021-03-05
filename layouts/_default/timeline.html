@@ -14,6 +14,10 @@
 					{{$event = index $events (sub (len $events) (add $i 1))}}
 					<li>
 						<div class="time">{{$event.Date.Format "January 2006"}}</div>
+						{{if  $event.Params.icon}}
+							{{$iconsvg := resources.GetMatch ($event.Params.icon | printf "%s.svg") | fingerprint}}
+							<img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;">
+						{{end}}
 						{{$event.Title}}
 					</li>
 				{{end}}
