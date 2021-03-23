@@ -10,6 +10,10 @@ As CodeMirror 6 reached a stable interface with the promise of better touchscree
 
 The goal was to provide code completion, diagnostics, and hover tooltips. And, CodeMirror 6 makes it really easy to do all three.
 
+All of these have been packaged into a small library and made available on NPM:
+
+[ [Language Server Plugin for CodeMirror 6](https://www.npmjs.com/package/codemirror-languageserver) , [GitHub](https://github.com/FurqanSoftware/codemirror-languageserver) ]
+
 ## Code Completion
 
 The `@codemirror/autocomplete` package provides an [`autocompletion`](https://codemirror.net/6/docs/ref/#autocomplete.autocompletion) extension. 
