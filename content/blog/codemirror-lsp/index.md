@@ -1,14 +1,13 @@
 ---
 title: "Using Language Servers with CodeMirror 6"
-date: 2021-03-11T15:36:59+06:00
-draft: true
+date: 2021-03-28T13:36:59+06:00
 ---
 
-CodeMirror 6, a rewrite of the [CodeMirror](https://codemirror.net/) editor, brings quite a huge number of improvements. [Toph](https://toph.co/) has been using CodeMirror as the integrated code editor ever since the feature was introduced.
+CodeMirror 6, a rewrite of the [CodeMirror](https://codemirror.net/) editor, brings several improvements. [Toph](https://toph.co/) has been using CodeMirror for its integrated code editor since its introduction.
 
 As CodeMirror 6 reached a stable interface with the promise of better touchscreen support, it was time for an upgrade! During which I wanted to introduce language server support.
 
-The goal was to provide code completion, diagnostics, and hover tooltips. And, CodeMirror 6 makes it really easy to do all three.
+The goal was to provide code completion, diagnostics, and hover tooltips. And, CodeMirror 6 makes it easy to do all three.
 
 All of these have been packaged into a small library and made available on NPM:
 
@@ -22,9 +21,7 @@ The `@codemirror/autocomplete` package provides an [`autocompletion`](https://co
 autocompletion(config⁠?: Object = {}) → Extension
 ```
 
-CodeMirror already provides a UX for code completion. Given the context of where code completion is activated, all you need to do is provide the options for completion.
-
-This can be done by providing one or more completion sources through the `override` property of the `config` object.
+CodeMirror already provides a UX for code completion. Given the context of where code completion is activated, you need to provide the options for completion. To do that, configure a completion source through the `override` property of the autocompletion config object.
 
 ``` js
 autocompletion({
@@ -66,63 +63,46 @@ The `requestCompletion` function should return a Promise of [`CompletionResult`]
 
 ## Diagnostics
 
-Similar to the `autocompletion` extension, CodeMirror makes showing diagnostics easy by providing the [`linter`](https://codemirror.net/6/docs/ref/#lint.linter) extension through the `@codemirror/lint` package.
+You can show diagnostics in CodeMirror by dispatching [`setDiagnostics()`](https://codemirror.net/6/docs/ref/#lint.setDiagnostics) with the current state and an array of `Diagnostic` objects:
 
 ``` ts
-linter(
-    source: fn(view: EditorView) → readonly Diagnostic[] | Promise<readonly Diagnostic[]>
-) → Extension
+setDiagnostics(
+    state: EditorState,
+    diagnostics: readonly Diagnostic[]
+) → TransactionSpec
 ```
 
-The extension calls the `source` function when changes are made to the code but only after the editor has become idle. 
-
-However, due to how language servers publish diagnostics, a bit of a workaround is necessary. You see, when you send code changes to a language server, you do not get diagnostics immediately. The language server publishes a notification when diagnostics are ready.
-
-When the linter requests for diagnostics, return a promise:
+From within the plugin's update method, you can determine whether the document has changed. Ideally, some debouncing behavior should be implemented to send changes to the language server only when the editor is idle (user has stopped typing and a small duration has elapsed):
 
 ``` js
-linter((view) => {
-	return plugin.requestDiagnostics(view);
-})
-
 class Plugin {
 	// ...
 
-	requestDiagnostics(view) {
-		this.sendChange(/* ... */);
-
-		return new Promise((fulfill, reject) => {
-			this.promises.push({
-				type: 'diagnostics',
-				fulfill: fulfill,
-				reject: reject
-			});
-		});
+	update({docChanged}) {
+		update({docChanged}) {
+		if (!docChanged) return;
+		if (this.changesTimeout) clearTimeout(this.changesTimeout);
+		this.changesTimeout = setTimeout(() => {
+			this.sendChange({/* ... */});
+		}, changesDelay);
 	}
 
 	// ...
 }
 ```
 
-And, fulfill it once a publishDiagnostics notification is received from the language server.
+And, dispatch `setDiagnostics()` once a "publishDiagnostics" notification is received from the language server.
 
 ``` js
 processDiagnostics({params}) {
 	let diagnostics; // Transform params.diagnostics to CodeMirror's Diagnostic objects.
-	this.promises = this.promises.filter((p) => {
-		if (p.type === 'diagnostics') {
-			p.fulfill(diagnostics);
-			return false;
-		} else {
-			return true;
-		}
-	});
+	this.view.dispatch(setDiagnostics(this.view.state, diagnostics));
 }
 ```
 
 ## Hover Tooltips
 
-A huge thanks to Marijn for taking care of a [feature request](https://discuss.codemirror.net/t/return-promise-tooltip-from-hovertooltips-source-function/2967) in \~4 days. This made implementing hover tooltips as easy as code completion.
+A huge thanks to Marijn for taking care of a [feature request](https://discuss.codemirror.net/t/return-promise-tooltip-from-hovertooltips-source-function/2967) in \~4 days. Implementing hover tooltips has been made easier!
 
 The [`hoverTooltip`](https://codemirror.net/6/docs/ref/#tooltip.hoverTooltip) extension from the `@codemirror/tooltip` package allows you to return a Promise of [`Tooltip`](https://codemirror.net/6/docs/ref/#tooltip.Tooltip).
 
@@ -137,7 +117,7 @@ hoverTooltip(
 ) → Extension
 ```
 
-And, the drill here is pretty simple: Once the source function is called by CodeMirror (which happens when a the mouse cursor is hovering a bit of code), we send a request to the language server and wait for it to respond with any relevant documentations. 
+The drill here is simple: Once the source function is called by CodeMirror (which happens when the mouse cursor is hovering a bit of code), send a request to the language server and wait for it to respond with relevant documentation. 
 
 ``` js
 hoverTooltip((view, pos, side) => {
@@ -219,11 +199,11 @@ Content-Length: 2168
 {"jsonrpc":"2.0","result":{...},"id":"0"}
 ``` 
 
-Notifications are similar, except that you do not expect any response for them.
+Notifications are similar, except that you do not expect any response from them.
 
-You can now write a small daemon program that listens for WebSocket connections, and spins up a language server when a connection is established.
+You can now write a small daemon program that listens for WebSocket connections and spins up a language server when a connection is established.
 
-The program should then read incoming messages from the WebSocket. Since the message will only contain the payload, and not the headers, the program should first write the headers to the standard input of the language server, followed by the payload.
+The program should then read incoming messages from the WebSocket. Since the message will only contain the payload and not the headers, the program should first write the headers to the standard input of the language server, followed by the payload.
 
 The program should also read from the language server's standard output, validate the headers before discarding them, and send the payload back through the WebSocket.
 
@@ -231,7 +211,7 @@ A trivial example of the above would look like this:
 
 ``` golang
 // Adapted from https://github.com/gorilla/websocket/tree/master/examples/command.
-// Error handling has been omitted for brevity.
+// Error handling omitted for brevity.
 
 func serveWs(w http.ResponseWriter, r *http.Request) {
 	stack := r.URL.Query().Get("stack")
@@ -340,4 +320,12 @@ L:
 
 ## And, That's It!
 
+Here is what the end result is like on Toph:
 
+{{< video src="code-editor.mp4" >}}
+
+I am currently using the following Language Servers:
+
+- clangd-11 (for C++)
+- gopls (for Go)
+- pyls (for Python)
