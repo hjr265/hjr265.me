@@ -46,7 +46,7 @@ class Plugin {
 	requestCompletion(context, trigger) {
 		this.sendChange(/* ... */);
 
-		return return this.client.request({
+		return this.client.request({
 			method: 'textDocument/completion',
 			params: { /* ... */ }
 		}, timeout).then((result) => {
@@ -135,9 +135,7 @@ class Plugin {
 				method: 'textDocument/hover',
 				params: { /* ... */ }
 			}, timeout).then((result) => {
-				if (!result) {
-					return null;
-				}
+				if (!result) return null;
 
 				let pos = posToOffset(view.state.doc, range.start);
 				let end = posToOffset(view.state.doc, range.end);
@@ -146,16 +144,10 @@ class Plugin {
 				fulfill({
 					pos: pos,
 					end: end,
-					create: function(view) {
-						return {
-							dom
-						};
-					},
+					create: view => ({dom}),
 					above: true
 				});
-			}).catch(function(reason) {
-				reject(reason);
-			});
+			}).catch(reason => { reject(reason); });
 		});
 	}
 
