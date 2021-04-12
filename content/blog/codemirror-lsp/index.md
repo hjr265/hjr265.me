@@ -11,7 +11,7 @@ The goal was to provide code completion, diagnostics, and hover tooltips. And, C
 
 All of these have been packaged into a small library and made available on NPM:
 
-[ [Language Server Plugin for CodeMirror 6](https://www.npmjs.com/package/codemirror-languageserver) , [GitHub](https://github.com/FurqanSoftware/codemirror-languageserver) ]
+[ [Language Server Plugin for CodeMirror 6](https://www.npmjs.com/package/codemirror-languageserver), [GitHub](https://github.com/FurqanSoftware/codemirror-languageserver) ]
 
 ## Code Completion
 
