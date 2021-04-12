@@ -96,10 +96,14 @@ ul.timeline {
         }
     }
 }
-ul.timeline li ion-icon {
-    position: relative;
-    top: 3px;
-    margin-right: 5px;
+ul.projects {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 1.5em;
+    }
 }
 article p > img,
 article p > a > img {
