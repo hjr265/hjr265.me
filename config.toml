@@ -2,6 +2,19 @@ baseURL = "https://hjr265.me/"
 languageCode = "en-us"
 title = "hjr265.me"
 
+[menu]
+[[menu.main]]
+name = "Blog"
+url = "/blog/"
+
+[[menu.main]]
+name = "Projects"
+url = "/projects/"
+
+[[menu.main]]
+name = "Timeline"
+url = "/timeline/"
+
 [markup.highlight]
 lineNos = true
 
