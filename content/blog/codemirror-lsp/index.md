@@ -17,7 +17,7 @@ All of these have been packaged into a small library and made available on NPM:
 
 The `@codemirror/autocomplete` package provides an [`autocompletion`](https://codemirror.net/6/docs/ref/#autocomplete.autocompletion) extension. 
 
-``` ts {linenos=false}
+``` ts
 autocompletion(config⁠?: Object = {}) → Extension
 ```
 
