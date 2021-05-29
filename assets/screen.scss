@@ -68,6 +68,9 @@ nav {
     margin-bottom: 2em;
     font-size: 1.125em;
 }
+nav .-active {
+    color: black;
+}
 dfn {
     border-bottom: 1px dotted black;
     font-style: normal;
