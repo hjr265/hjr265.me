@@ -34,7 +34,7 @@ cacheControl = "max-age=31536000, no-transform, public"
 gzip = true
 
 [[deployment.matchers]]
-pattern = "^.+\\.(png|jpg)$"
+pattern = "^.+\\.(png|jpg|woff|woff2)$"
 cacheControl = "max-age=31536000, no-transform, public"
 gzip = false
 
