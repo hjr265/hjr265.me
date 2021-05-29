@@ -1,6 +1,7 @@
 baseURL = "https://hjr265.me/"
 languageCode = "en-us"
 title = "hjr265.me"
+enableRobotsTXT = true
 
 [menu]
 [[menu.main]]
