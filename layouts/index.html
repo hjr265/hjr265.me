@@ -21,7 +21,7 @@
 			});
 			
 			document.querySelectorAll('a.email').forEach(function(el) {
-				var email = el.textContent.replace('[at]', '@').replace('[dot]', '.');
+				var email = el.textContent;
 				el.textContent = email;
 				el.href = 'mailto:' + email;
 			});

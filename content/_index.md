@@ -9,6 +9,6 @@ I started [Furqan Software](https://furqansoftware.com/) in 2015 and turned my p
 
 I like <dfn title="as in freedom">free</dfn> software, and [I like making them](https://github.com/hjr265).
 
-I am on social networks. I would like to get rid of them. But, I am married. ~~I have a LinkedIn profile that I rarely use.~~ Email is better: <a class="email">m[at]hjr265[dot]me</a>.
+I am on social networks. I would like to get rid of them. But, I am married. ~~I have a LinkedIn profile that I rarely use.~~ Email is better: <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a>.
 
 Oh, and [Steam](https://steamcommunity.com/id/hjr265/).
