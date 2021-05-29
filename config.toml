@@ -41,4 +41,5 @@ gzip = false
 
 [[deployment.matchers]]
 pattern = "^.+\\.(html|xml|json)$"
+cacheControl = "max-age=7200, must-revalidate, public"
 gzip = true
