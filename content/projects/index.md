@@ -1,5 +1,5 @@
 ---
-title: "Timeline | hjr265.me"
+title: "Projects"
 layout: projects
 ---
 
