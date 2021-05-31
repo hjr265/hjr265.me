@@ -1,6 +1,6 @@
 <head>
 	<meta charset="utf-8">
-	<title>{{if not .IsHome}}{{.Title}} &middot; hjr265.me{{else}}Mahmud Ridwan (hjr265.me){{end}}</title>
+	<title>{{.Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
 
 	{{$iconpng := resources.Get "apple-touch-icon.png" | fingerprint}}
 	<link rel="apple-touch-icon" sizes="180x180" href="{{$iconpng.RelPermalink}}">
