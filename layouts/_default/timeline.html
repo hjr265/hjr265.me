@@ -18,6 +18,7 @@
 			(function() {
 				var graphContainer = document.getElementById("timeline");
 				var gitgraph = GitgraphJS.createGitgraph(graphContainer, {
+					responsive: true,
 					orientation: "vertical-reverse",
 					template: GitgraphJS.templateExtend("metro", {
 						branch: {
@@ -34,10 +35,10 @@
 
 				var colors = {
 					"unnamed": "#e7ecf1",
+					"education": "#e7ecf1",
 					"work": "#3598dc",
 					"family": "#26c281",
-					"education": "#e35b5a",
-					"job": "#e87e04"
+					"education": "#e87e04"
 				}
 
 				var branches = {}
@@ -68,7 +69,7 @@
 								displayHash: false
 							},
 							dot: {
-								color: {{if .Params.icon}}'rgba(0,0,0,0)'{{else}}colors["{{.Params.branch}}"]{{end}}
+								color: colors["{{.Params.branch}}"]
 							}
 						}
 					})
