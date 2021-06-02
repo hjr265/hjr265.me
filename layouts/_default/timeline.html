@@ -8,25 +8,74 @@
 				<h1><a href="/">hjr265.me</a> / timeline</h1>
 			</header>
 			{{partial "nav.html" .}}
-			<ul class="timeline">
-				{{$events := .Resources.Match "*.md"}}
-				{{range $i, $event := $events}}
-					{{$event = index $events (sub (len $events) (add $i 1))}}
-					<li>
-						<div class="time">{{$event.Date.Format "January 2006"}}</div>
-						{{if  $event.Params.icon}}
-							{{$iconsvg := resources.GetMatch ($event.Params.icon | printf "%s.svg") | fingerprint}}
-							<img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;">
-						{{end}}
-						{{$event.Title}}
-					</li>
-				{{end}}
-			</ul>
+
+			<div id="timeline"></div>
 		</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.15.2/gitgraph.min.js"></script>
-		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@gitgraph/js@1.4.0" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+		<script type="text/javascript">
+			(function() {
+				var graphContainer = document.getElementById("timeline");
+				var gitgraph = GitgraphJS.createGitgraph(graphContainer, {
+					orientation: "vertical-reverse",
+					template: GitgraphJS.templateExtend("metro", {
+						branch: {
+							lineWidth: 2,
+							spacing: 30
+						},
+						commit: {
+							dot: {
+								size: 5
+							}
+						}
+					})
+				});
+
+				var colors = {
+					"unnamed": "#e7ecf1",
+					"work": "#3598dc",
+					"family": "#26c281",
+					"education": "#e35b5a",
+					"job": "#e87e04"
+				}
+
+				var branches = {}
+				var branch
+				{{$events := .Resources.Match "*.md"}}
+				{{range $events}}
+					branch = branches["{{.Params.branch}}"] || gitgraph.branch({
+						name: "{{.Params.branch}}",
+						from: "master",
+						style: {
+							color: colors["{{.Params.branch}}"],
+							label: {
+								display: false
+							}
+						}
+					})
+					branches["{{.Params.branch}}"] = branch
+
+					branch.commit({
+						subject: "{{.Date.Format "Jan 2006"}}: {{.Title}}",
+						body: "",
+						{{with .Params.icon}}dotText: "{{.}}",{{end}}
+						style: {
+							message: {
+								color: "black",
+								font: "16px/1.75em Rubik",
+								displayAuthor: false,
+								displayHash: false
+							},
+							dot: {
+								color: {{if .Params.icon}}'rgba(0,0,0,0)'{{else}}colors["{{.Params.branch}}"]{{end}}
+							}
+						}
+					})
+				{{end}}
+			})()
+		</script>
+ 
 		{{partial "goatcounter.html"}}
 	</body>
 </html>
