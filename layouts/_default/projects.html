@@ -1,41 +1,34 @@
-<!doctype html>
-<html>
-	{{partial "head.html" .}}
-
-	<body>
-		<div class="page">
-			<header>
-				<h1><a href="/">hjr265.me</a> / projects</h1>
-			</header>
-			{{partial "nav.html" .}}
-			<ul class="projects">
-				{{$projects := .Resources.Match "*.md"}}
-				{{range $i, $project := $projects}}
-					{{$link := ""}}
-					{{$nstars := 0}}
-					{{$desc := ""}}
-					{{with .Params.github}}
-						{{$link = . | printf "https://github.com/%s"}}
-						{{$githubData := getJSON "https://api.github.com/repos/" .}}
-						{{with $githubData}}
-							{{$nstars = .stargazers_count}}
-							{{$desc = .description}}
-						{{end}}
-					{{end}}
-					<li>
-						<div class="name"><a href="{{$link}}">{{$project.Title}}</a></div>
-						{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
-						<div>{{$desc}} | <img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{$nstars}}</div>
-					</li>
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / projects</h1>
+	</header>
+	{{partial "nav.html" .}}
+	<ul class="projects">
+		{{$projects := .Resources.Match "*.md"}}
+		{{range $i, $project := $projects}}
+			{{$link := ""}}
+			{{$nstars := 0}}
+			{{$desc := ""}}
+			{{with .Params.github}}
+				{{$link = . | printf "https://github.com/%s"}}
+				{{$githubData := getJSON "https://api.github.com/repos/" .}}
+				{{with $githubData}}
+					{{$nstars = .stargazers_count}}
+					{{$desc = .description}}
 				{{end}}
-			</ul>
-		</div>
+			{{end}}
+			<li>
+				<div class="name"><a href="{{$link}}">{{$project.Title}}</a></div>
+				{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
+				<div>{{$desc}} | <img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{$nstars}}</div>
+			</li>
+		{{end}}
+	</ul>
 
-		<div>[ More at <a href="https://github.com/hjr265" target="_blank">GitHub/hjr265</a>, <a href="https://github.com/FurqanSoftware" target="_blank">GitHub/FurqanSoftware</a> ]</div>
+	<div>[ More at <a href="https://github.com/hjr265" target="_blank">GitHub/hjr265</a>, <a href="https://github.com/FurqanSoftware" target="_blank">GitHub/FurqanSoftware</a> ]</div>
+{{end}}
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.15.2/gitgraph.min.js"></script>
-		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
-		{{partial "goatcounter.html"}}
-	</body>
-</html>
+{{define "scripts"}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.15.2/gitgraph.min.js"></script>
+	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+{{end}}

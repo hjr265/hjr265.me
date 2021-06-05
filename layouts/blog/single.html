@@ -1,21 +1,12 @@
-<!doctype html>
-<html>
-	{{partial "head.html" .}}
-
-	<body>
-		<div class="page">
-			<article>
-				<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
-				<header>
-					<h1>{{.Title}}</h1>
-					<p>{{.PublishDate.Format "January 2, 2006"}}</p>
-				</header>
-				<article>
-					{{.Content}}
-				</article>
-			</article>
-		</div>
-
-		{{partial "goatcounter.html"}}
-	</body>
-</html>
+{{define "content"}}
+	<article>
+		<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
+		<header>
+			<h1>{{.Title}}</h1>
+			<p>{{.PublishDate.Format "January 2, 2006"}}</p>
+		</header>
+		<article>
+			{{.Content}}
+		</article>
+	</article>
+{{end}}

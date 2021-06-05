@@ -1,32 +1,9 @@
-<!doctype html>
-<html>
-	{{partial "head.html" .}}
-
-	<body>
-		<div class="page">
-			<header>
-				<h1>hjr265.me</h1>
-			</header>
-			{{partial "nav.html" .}}
-			{{.Content}}
-		</div>
-
-		<script>
-			document.querySelectorAll('dfn').forEach(function(el) {
-				var text = el.textContent
-				  , title = el.title;
-				el.addEventListener('click', function() {
-					el.textContent = text + ' (' + title + ')';
-				});
-			});
-			
-			document.querySelectorAll('a.email').forEach(function(el) {
-				var email = el.textContent;
-				el.textContent = email;
-				el.href = 'mailto:' + email;
-			});
-		</script>
-
-		{{partial "goatcounter.html"}}
-	</body>
-</html>
+{{define "content"}}
+	<div class="page">
+		<header>
+			<h1>hjr265.me</h1>
+		</header>
+		{{partial "nav.html" .}}
+		{{.Content}}
+	</div>
+{{end}}

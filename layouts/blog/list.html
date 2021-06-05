@@ -1,27 +1,18 @@
-<!doctype html>
-<html>
-	{{partial "head.html" .}}
-
-	<body>
-		<div class="page">
-			<header>
-				<h1><a href="/">hjr265.me</a> / blog</h1>
-			</header>
-			{{partial "nav.html" .}}
-			<ul class="posts">
-				{{range .Pages.ByWeight}}
-	                <li>
-	                    <div>
-	                    	<a href="{{.Permalink}}">{{.Title}}</a>
-	                    </div>
-	                    <div>
-	                    	{{.PublishDate.Format "January 2, 2006"}}
-	                    </div>
-	                </li>
-		        {{end}}
-			</ul>
-		</div>
-
-		{{partial "goatcounter.html"}}
-	</body>
-</html>
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / blog</h1>
+	</header>
+	{{partial "nav.html" .}}
+	<ul class="posts">
+		{{range .Pages.ByWeight}}
+			<li>
+				<div>
+					<a href="{{.Permalink}}">{{.Title}}</a>
+				</div>
+				<div>
+					{{.PublishDate.Format "January 2, 2006"}}
+				</div>
+			</li>
+		{{end}}
+	</ul>
+{{end}}

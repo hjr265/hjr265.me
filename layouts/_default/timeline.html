@@ -1,82 +1,75 @@
-<!doctype html>
-<html>
-	{{partial "head.html" .}}
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / timeline</h1>
+	</header>
+	{{partial "nav.html" .}}
 
-	<body>
-		<div class="page">
-			<header>
-				<h1><a href="/">hjr265.me</a> / timeline</h1>
-			</header>
-			{{partial "nav.html" .}}
+	<div id="timeline"></div>
+{{end}}
 
-			<div id="timeline"></div>
-		</div>
+{{define "scripts"}}
+	<script src="https://cdn.jsdelivr.net/npm/@gitgraph/js@1.4.0" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/@gitgraph/js@1.4.0" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+		(function() {
+			var graphContainer = document.getElementById("timeline");
+			var gitgraph = GitgraphJS.createGitgraph(graphContainer, {
+				responsive: true,
+				orientation: "vertical-reverse",
+				template: GitgraphJS.templateExtend("metro", {
+					branch: {
+						lineWidth: 2,
+						spacing: 30
+					},
+					commit: {
+						dot: {
+							size: 5
+						}
+					}
+				})
+			});
 
-		<script type="text/javascript">
-			(function() {
-				var graphContainer = document.getElementById("timeline");
-				var gitgraph = GitgraphJS.createGitgraph(graphContainer, {
-					responsive: true,
-					orientation: "vertical-reverse",
-					template: GitgraphJS.templateExtend("metro", {
-						branch: {
-							lineWidth: 2,
-							spacing: 30
+			var colors = {
+				"unnamed": "#e7ecf1",
+				"education": "#e7ecf1",
+				"work": "#3598dc",
+				"family": "#26c281",
+				"education": "#e87e04"
+			}
+
+			var branches = {}
+			var branch
+			{{$events := .Resources.Match "*.md"}}
+			{{range $events}}
+				branch = branches["{{.Params.branch}}"] || gitgraph.branch({
+					name: "{{.Params.branch}}",
+					from: "master",
+					style: {
+						color: colors["{{.Params.branch}}"],
+						label: {
+							display: false
+						}
+					}
+				})
+				branches["{{.Params.branch}}"] = branch
+
+				branch.commit({
+					subject: "{{.Date.Format "Jan 2006"}}: {{.Title}}",
+					body: "",
+					{{with .Params.icon}}dotText: "{{.}}",{{end}}
+					style: {
+						message: {
+							color: "black",
+							font: "16px/1.75em Rubik",
+							displayAuthor: false,
+							displayHash: false
 						},
-						commit: {
-							dot: {
-								size: 5
-							}
+						dot: {
+							color: colors["{{.Params.branch}}"]
 						}
-					})
-				});
-
-				var colors = {
-					"unnamed": "#e7ecf1",
-					"education": "#e7ecf1",
-					"work": "#3598dc",
-					"family": "#26c281",
-					"education": "#e87e04"
-				}
-
-				var branches = {}
-				var branch
-				{{$events := .Resources.Match "*.md"}}
-				{{range $events}}
-					branch = branches["{{.Params.branch}}"] || gitgraph.branch({
-						name: "{{.Params.branch}}",
-						from: "master",
-						style: {
-							color: colors["{{.Params.branch}}"],
-							label: {
-								display: false
-							}
-						}
-					})
-					branches["{{.Params.branch}}"] = branch
-
-					branch.commit({
-						subject: "{{.Date.Format "Jan 2006"}}: {{.Title}}",
-						body: "",
-						{{with .Params.icon}}dotText: "{{.}}",{{end}}
-						style: {
-							message: {
-								color: "black",
-								font: "16px/1.75em Rubik",
-								displayAuthor: false,
-								displayHash: false
-							},
-							dot: {
-								color: colors["{{.Params.branch}}"]
-							}
-						}
-					})
-				{{end}}
-			})()
-		</script>
- 
-		{{partial "goatcounter.html"}}
-	</body>
-</html>
+					}
+				})
+			{{end}}
+		})()
+	</script>
+{{end}}
