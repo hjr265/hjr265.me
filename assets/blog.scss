@@ -1,0 +1,27 @@
+ul.posts {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 1.5em;
+    }
+}
+article p > img,
+article p > a > img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.highlight {
+    margin-bottom: 1rem;
+
+    pre {
+        margin: 0;
+        padding: 5px 10px;
+        line-height: 1.3rem;
+    }
+
+    table td:first-child pre {
+        padding: 5px 0 5px 5px;
+    }
+}

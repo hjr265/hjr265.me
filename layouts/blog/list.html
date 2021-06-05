@@ -16,3 +16,8 @@
 		{{end}}
 	</ul>
 {{end}}
+
+{{define "styles"}}
+	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+{{end}}

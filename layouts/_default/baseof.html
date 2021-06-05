@@ -16,8 +16,10 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		{{$screencss := resources.Get "screen.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
-		<link rel="stylesheet" href="{{$screencss.RelPermalink}}">
+		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify}}
+		<style type="text/css">
+			{{$criticalcss.Content | safeCSS}}
+		</style>
 
 		{{block "styles" .}}{{end}}
 	</head>
