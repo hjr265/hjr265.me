@@ -13,7 +13,7 @@ I like <dfn title="as in freedom">free</dfn> software, and [I like making them](
 
 Elsewhere:
 
-- [**github.com**/hjr265](https://toph.co/u/hjr265)
+- [**github.com**/hjr265](https://github.com/hjr265)
 - [**steamcommunity.com**/id/hjr265](https://steamcommunity.com/id/hjr265/)
 - [**toph.co**/u/hjr265](https://toph.co/u/hjr265)
 - [**toptal.com**/resume/mahmud-ridwan](https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent) (referral)
