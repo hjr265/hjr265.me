@@ -2,6 +2,7 @@ baseURL = "https://hjr265.me/"
 languageCode = "en-us"
 title = "hjr265.me"
 enableRobotsTXT = true
+disqusShortname = "https-hjr265-me"
 
 [menu]
 [[menu.main]]
