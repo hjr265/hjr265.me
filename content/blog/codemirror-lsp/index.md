@@ -322,4 +322,4 @@ I am currently using the following Language Servers:
 - gopls (for Go)
 - pyls (for Python)
 
-If you have any questions about this CodeMirror integration, I will be happy to answer them over at [CodeMirror Discourse](https://discuss.codemirror.net/).
+If you have any questions about this CodeMirror integration, I will be happy to answer.
