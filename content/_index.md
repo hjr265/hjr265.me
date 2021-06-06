@@ -1,5 +1,5 @@
 ---
-title: 'Mahmud Ridwan (hjr265.me)'
+title: 'Mahmud Ridwan (hjr265)'
 description: 'Hi, I am Mahmud Ridwan.'
 images: [/avatar.png]
 date: 2020-08-14T13:07:59+06:00
