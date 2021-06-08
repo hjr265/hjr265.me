@@ -3,8 +3,17 @@
 		<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
 		<header>
 			<h1>{{.Title}}</h1>
-			<p>{{.PublishDate.Format "January 2, 2006"}}</p>
+			<p>
+				{{.PublishDate.Format "January 2, 2006"}}
+				{{with .Params.tags}}
+					&middot;
+					{{range sort .}}
+						<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
+					{{end}}
+				{{end}}
+			</p>
 		</header>
+
 		<article>
 			{{.Content}}
 		</article>

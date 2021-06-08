@@ -1,6 +1,6 @@
 {{define "content"}}
 	<header>
-		<h1><a href="/">hjr265.me</a> / blog</h1>
+		<h1><a href="/">hjr265.me</a> / #{{.Title}} posts</h1>
 	</header>
 	{{partial "nav.html" .}}
 	<ul class="posts">
@@ -11,12 +11,6 @@
 				</div>
 				<div>
 					{{.PublishDate.Format "January 2, 2006"}}
-					{{with .Params.tags}}
-						&middot;
-						{{range sort .}}
-							<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
-						{{end}}
-					{{end}}
 				</div>
 			</li>
 		{{end}}

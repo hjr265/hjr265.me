@@ -57,6 +57,10 @@ a, a:hover {
     text-decoration: none;
     color: #0099e5;
 }
+a.muted, a.muted:hover {
+    text-decoration: none;
+    color: grey;
+}
 header {
     margin-bottom: 3em;
 }

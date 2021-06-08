@@ -4,6 +4,9 @@ title = "hjr265.me"
 enableRobotsTXT = true
 disqusShortname = "https-hjr265-me"
 
+[taxonomies]
+tag = "tags"
+
 [menu]
 [[menu.main]]
 name = "Blog"

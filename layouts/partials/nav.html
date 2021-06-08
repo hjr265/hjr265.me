@@ -1,7 +1,7 @@
 <nav>
 	[
 		{{range $i, $menu := .Site.Menus.main -}}
-			{{- if gt $i 0}}, {{end}}<a class="{{if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) (eq .URL $.RelPermalink)}}-active{{end}}" href="{{.URL}}">{{.Name}}</a>
+			{{- if gt $i 0}}, {{end}}<a class="{{if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) (eq .URL $.RelPermalink) (and (eq .Name "Blog") (eq $.Data.Singular "tag"))}}-active{{end}}" href="{{.URL}}">{{.Name}}</a>
 		{{- end}}
 	]
 </nav>

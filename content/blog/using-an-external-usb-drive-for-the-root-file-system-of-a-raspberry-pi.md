@@ -1,6 +1,9 @@
 ---
 title: "Using an external USB drive for the root file system of a Raspberry Pi"
 date: 2014-01-14T00:00:00+06:00
+tags:
+  - raspberrypi
+  - linux
 ---
 
 By design, a Raspberry Pi always requires an SD card to boot from. But one can still have its root partition located on an external storage device. Be it for reasons involving speed improvement, or avoid challenging the [write endurance](http://en.wikipedia.org/wiki/Flash_memory#Write_endurance) of an SD card.
