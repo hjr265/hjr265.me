@@ -6,4 +6,16 @@
 		{{partial "nav.html" .}}
 		{{.Content}}
 	</div>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": {{.Site.Params.author}},
+			"url": {{.Site.BaseURL}},
+			"sameAs": [
+				"https://github.com/{{.Site.Params.github}}"
+			]
+		}
+	</script>
 {{end}}

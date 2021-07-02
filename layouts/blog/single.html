@@ -1,3 +1,7 @@
+{{define "head:append"}}
+	{{template "_internal/schema.html" .}}
+{{end}}
+
 {{define "content"}}
 	<article>
 		<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
@@ -22,6 +26,31 @@
 
 		{{ template "_internal/disqus.html" . }}
 	</article>
+
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": {{.Title}},
+			"image": {{.Params.featuredImage | absURL}},
+			"datePublished": {{.PublishDate}},
+			"dateModified": {{.Lastmod}},
+			"author": {
+				"@type": "Person",
+				"name": {{.Site.Params.author}}
+			},
+			"mainEntityOfPage": {
+				"@type": "WebPage"
+			},
+			"publisher": {
+				"@type": "Person",
+				"name": {{.Site.Params.author}},
+			},
+			"description": {{with .Description}}{{.}}{{else}}{{if .IsPage}}{{.Summary}}{{else}}{{with .Site.Params.description}}{{.}}{{end}}{{end}}{{end}},
+			"keywords": [{{range $i, $e := .Params.tags}}{{if $i}}, {{end}}{{$e}}{{end}}]
+		}
+	</script>
 {{end}}
 
 {{define "styles"}}

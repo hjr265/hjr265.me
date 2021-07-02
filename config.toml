@@ -4,6 +4,10 @@ title = "hjr265.me"
 enableRobotsTXT = true
 disqusShortname = "https-hjr265-me"
 
+[params]
+author = "Mahmud Ridwan"
+github = "hjr265"
+
 [taxonomies]
 tag = "tags"
 
