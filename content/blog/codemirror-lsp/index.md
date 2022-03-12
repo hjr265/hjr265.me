@@ -255,10 +255,10 @@ func pumpStdin(ws *websocket.Conn, w io.Writer) {
 		if err != nil {
 			break
 		}
-		message = append(message, '\n') // Payload should have a newline at the end.
+		message = append(message, '\r', '\n') // Payload should have CRLF at the end.
 
 		// Write headers.
-		_, err = fmt.Fprintf(w, "Content-Length: %d\n\n", len(message))
+		_, err = fmt.Fprintf(w, "Content-Length: %d\r\n\r\n", len(message))
 		if err != nil {
 			break
 		}
