@@ -4,72 +4,62 @@
 	</header>
 	{{partial "nav.html" .}}
 
-	<div id="timeline"></div>
-{{end}}
+	<style type="text/css">
+		.timeline {
+			position: relative;
+		}
+		.timeline::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			height: 100%;
+			margin-left: 13px;
+			border-left: 1px solid #0099e5;
+		}
+		.timeline__year {
+			color: grey;
+			margin: 30px 0 30px 40px;
+			text-decoration: underline;
+		}
+		.timeline__event {
+			display: flex;
+			padding: 10px 0;
+		}
+		.timeline__icon {
+			width: 25px;
+			height: 25px;
+			margin-right: 25px;
+			border-radius: 3px;
+			border: 1px solid #0099e5;
+			background-color: white;
+			text-align: center;
+		}
+		.timeline__meta {
+			color: grey;
+		}
+	</style>
 
-{{define "scripts"}}
-	<script src="https://cdn.jsdelivr.net/npm/@gitgraph/js@1.4.0" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-	<script type="text/javascript">
-		(function() {
-			var graphContainer = document.getElementById("timeline");
-			var gitgraph = GitgraphJS.createGitgraph(graphContainer, {
-				responsive: true,
-				orientation: "vertical-reverse",
-				template: GitgraphJS.templateExtend("metro", {
-					branch: {
-						lineWidth: 2,
-						spacing: 30
-					},
-					commit: {
-						dot: {
-							size: 5
-						}
-					}
-				})
-			});
-
-			var colors = {
-				"unnamed": "#e7ecf1",
-				"education": "#e7ecf1",
-				"work": "#3598dc",
-				"family": "#26c281",
-				"education": "#e87e04"
-			}
-
-			var branches = {}
-			var branch
-			{{$events := .Resources.Match "*.md"}}
-			{{range $events}}
-				branch = branches["{{.Params.branch}}"] || gitgraph.branch({
-					name: "{{.Params.branch}}",
-					from: "master",
-					style: {
-						color: colors["{{.Params.branch}}"],
-						label: {
-							display: false
-						}
-					}
-				})
-				branches["{{.Params.branch}}"] = branch
-
-				branch.commit({
-					subject: "{{.Date.Format "Jan 2006"}}: {{.Title}}",
-					body: "",
-					{{with .Params.icon}}dotText: "{{.}}",{{end}}
-					style: {
-						message: {
-							color: "black",
-							font: "16px/1.75em Rubik",
-							displayAuthor: false,
-							displayHash: false
-						},
-						dot: {
-							color: colors["{{.Params.branch}}"]
-						}
-					}
-				})
+	<div class="timeline">
+		{{$events := .Resources.Match "*.md"}}
+		{{$lastYear := 0}}
+		{{range $events}}
+			{{if ne $lastYear .Date.Year}}
+				{{$lastYear = .Date.Year}}
+				<div class="timeline__year"></div>
 			{{end}}
-		})()
-	</script>
+			<div class="timeline__event">
+				<div class="timeline__icon">
+					{{with .Params.icon}}
+						{{.}}
+					{{else}}
+
+					{{end}}
+				</div>
+				<div class="timeline__body">
+					{{.Title}}
+					<div class="timeline__meta">{{.Date.Format "Jan 2006"}}</div>
+				</div>
+			</div>
+		{{end}}
+	</div>
 {{end}}
