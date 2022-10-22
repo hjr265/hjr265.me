@@ -63,6 +63,10 @@ a.muted, a.muted:hover {
 }
 header {
     margin-bottom: 3em;
+
+    &:not(.-leaf) {
+        text-transform: lowercase;
+    }
 }
 h1 {
     font-size: 28px;
