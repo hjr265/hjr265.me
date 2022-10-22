@@ -4,23 +4,28 @@
 	</header>
 	{{partial "nav.html" .}}
 	<ul class="projects">
-		{{$projects := .Resources.Match "*.md"}}
-		{{range $i, $project := $projects}}
+		{{$sorted := slice}}
+		{{range $i, $project := where $projects ".Params.openSource" true}}
 			{{$link := ""}}
-			{{$nstars := 0}}
 			{{$desc := ""}}
+			{{$stars := 0}}
 			{{with .Params.github}}
-				{{$link = . | printf "https://github.com/%s"}}
 				{{$githubData := getJSON "https://api.github.com/repos/" .}}
+				{{$link = . | printf "https://github.com/%s"}}
 				{{with $githubData}}
-					{{$nstars = .stargazers_count}}
 					{{$desc = .description}}
+					{{$stars = .stargazers_count}}
 				{{end}}
 			{{end}}
+			{{$sorted = $sorted | append (dict "project" $project "link" $link "description" $desc "stars" $stars)}}
+		{{end}}
+		{{$sorted = sort $sorted "stars" "desc"}}
+		{{range $i, $v := $sorted}}
+			{{$project := index $v "project"}}
 			<li>
-				<div class="name"><a href="{{$link}}">{{$project.Title}}</a></div>
+				<div class="name"><a href="{{(index $v "link")}}" target="_blank">{{$project.Title}}</a></div>
 				{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
-				<div>{{$desc}} | <img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{$nstars}}</div>
+				<div>{{or $project.Params.tagline (index $v "description")}} | <img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" (index $v "stars")}}</div>
 			</li>
 		{{end}}
 	</ul>
@@ -36,4 +41,12 @@
 {{define "scripts"}}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.15.2/gitgraph.min.js"></script>
 	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+{{end}}
+
+{{define "intmetric"}}
+	{{if gt . 1000}}
+		{{int (div . 1000) | printf "%dk"}}
+	{{else}}
+		{{.}}
+	{{end}}
 {{end}}
