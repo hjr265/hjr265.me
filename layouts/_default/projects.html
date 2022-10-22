@@ -3,6 +3,22 @@
 		<h1><a href="/">hjr265.me</a> / Projects</h1>
 	</header>
 	{{partial "nav.html" .}}
+
+	{{$projects := .Resources.Match "*.md"}}
+
+	{{range $i, $project := where $projects ".Params.featured" true}}
+		<h2>Toph - Competitive Programming Platform</h2>
+		
+		<p><a href="{{.Params.website}}" target="_blank">{{.Params.website}}</a></p>
+
+		{{.Content}}
+
+		<p>Stack: {{delimit .Params.stack ", "}}</p>
+
+	{{end}}
+
+	<h2>Open Source Projects</h2>
+
 	<ul class="projects">
 		{{$sorted := slice}}
 		{{range $i, $project := where $projects ".Params.openSource" true}}
