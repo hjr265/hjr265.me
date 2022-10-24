@@ -15,14 +15,27 @@ tag = "tags"
 [[menu.main]]
 name = "Blog"
 url = "/blog/"
+weight = 1
 
 [[menu.main]]
 name = "Projects"
 url = "/projects/"
+weight = 2
+
+[[menu.main]]
+name = "Experience"
+url = "/experience/"
+weight = 3
+
+[[menu.main]]
+name = "Publications"
+url = "/publications/"
+weight = 5
 
 [[menu.main]]
 name = "Timeline"
 url = "/timeline/"
+weight = 6
 
 [markup.highlight]
 lineNos = true
