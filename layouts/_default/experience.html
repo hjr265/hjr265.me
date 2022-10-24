@@ -1,0 +1,36 @@
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / Experience</h1>
+	</header>
+	{{partial "nav.html" .}}
+
+	{{range sort (.Resources.Match "*.md") "Params.order" "desc"}}
+		{{$website := .Params.website}}
+
+		<article>
+			<h2>{{.Title}} <small>({{.Params.period}})</small></h2>
+			
+			<div class="flair">
+				<span class="flair__item">{{.Params.company}}</span>
+				{{with .Params.website}}
+					<a class="flair__item" href="{{.}}" target="_blank">{{partial "prettyurl" .}}</a>
+				{{end}}
+			</div>
+
+			{{.Content}}
+		</article>
+	{{end}}
+{{end}}
+
+{{define "styles"}}
+	{{$experiencescss := resources.Get "experience.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$experiencescss.RelPermalink}}">
+{{end}}
+
+{{define "intmetric" -}}
+	{{- if gt . 1000 -}}
+		{{- (div . 1000) | printf "%0.0fk" -}}
+	{{- else -}}
+		{{- . -}}
+	{{- end -}}
+{{- end}}
