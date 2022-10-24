@@ -1,9 +1,12 @@
-ul.projects {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
+article {
+    margin-bottom: 3.75rem;
+}
 
-    li {
-        margin-bottom: 1.5em;
+.flair {
+    display: flex;
+    gap: 1rem;
+
+    &__item {
+
     }
 }

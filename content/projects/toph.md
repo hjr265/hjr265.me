@@ -1,7 +1,7 @@
 ---
 title: "Toph - Competitive Programming Platform"
+weight: 1
 date: 2015-04-01
-featured: true
 website: https://toph.co/
 stack:
   - Go
