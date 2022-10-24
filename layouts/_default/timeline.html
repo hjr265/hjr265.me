@@ -5,9 +5,8 @@
 	{{partial "nav.html" .}}
 
 	<div class="timeline">
-		{{$events := .Resources.Match "*.md"}}
 		{{$lastYear := 0}}
-		{{range $events}}
+		{{range sort (.Resources.Match "*.md") "Date" "desc"}}
 			{{if ne $lastYear .Date.Year}}
 				{{$lastYear = .Date.Year}}
 				<div class="timeline__year"></div>
@@ -15,14 +14,18 @@
 			<div class="timeline__event">
 				<div class="timeline__icon">
 					{{with .Params.icon}}
-						{{.}}
-					{{else}}
-
+						{{$iconsvg := resources.GetMatch . | fingerprint}}
+						<img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;">
 					{{end}}
 				</div>
 				<div class="timeline__body">
 					{{.Title}}
-					<div class="timeline__meta">{{.Date.Format "Jan 2006"}}</div>
+					<div class="timeline__meta flair">
+						<span class="flair__item">{{.Date.Format "Jan 2006"}}</span>
+						{{with .Params.detail}}
+							<span class="flair__item">{{.}}</span>
+						{{end}}
+					</div>
 				</div>
 			</div>
 		{{end}}
