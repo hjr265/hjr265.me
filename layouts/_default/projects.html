@@ -60,8 +60,8 @@
 {{end}}
 
 {{define "styles"}}
-	{{$projectscss := resources.Get "projects.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
-	<link rel="stylesheet" href="{{$projectscss.RelPermalink}}">
+	{{$projectsscss := resources.Get "projects.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$projectsscss.RelPermalink}}">
 {{end}}
 
 {{define "intmetric" -}}
