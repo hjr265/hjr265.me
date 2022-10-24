@@ -30,7 +30,7 @@
 			<h2>{{.Title}}</h2>
 			
 			<div class="flair">
-				<a class="flair__item" href="{{partial "prettyurl" $website}}" target="_blank">{{partial "prettyurl" $website}}</a>
+				<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
 				{{with $stars}}
 					<span class="flair__item">
 						{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
