@@ -47,6 +47,10 @@
 					{{$iconsvg := resources.GetMatch .icon | fingerprint}}
 					<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
 				{{end}}
+				{{with .Params.company}}
+					{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
+					<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
+				{{end}}
 			</div>
 
 			{{.Content}}
