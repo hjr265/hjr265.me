@@ -6,7 +6,7 @@ openSource: true
 stack:
   - Node.js
 github: "FurqanSoftware/node-whois"
-npm: node-whois
+npm: whois
 ---
 
 Node WHOIS is a WHOIS client for Node.js.
