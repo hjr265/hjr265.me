@@ -11,4 +11,4 @@ stack:
   - RabbitMQ
 ---
 
-Toph is the leading competitive programming platform in Bangladesh. Top institutions has been hosting all noteworthy Bangladeshi programming contests on Toph since 2015.
+Toph is the leading competitive programming platform in Bangladesh. Top institutions have hosted all noteworthy Bangladeshi programming contests on Toph since 2015.
