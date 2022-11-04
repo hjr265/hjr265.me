@@ -1,5 +1,6 @@
 ---
 title: "CodeMarshal"
+weight: 10
 date: 2012-08-01
 website: https://algo.codemarshal.org
 stack:

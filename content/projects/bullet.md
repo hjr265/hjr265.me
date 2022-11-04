@@ -1,6 +1,6 @@
 ---
 title: "Bullet"
-weight: 7
+weight: 8
 date: 2006-01-01
 openSource: true
 stack:

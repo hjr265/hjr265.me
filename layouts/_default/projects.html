@@ -29,29 +29,31 @@
 		<article>
 			<h2>{{.Title}}</h2>
 			
-			<div class="flair">
-				<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
-				{{with $stars}}
-					<span class="flair__item">
-						{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
-						<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
-					</span>
-				{{end}}
-				{{if $downloads}}
-					<span class="flair__item">
-						{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
-						<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
-					</span>
-				{{end}}
-				{{range .Params.flairs}}
-					{{$iconsvg := resources.GetMatch .icon | fingerprint}}
-					<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
-				{{end}}
-				{{with .Params.company}}
-					{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
-					<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
-				{{end}}
-			</div>
+			{{if or $website $stars $downloads .Params.flairs .Params.company}}
+				<div class="flair">
+					<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
+					{{with $stars}}
+						<span class="flair__item">
+							{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
+							<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
+						</span>
+					{{end}}
+					{{if $downloads}}
+						<span class="flair__item">
+							{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
+							<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
+						</span>
+					{{end}}
+					{{range .Params.flairs}}
+						{{$iconsvg := resources.GetMatch .icon | fingerprint}}
+						<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
+					{{end}}
+					{{with .Params.company}}
+						{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
+						<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
+					{{end}}
+				</div>
+			{{end}}
 
 			{{.Content}}
 
