@@ -23,9 +23,14 @@ url = "/projects/"
 weight = 2
 
 [[menu.main]]
+name = "Open Source"
+url = "/open-source/"
+weight = 3
+
+[[menu.main]]
 name = "Experience"
 url = "/experience/"
-weight = 3
+weight = 4
 
 [[menu.main]]
 name = "Publications"

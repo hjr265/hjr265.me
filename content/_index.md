@@ -9,7 +9,7 @@ Hi, I am Mahmud Ridwan. Email: <a class="email">&#109;&#64;&#104;&#106;&#114;&#5
 
 I started [Furqan Software](https://furqansoftware.com/) in 2015 and turned my pet project into [Toph](https://toph.co/).
 
-I like <dfn title="as in freedom">free</dfn> software, and [I like making them](/projects).
+I like <dfn title="as in freedom">free</dfn> software, and [I like making them](/open-source/).
 
 Elsewhere:
 
