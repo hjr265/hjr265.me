@@ -3,24 +3,47 @@
 		<h1><a href="/">hjr265.me</a> / Blog</h1>
 	</header>
 	{{partial "nav.html" .}}
-	<ul class="posts">
-		{{range .Pages.ByWeight}}
-			<li>
-				<div>
-					<a href="{{.Permalink}}">{{.Title}}</a>
-				</div>
-				<div>
-					{{.PublishDate.Format "January 2, 2006"}}
-					{{with .Params.tags}}
-						&middot;
-						{{range sort .}}
-							<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
-						{{end}}
-					{{end}}
-				</div>
-			</li>
-		{{end}}
-	</ul>
+
+	<div class="wide">
+		<div class="main">
+			<ul class="posts">
+				{{range .Pages.ByWeight}}
+					<li>
+						<div>
+							<a href="{{.Permalink}}">{{.Title}}</a>
+						</div>
+						<div>
+							{{.PublishDate.Format "January 2, 2006"}}
+							{{with .Params.tags}}
+								&middot;
+								{{range sort .}}
+									<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
+								{{end}}
+							{{end}}
+						</div>
+					</li>
+				{{end}}
+			</ul>
+		</div>
+
+		<div class="side">
+			<div class="muted">My Articles Elsewhere</div>
+			<div>
+				{{range .Site.Data.otherBlogs}}
+					<div><a href="{{.link}}" target="_blank" rel="noopener">{{.name}}</a></div>
+				{{end}}
+			</div>
+
+			<br>
+
+			<div class="muted">Other Blogs I Like To Follow</div>
+			<div>
+				{{range .Site.Data.readingList}}
+					<div><a href="{{.link}}" target="_blank" rel="noopener">{{.name}}</a></div>
+				{{end}}
+			</div>
+		</div>
+	</div>
 {{end}}
 
 {{define "styles"}}

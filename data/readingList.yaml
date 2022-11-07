@@ -1,0 +1,9 @@
+---
+- name: Jeff Geerling's Blog
+  link: https://www.jeffgeerling.com/blog
+
+- name: Alex Ellis' Blog
+  link: https://blog.alexellis.io/
+
+- name: Drew DeVault's Blog
+  link: https://drewdevault.com/

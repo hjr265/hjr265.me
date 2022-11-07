@@ -53,12 +53,42 @@ body {
 .page {
     max-width: 750px;
 }
+.wide {
+    position: relative;
+}
+.side {
+    padding-top: 1.5em;
+}
+@media (max-width: 1024px) {
+    .side {
+        margin-top: 2.5em;
+        padding-top: 2.5em;
+        border-top: 1px solid lightgrey;
+        border-image: linear-gradient(to right, lightgrey 80%, transparent) 100% 1;
+    }
+}
+@media (min-width: 1025px) {
+    .side {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 250px;
+        margin-left: 2.5em;
+        padding-bottom: 2.5em;
+        padding-left: 2.5em;
+        border-left: 1px solid lightgrey;
+        border-image: linear-gradient(to bottom, lightgrey 80%, transparent) 1 100%;
+    }
+}
 a, a:hover {
     text-decoration: none;
     color: #0099e5;
 }
 a.muted, a.muted:hover {
     text-decoration: none;
+    color: grey;
+}
+.muted {
     color: grey;
 }
 header {
