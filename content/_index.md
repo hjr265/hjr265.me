@@ -7,9 +7,11 @@ date: 2020-08-14T13:07:59+06:00
 
 Hi, I am Mahmud Ridwan. Email: <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a>
 
-I started [Furqan Software](https://furqansoftware.com/) in 2015 and turned my pet project into [Toph](https://toph.co/).
+I started [my career](/experience/) in the industry as a remote freelance software developer in 2010. I completed my B. Sc. in Computer Science at the end of 2012. During my years in academia, I fell in love with competitive programming.
 
-I like <dfn title="as in freedom">free</dfn> software, and [I like making them](/open-source/).
+I started [Furqan Software](https://furqansoftware.com/) in 2015 and turned my pet project into [Toph](https://toph.co/). Today, Toph is the leading competitive programming platform in Bangladesh.
+
+I like <dfn title="as in freedom">free</dfn> software, and [I enjoy making them](/open-source/).
 
 Elsewhere:
 
