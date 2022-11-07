@@ -45,7 +45,8 @@ body {
     padding: 0;
 }
 body {
-    padding: 2.5em;
+    display: flex;
+    padding: 2em;
     font: 16px/1.75em 'Rubik';
     {{$bgpng := resources.Get "crossword.png" | fingerprint}}
     background: url({{$bgpng.RelPermalink}});
