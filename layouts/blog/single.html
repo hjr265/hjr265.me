@@ -7,15 +7,16 @@
 		<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
 		<header class="-leaf">
 			<h1>{{.Title}}</h1>
-			<p>
-				{{.PublishDate.Format "January 2, 2006"}}
+			<div class="flair">
+				<span class="flair__item">{{.PublishDate.Format "January 2, 2006"}}</span>
 				{{with .Params.tags}}
-					&middot;
-					{{range sort .}}
-						<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
-					{{end}}
+					<span class="flair__item">
+						{{range sort .}}
+							<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
+						{{end}}
+					</span>
 				{{end}}
-			</p>
+			</div>
 		</header>
 
 		<div class="wide">
