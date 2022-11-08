@@ -18,9 +18,32 @@
 			</p>
 		</header>
 
-		<article>
-			{{.Content}}
-		</article>
+		<div class="wide">
+			<div class="main">
+				<article>
+					{{.Content}}
+				</article>
+			</div>
+
+			{{if .Params.toc}}
+				<div class="side">
+					<div class="muted">Table Of Contents</div>
+					<div>
+						{{.TableOfContents}}
+					</div>
+					<style type="text/css">
+						#TableOfContents {
+							font-size: 1em;
+						}
+						#TableOfContents ul {
+							list-style: none;
+							margin: 0;
+							padding: 0;
+						}
+					</style>
+				</div>
+			{{end}}
+		</div>
 
 		<hr>
 

@@ -60,7 +60,7 @@ body {
 .side {
     padding-top: 1.5em;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
     .side {
         margin-top: 2.5em;
         padding-top: 2.5em;
@@ -68,7 +68,7 @@ body {
         border-image: linear-gradient(to right, lightgrey 80%, transparent) 100% 1;
     }
 }
-@media (min-width: 1025px) {
+@media (min-width: 1200px) {
     .side {
         position: absolute;
         top: 0;

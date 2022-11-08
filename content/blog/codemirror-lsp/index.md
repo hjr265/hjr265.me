@@ -4,6 +4,7 @@ date: 2021-03-28T13:36:59+06:00
 tags:
   - javascript
   - codemirror
+toc: true
 ---
 
 CodeMirror 6, a rewrite of the [CodeMirror](https://codemirror.net/) editor, brings several improvements. [Toph](https://toph.co/) has been using CodeMirror for its integrated code editor since its introduction.
