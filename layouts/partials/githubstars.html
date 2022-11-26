@@ -1,0 +1,4 @@
+{{with getJSON "https://api.github.com/repos/" .}}
+	{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
+	<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.stargazers_count}}
+{{end}}
