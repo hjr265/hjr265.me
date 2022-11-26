@@ -25,4 +25,4 @@ RedisModule_Call(ctx, "SUNIONSTORE", "sv", key, args, n); // `key` is a RedisMod
 
 ---
 
-_This post is the 1st of my [#100DaysToOffload](/tags/100DaysToOffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._
+_This post is 1st of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

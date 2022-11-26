@@ -17,7 +17,7 @@
 							{{with .Params.tags}}
 								<span class="flair__item">
 									{{range sort .}}
-										<a class="muted" href="/tags/{{.}}/">#{{.}}</a>
+										<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
 									{{end}}
 								</span>
 							{{end}}
