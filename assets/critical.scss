@@ -85,16 +85,19 @@ body {
         border-image: linear-gradient(to bottom, lightgrey 80%, transparent) 1 100%;
     }
 }
-a, a:hover {
+a {
     text-decoration: none;
-    color: #0099e5;
+    color: #207cbb;
+}
+a:hover {
+    color: #195e8e;
 }
 a.muted, a.muted:hover {
     text-decoration: none;
-    color: grey;
+    color: #5c6873;
 }
 .muted {
-    color: grey;
+    color: #5c6873;
 }
 header {
     margin-bottom: 1.5em;
