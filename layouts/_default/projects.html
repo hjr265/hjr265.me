@@ -57,10 +57,13 @@
 
 			{{.Content}}
 
-			<p>
-				{{$cubesvg := resources.GetMatch "cube.svg" | fingerprint}}
-				<img src="{{$cubesvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{delimit .Params.stack ", "}}
-			</p>
+			{{with .Params.stack}}
+				<p class="meta">
+					{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
+					<span class="meta__text">{{delimit . ", "}}</span>
+				</p>
+			{{end}}
 		</article>
 	{{end}}
 {{end}}

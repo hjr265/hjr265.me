@@ -4,7 +4,10 @@ order: 201204
 period: May ‘11 - Apr ‘12
 company: North South University
 website: https://www.northsouth.edu
+subjects:
+  - Discrete Mathematics
+  - Digital Logic
+  - Operating Systems Design
+  - Design and Analysis of Algorithms
+  - Programming Language Concepts
 ---
-
-Courses: Discrete Mathematics, Digital Logic, Operating Systems Design, Design and Analysis of Algorithms,
-Programming Language Concepts

@@ -96,6 +96,10 @@ a.muted, a.muted:hover {
     text-decoration: none;
     color: #5c6873;
 }
+a.subtle, a.subtle:hover {
+    text-decoration: none;
+    color: black;
+}
 .muted {
     color: #5c6873;
 }
@@ -130,4 +134,14 @@ pre code {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+}
+.meta {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+
+    &__icon {
+        height: 1.25em;
+        vertical-align: text-top;
+    }
 }

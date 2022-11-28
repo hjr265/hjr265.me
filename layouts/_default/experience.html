@@ -7,7 +7,7 @@
 	{{range sort (.Resources.Match "*.md") "Params.order" "desc"}}
 		{{$website := .Params.website}}
 
-		<article>
+		<article id="{{printf "%s %s" .Title .Params.company | urlize}}">
 			<h2>{{.Title}} <small>({{.Params.period}})</small></h2>
 			
 			<div class="flair">
@@ -18,6 +18,56 @@
 			</div>
 
 			{{.Content}}
+
+			{{range .Params.duties}}
+				<p class="meta">
+					{{$checksvg := resources.GetMatch "check.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$checksvg.RelPermalink}}">
+					<span class="meta__text">{{.}}</span>
+				</p>
+			{{end}}
+
+			{{range .Params.apps}}
+				<p class="meta">
+					{{$appssvg := resources.GetMatch "apps.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$appssvg.RelPermalink}}">
+					<span class="meta__text">{{.}}</span>
+				</p>
+			{{end}}
+
+			{{range .Params.posts}}
+				<p class="meta">
+					{{$pencilsvg := resources.GetMatch "pencil.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$pencilsvg.RelPermalink}}">
+					<span class="meta__text">
+						<a class="subtle" href="{{.url}}" target="_blank" rel="nofollow noopener">{{.title}}</a>
+					</span>
+				</p>
+			{{end}}
+
+			{{with .Params.stack}}
+				<p class="meta">
+					{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
+					<span class="meta__text">{{delimit . ", "}}</span>
+				</p>
+			{{end}}
+
+			{{range .Params.events}}
+				<p class="meta">
+					{{$calendarsvg := resources.GetMatch "calendar.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$calendarsvg.RelPermalink}}">
+					<span class="meta__text">{{.}}</span>
+				</p>
+			{{end}}
+
+			{{range .Params.subjects}}
+				<p class="meta">
+					{{$bookssvg := resources.GetMatch "books.svg" | fingerprint}}
+					<img class="meta__icon" src="{{$bookssvg.RelPermalink}}">
+					<span class="meta__text">{{.}}</span>
+				</p>
+			{{end}}
 		</article>
 	{{end}}
 {{end}}
