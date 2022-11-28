@@ -6,4 +6,4 @@ company: PARIKALPAK
 website: https://parikalpak.com
 ---
 
-Duties: ensure reliable network between computers, configure hardwares and softwares etc.
+Duties: ensure reliable network between computers, configure hardware and software etc.
