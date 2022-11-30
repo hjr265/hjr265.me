@@ -14,15 +14,18 @@ article p > a > img {
 }
 .highlight {
     margin-bottom: 1rem;
+    overflow: auto;
+    background-color: #272822;
 
     pre {
+        display: block;
         margin: 0;
-        padding: 5px 10px;
-        line-height: 1.3rem;
+        padding: 0.25rem 0.5rem;
+        line-height: 1rem;
     }
 
     table td:first-child pre {
-        padding: 5px 0 5px 5px;
+        padding: 0.25rem 0 0.25rem 0.25rem;
     }
 }
 hr {
