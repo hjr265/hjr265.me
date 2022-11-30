@@ -54,6 +54,6 @@ Add this shortcode to the "layouts/shortcodes" directory.
 
 And that's it! You can show your (or any) GitHub repository star count on your Hugo website.
 
----
+<br>
 
 _This post is 2nd of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._
