@@ -7,9 +7,9 @@ tags:
   - 100DaysToOffload
 ---
 
-Toph recently reached a milestone that my family and I have been looking forward to: [one million submissions](https://blog.toph.co/spotlight/one-million-submissions/). It may be a small win, but for us, it is that sweet reward of working on a project with passion and diligence.
+Toph recently reached a milestone my family and I have been looking forward to. [One million submissions](https://blog.toph.co/spotlight/one-million-submissions/). It may be a small win, but it is that sweet reward of working on your favourite project.
 
-On the Toph Blog post where the programming making the one-millionth submission is congratulated, we have a particular image, quite a large one. The picture is W×H pixels and has one million coloured squares on it. The squares represent the one million submissions and are green for correct (Accepted) submissions and red for any other incorrect (Wrong Answer, CPU Limit Exceeded, etc.) submissions.
+On the relevant Toph Blog post, we have a picture that is 3840×25982 pixels and has one million coloured squares on it. The squares represent the one million submissions and are green for correct (Accepted) submissions and red for any other incorrect (Wrong Answer, CPU Limit Exceeded, etc.) submissions.
 
 So how was the image generated?
 
@@ -40,7 +40,7 @@ func main() {
   f, _ := os.Open(*filename)
   defer f.Close()
 
-  // Open and loop over each line in the verdict manifest file.
+  // Read and loop over each line in the verdict manifest file.
   sc := bufio.NewScanner(f)
   sc.Split(bufio.ScanLines)
   var px, py int
