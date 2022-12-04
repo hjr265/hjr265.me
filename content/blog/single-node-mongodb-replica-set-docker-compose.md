@@ -17,7 +17,7 @@ You see, simply starting three nodes and then going in to configure them to be i
 
 So here is what I had to do:
 
-## 1. Add MongoDB to docker-compose.yml
+## 1. Add MongoDB to `docker-compose.yml`
 
 ``` yml
 services:
@@ -50,7 +50,7 @@ services:
       - mongo
 ```
 
-## 2. Add Dockerfile to `devel/mongodb/`:
+## 2. Add `Dockerfile` to `devel/mongodb/`
 
 ``` dockerfile
 FROM mongo:6.0
