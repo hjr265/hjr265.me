@@ -16,8 +16,14 @@
 							<span class="flair__item">{{.PublishDate.Format "January 2, 2006"}}</span>
 							{{with .Params.tags}}
 								<span class="flair__item">
-									{{range sort .}}
+									{{range sort (first 3 .)}}
 										<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+									{{end}}
+									{{if gt (len .) 3}}
+										<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+									{{end}}
+									{{range sort (after 3 .)}}
+										<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
 									{{end}}
 								</span>
 							{{end}}
@@ -45,6 +51,17 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		document.querySelectorAll('.flair__more').forEach(function(el) {
+			el.addEventListener('click', function() {
+				el.parentNode.querySelectorAll('a').forEach(function(item) {
+					item.style.display = 'inline'
+				})
+				el.style.display = 'none'
+			})
+		});
+	</script>
 {{end}}
 
 {{define "styles"}}
