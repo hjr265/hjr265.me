@@ -1,5 +1,5 @@
 ---
-title: Bump Calender Versioning (CalVer) Bash Script for Git
+title: Bump Calendar Versioning (CalVer) Bash Script for Git
 date: 2022-12-05T09:00:00+06:00
 tags:
   - calver
@@ -30,7 +30,7 @@ We use this for Toph and other related projects that use CalVer.
 
 set -e
 
-echo 'Pulling current tags'
+echo 'Pulling current tags.'
 git pull --ff-only --tags
 
 LATEST=`git describe --tags --abbrev=0`
@@ -46,7 +46,7 @@ else
 fi
 echo 'Next tag:' $NEWTAG
 
-read -p 'Create a new release? (Press "y" to confirm) ' -n 1 -r
+read -p 'Create a new release? (Press "y" to confirm.) ' -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -60,11 +60,11 @@ Looks something like this when run:
 
 ``` txt
 Toph/platform [master] » ./release.sh 
-Pulling current tags
+Pulling current tags.
 Already up to date.
 Latest tag: v2022.12.1
 Next tag: v2022.12.2
-Create a new release? (Press "y" to confirm) 
+Create a new release? (Press "y" to confirm.) 
 ```
 
 On `Y`, a new Git tag is created and pushed to `origin`. The CI/CD takes care of the rest. Perhaps a story for another day.
