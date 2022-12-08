@@ -3,19 +3,38 @@
 		<h1><a href="/">hjr265.me</a> / #{{.Title}} posts</h1>
 	</header>
 	{{partial "nav.html" .}}
-	<ul class="posts">
-		{{range .Pages.ByWeight}}
-			<li>
-				<div>
-					<a href="{{.Permalink}}">{{.Title}}</a>
-				</div>
-				<div>
-					{{.PublishDate.Format "January 2, 2006"}}
-				</div>
-			</li>
-		{{end}}
-	</ul>
-	<a href="/blog/">Show All Posts</a>
+
+	<div class="wide">
+		<div class="main">
+			<ul class="posts">
+				{{range .Pages.ByWeight}}
+					<li>
+						<div>
+							<a href="{{.Permalink}}">{{.Title}}</a>
+						</div>
+						<div class="flair">
+							<span class="flair__item">{{.PublishDate.Format "January 2, 2006"}}</span>
+							{{with complement (slice $.Data.Term) (.Params.tags)}}
+								<span class="flair__item">
+									{{range sort (first 3 .)}}
+										<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+									{{end}}
+									{{if gt (len .) 3}}
+										<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+									{{end}}
+									{{range sort (after 3 .)}}
+										<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
+									{{end}}
+								</span>
+							{{end}}
+						</div>
+					</li>
+				{{end}}
+			</ul>
+
+			<a href="/blog/">Show All Posts</a>
+		</div>
+	</div>
 {{end}}
 
 {{define "styles"}}
