@@ -2,10 +2,10 @@
 title: "Single Node MongoDB Replica Set with Docker Compose"
 date: 2022-12-04T15:00:00+06:00
 tags:
-  - mongodb
-  - docker
+  - MongoDB
+  - Docker
   - 100DaysToOffload
-  - dockercompose
+  - DockerCompose
 toc: yes
 ---
 

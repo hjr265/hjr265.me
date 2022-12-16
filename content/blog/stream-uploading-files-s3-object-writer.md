@@ -2,9 +2,9 @@
 title: "Stream Uploading Files to S3 with Object Writer"
 date: 2021-06-06T09:50:00+06:00
 tags:
-  - go
-  - aws
-  - s3
+  - Go
+  - AWS
+  - S3
 ---
 
 The official AWS SDK provides an upload manager construct that allows you to upload to S3 from any `io.Reader`. Using it is straightforward, that is until you need to create and upload a potentially large ZIP file.

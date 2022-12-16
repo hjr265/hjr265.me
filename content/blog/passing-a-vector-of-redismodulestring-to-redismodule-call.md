@@ -2,8 +2,8 @@
 title: Passing A Vector of RedisModuleString to RedisModule_Call
 date: 2022-11-26T08:00:00+06:00
 tags:
-  - redis
-  - module
+  - Redis
+  - Module
   - 100DaysToOffload
 ---
 

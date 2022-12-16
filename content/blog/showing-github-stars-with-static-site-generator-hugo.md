@@ -2,8 +2,8 @@
 title: Showing GitHub Stars With Static Site Generator Hugo
 date: 2022-11-27T20:13:00+06:00
 tags:
-  - hugo
-  - shortcode
+  - Hugo
+  - ShortCode
   - 100DaysToOffload
 ---
 

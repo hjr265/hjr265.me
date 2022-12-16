@@ -2,11 +2,11 @@
 title: Block All But One Website With Windows Defender Firewall
 date: 2022-12-11T00:15:00+06:00
 tags:
-  - windows
-  - network
+  - Windows
+  - Network
   - 100DaysToOffload
-  - windowsdefender
-  - windowsfirewall
+  - WindowsDefender
+  - WindowsFirewall
 ---
 
 How do you block access to all websites except one on a Windows device?

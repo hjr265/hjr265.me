@@ -2,8 +2,10 @@
 title: Preparing Myself to Learn Programming
 date: 2022-12-08T14:50:00+06:00
 tags:
-  - programming
+  - Programming
   - 100DaysToOffload
+aliases:
+  - /blog/preparing-to-learn-programming/
 ---
 
 My first exposure to any programming involved writing Batch scripts - think shell scripts for Windows.

@@ -2,8 +2,8 @@
 title: "tar"
 date: 2014-08-26T00:00:00+06:00
 tags:
-  - tar
-  - tools
+  - Tar
+  - Tools
 ---
 
 [![xkcd: tar](tar.png)](http://xkcd.com/1168/)

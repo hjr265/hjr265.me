@@ -2,11 +2,11 @@
 title: Bump Calendar Versioning (CalVer) Bash Script for Git
 date: 2022-12-05T09:00:00+06:00
 tags:
-  - calver
-  - git
+  - CalVer
+  - Git
   - 100DaysToOffload
-  - bash
-  - script
+  - Bash
+  - Script
 ---
 
 For Toph, SemVer didn't make much sense. [CalVer](https://calver.org/) did.

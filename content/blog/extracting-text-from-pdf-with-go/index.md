@@ -2,9 +2,9 @@
 title: "Extracting Text From PDF Using Go"
 date: 2022-11-14T06:09:00+06:00
 tags:
-  - go
-  - pdf
-  - dataextraction
+  - Go
+  - PDF
+  - DataExtraction
 toc: true
 ---
 

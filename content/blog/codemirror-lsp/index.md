@@ -2,8 +2,8 @@
 title: "Using Language Servers with CodeMirror 6"
 date: 2021-03-28T13:36:59+06:00
 tags:
-  - javascript
-  - codemirror
+  - JavaScript
+  - CodeMirror
 toc: true
 ---
 

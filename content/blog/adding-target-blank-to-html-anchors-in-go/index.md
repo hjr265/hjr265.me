@@ -2,8 +2,8 @@
 title: Adding target="_blank" to User-Generated HTML Anchors in Go
 date: 2022-12-06T16:00:00+06:00
 tags:
-  - go
-  - html
+  - Go
+  - HTML
   - 100DaysToOffload
 ---
 

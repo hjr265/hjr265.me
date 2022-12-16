@@ -2,9 +2,9 @@
 title: "Updating Creality CR-10 Smart Firmware"
 date: 2021-10-21T17:25:00+06:00
 tags:
-  - 3dprinting
-  - creality
-  - cr10smart
+  - 3DPrinting
+  - Creality
+  - CR10Smart
 ---
 
 There seems to be a lot of frustration with this 3D printer. And one of those frustration stems from how confusing the firmware update process is. The documentation is lacking in terms of some of the details.

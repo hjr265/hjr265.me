@@ -2,8 +2,8 @@
 title: Grid Chart for Toph's One Million Submissions
 date: 2022-11-30T09:50:00+06:00
 tags:
-  - go
-  - imagegeneration
+  - Go
+  - ImageGeneration
   - 100DaysToOffload
 ---
 
