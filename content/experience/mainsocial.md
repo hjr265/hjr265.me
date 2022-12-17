@@ -6,4 +6,7 @@ company: Mainsocial (as Toptal Freelancer)
 apps:
   - Fantasy Sport Web Games
   - Web Applications
+stack:
+  - Firebase
+  - JavaScript
 ---
