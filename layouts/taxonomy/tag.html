@@ -6,6 +6,12 @@
 
 	<div class="wide">
 		<div class="main">
+			<div>
+				<div class="flair">
+					<span class="flair__item muted">Showing {{len .Pages}} of {{len (where .Site.RegularPages "Section" "blog")}} posts from <a href="/blog/">Blog</a></span>
+				</div>
+			</div>
+
 			<ul class="posts">
 				{{range .Pages.ByWeight}}
 					<li>
