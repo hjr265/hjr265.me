@@ -7,8 +7,9 @@ ul.posts {
         margin-bottom: 1.5em;
     }
 }
-article p > img,
-article p > a > img {
+article > p > img,
+article > p > a > img {
+    display: block;
     max-width: 100%;
     margin: 0 auto;
 }
