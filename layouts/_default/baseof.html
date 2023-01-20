@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<title>{{.Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
 
+		<link rel="canonical" href="{{.Permalink}}" />
+
 		{{$iconpng := resources.Get "apple-touch-icon.png" | fingerprint}}
 		<link rel="apple-touch-icon" sizes="180x180" href="{{$iconpng.RelPermalink}}">
 		{{$iconpng = resources.Get "favicon-32x32.png" | fingerprint}}
