@@ -124,6 +124,12 @@ nav {
     margin-bottom: 3em;
     font-size: 1.125em;
 }
+nav::before {
+    content: '[';
+}
+nav::after {
+    content: ']';
+}
 nav .-active {
     color: black;
 }
