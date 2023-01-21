@@ -1,5 +1,5 @@
 ---
-title: Using Caddy to Indicate GitLab Repository for Go Module Path with Different Domain
+title: Using Caddy to Indicate GitLab Repository for Go Module Path with Different Domains
 htmltitle: Using Caddy to Serve Canonical "go get" Import Path
 date: 2023-01-21T11:05:00+06:00
 tags:
