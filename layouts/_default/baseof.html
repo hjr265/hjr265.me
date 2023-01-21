@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>{{.Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
+		<title>{{or .Params.htmltitle .Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
 
 		<link rel="canonical" href="{{.Permalink}}" />
 
