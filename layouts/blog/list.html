@@ -34,6 +34,13 @@
 		</div>
 
 		<div class="side">
+			<div>
+				{{$rsspng := resources.Get "rss.png" | fingerprint}}
+				<a href="{{absURL "/blog/index.xml"}}" style="display: flex; align-items: center; gap: 0.5rem;"><img src="{{$rsspng.RelPermalink}}" width="16" style="border-radius: 0.125rem;"> RSS</a>
+			</div>
+
+			<br>
+
 			<div class="muted">My Articles Elsewhere</div>
 			<div>
 				{{range .Site.Data.otherBlogs}}

@@ -6,6 +6,8 @@
 
 		<link rel="canonical" href="{{.Permalink}}" />
 
+		<link rel="alternate" type="application/rss+xml" href="{{absURL "/blog/index.xml"}}" title="RSS Feed for hjr265.me">
+
 		{{$iconpng := resources.Get "apple-touch-icon.png" | fingerprint}}
 		<link rel="apple-touch-icon" sizes="180x180" href="{{$iconpng.RelPermalink}}">
 		{{$iconpng = resources.Get "favicon-32x32.png" | fingerprint}}
