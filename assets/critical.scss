@@ -56,8 +56,9 @@ html {
 body {
     padding: 2em;
     font-family: 'Rubik', sans-serif;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 2rem;
+    line-height: 2.25rem;
     {{$bgpng := resources.Get "crossword.png" | fingerprint}}
     background: url({{$bgpng.RelPermalink}});
 }
