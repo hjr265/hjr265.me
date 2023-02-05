@@ -21,11 +21,20 @@
 .timeline__icon {
     width: 25px;
     height: 25px;
+    margin-top: 5px;
     margin-right: 25px;
     border-radius: 3px;
     border: 1px solid grey;
     background-color: white;
     text-align: center;
+}
+.timeline__icon.-blue {
+    background-color: lighten(#0a579c, 33%);
+    border-color: #0a579c;
+}
+.timeline__icon.-red {
+    background-color: lighten(#c20000, 33%);
+    border-color: #c20000;
 }
 .timeline__meta {
     color: grey;

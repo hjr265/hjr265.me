@@ -1,7 +1,7 @@
 ---
 title: "The Daily Star Award 2008"
 date: 2008-03-16
-icon: trophy-solid-blue.svg
+color: blue
 branch: "education"
 detail: Excellent Academic Performance in GCE O’ Level
 news:

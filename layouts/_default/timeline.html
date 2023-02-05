@@ -12,12 +12,7 @@
 				<div class="timeline__year"></div>
 			{{end}}
 			<div class="timeline__event">
-				<div class="timeline__icon">
-					{{with .Params.icon}}
-						{{$iconsvg := resources.GetMatch . | fingerprint}}
-						<img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;">
-					{{end}}
-				</div>
+				<div class="timeline__icon {{with .Params.color}}-{{.}}{{end}}"></div>
 				<div class="timeline__body">
 					{{.Title}}
 					<div class="timeline__meta flair">
