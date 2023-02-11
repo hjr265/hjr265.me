@@ -21,12 +21,12 @@ In this tutorial, we will see how the same can be done using MongoDB's aggregati
 Let's start with the assumptions. You have a collection named `rounds` that look something like this:
 
 ``` json
-{"player1": "Alice", "player2": "Bob",   "winner": "Alice"}
-{"player1": "Alice", "player2": "Carol", "winner": "Alice"}
-{"player1": "Bob",   "player2": "Carol", "winner": "Bob"}
-{"player1": "Carol", "player2": "Ted",   "winner": "Carol"}
-{"player1": "Ted",   "player2": "Bob",   "winner": "Ted"}
-{"player1": "Alice", "player2": "Ted",   "winner": "Alice"}
+{ "player1": "Alice", "player2": "Bob",   "winner": "Alice" }
+{ "player1": "Alice", "player2": "Carol", "winner": "Alice" }
+{ "player1": "Bob",   "player2": "Carol", "winner": "Bob" }
+{ "player1": "Carol", "player2": "Ted",   "winner": "Carol" }
+{ "player1": "Ted",   "player2": "Bob",   "winner": "Ted" }
+{ "player1": "Alice", "player2": "Ted",   "winner": "Alice" }
 ```
 
 This collection holds the pairing details and winner of some game that Alice, Bob, Carol and Ted have been playing.
@@ -34,10 +34,10 @@ This collection holds the pairing details and winner of some game that Alice, Bo
 You also have a collection named `profiles`. This collection holds some additional details about each player.
 
 ``` json
-{"player": "Alice", "planet": "Mars"}
-{"player": "Bob",   "planet": "Mars"}
-{"player": "Carol", "planet": "Venus"}
-{"player": "Ted",   "planet": "Mars"}
+{ "player": "Alice", "planet": "Mars" }
+{ "player": "Bob",   "planet": "Mars" }
+{ "player": "Carol", "planet": "Venus" }
+{ "player": "Ted",   "planet": "Mars" }
 ```
 
 ## Generating the Leaderboard
@@ -47,10 +47,10 @@ To generate the leaderboard, we want to run an aggregation pipeline. We will nam
 We want this collection to have one document for every player with round statistics and fields denormalized from the `profiles` collection. It should look something like this:
 
 ``` json
-{"player": "Alice", "won": 3, "planet": "Mars"}
-{"player": "Bob",   "won": 1, "planet": "Mars"}
-{"player": "Carol", "won": 1, "planet": "Venus"}
-{"player": "Ted",   "won": 1, "planet": "Mars"}
+{ "player": "Alice", "won": 3, "planet": "Mars" }
+{ "player": "Bob",   "won": 1, "planet": "Mars" }
+{ "player": "Carol", "won": 1, "planet": "Venus" }
+{ "player": "Ted",   "won": 1, "planet": "Mars" }
 ```
 
 ### Calculating Round Statistics
@@ -68,7 +68,7 @@ In the first stage, we want to filter all the `rounds` documents where Alice is 
 Next, we want to count the number of documents in the pipeline. After the `$match` stage, this tells us in how many rounds Alice is the winner.
 
 ``` json {linenos=false}
-{ "$count": { "won" } }
+{ "$count": "won" }
 ```
 
 The pipeline now has a single document with the number of rounds Alice won. Let's add a `player` field to this document set to "Alice".
@@ -136,7 +136,7 @@ When run on the `leaderboard` collection, the following pipeline will add a `ran
     "$setWindowFields": {
       "sortBy": { "won": -1 },
       "output": {
-        "rank": {"$documentNumber": {}}
+        "rank": { "$documentNumber": {} }
       },
     }
   }
@@ -163,7 +163,7 @@ What if you want to filter the `leaderboard` first by a specific field value. Le
     "$setWindowFields": {
       "sortBy": { "won": -1 },
       "output": {
-        "rank": {"$documentNumber": {}}
+        "rank": { "$documentNumber": {} }
       },
     }
   }
