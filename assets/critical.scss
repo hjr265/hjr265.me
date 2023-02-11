@@ -121,17 +121,17 @@ h1 {
     font-size: 28px;
     font-weight: bold;
 }
-nav {
+.menu {
     margin-bottom: 3em;
     font-size: 1.125em;
 }
-nav::before {
+.menu::before {
     content: '[ ';
 }
-nav::after {
+.menu::after {
     content: ' ]';
 }
-nav .-active {
+.menu .-active {
     color: black;
 }
 dfn {
