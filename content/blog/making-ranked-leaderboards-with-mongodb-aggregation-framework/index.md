@@ -208,7 +208,9 @@ The result will look like this:
 
 There you go. You can use these basics to build ranked leaderboards with MongoDB.
 
-In Toph, we make the most out of `$setWindowFields` for leaderboards and contest standings. By distributing the aggregation load across a MongoDB replica set and some application-side caching, you can start serving real-time leaderboards without having MongoDB even break a sweat.
+In Toph, we make the most out of `$setWindowFields` for leaderboards and contest standings.
+
+By adding proper indexes for your collections, distributing the aggregation load across a MongoDB replica set and configuring application-side caching, you can start serving real-time leaderboards without having MongoDB even break a sweat.
 
 You can learn more about the [`$setWindowFields` aggregation operator](https://www.mongodb.com/docs/manual/reference/operator/aggregation/setWindowFields/) and the [MongoDB Aggregation Framework](https://www.mongodb.com/docs/manual/aggregation/) in general from the official MonogDB documentations.
 
