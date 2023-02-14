@@ -162,7 +162,7 @@ func main() {
 	sigch := make(chan os.Signal, 1)
 	signal.Notify(sigch, os.Interrupt)
 
-	// Wait for signal.
+	// Wait for the signal.
 	<-sigch
 
 	fmt.Println("Interrupted. Exiting.")
@@ -179,6 +179,50 @@ In this example, the HTTP server simulates a slow response. It takes 10 seconds 
 To try out this example, start this program and navigate to https://localhost:8080 on your web browser. Then switch back to the terminal immediately and press `Ctrl+C`. You will see that the program waits until your response is served before exiting.
 
 In case there were no pending requests, the program would exit immediately.
+
+#### Cancelling In-flight Requests
+
+As Torsten Bronger pointed out in the comments, if you want to cancel the in-flight requests instead of waiting for them to be drained, you can do so by configuring a base context for the HTTP server. You can then cancel the base context and, in turn, cancel all in-flight requests, assuming you have contexts wired up correctly in all your HTTP handlers.
+
+``` go
+package main
+
+import (
+	"context"
+	"net/http"
+	"os"
+	"os/signal"
+	"time"
+)
+
+func main() {
+	// Make a background context with a cancel function. Start the HTTP server
+	// with this as the base context.
+	baseCtx, baseCancel := context.WithCancel(context.Background())
+	server := http.Server{
+		// ...
+		BaseContext: func(l net.Listener) context.Context {
+			return baseCtx
+		},
+	}
+	go server.ListenAndServe()
+
+	// Make a signal channel. Register SIGINT.
+	sigch := make(chan os.Signal, 1)
+	signal.Notify(sigch, os.Interrupt)
+
+	// Wait for the signal.
+	<-sigch
+
+	// Call baseCancel to cancel all in-flight requests. This assumes that you have
+	// contexts wired up correctly in all your HTTP handlers.
+	baseCancel()
+
+	// Trigger a shutdown. Ignoring CancelFunc for brevity.
+	ctx, _ := context.WithTimeout(context.Background(), 3*time.Second)
+	server.Shutdown(ctx)
+}
+```
 
 ## Forcing Exit on Second Interrupt
 
