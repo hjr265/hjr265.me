@@ -42,6 +42,11 @@ name = "Timeline"
 url = "/timeline/"
 weight = 6
 
+[[menu.main]]
+name = "Contact"
+url = "/contact/"
+weight = 7
+
 [markup.highlight]
 lineNos = true
 
