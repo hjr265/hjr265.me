@@ -10,7 +10,7 @@ I didn't like how I named cloud resources for [Toph](https://toph.co). The resou
 
 Let's take Toph's storage servers, for example, where MongoDB replicas are running. On Linode, while they were there, I had named the three storage servers as `toph-storage-sgp-1`, `toph-storage-sgp-2` and `toph-storage-sgp-3`.
 
-But as I moved them over to [Vultr](https://www.vultr.com/?ref=8025299) last week, I realised that eliminating these sequential numbers could remove any notion of preference/precedence among these three servers.
+But as I moved them over to [Vultr](https://www.vultr.com/?ref=8025299) (referral) last week, I realised that eliminating these sequential numbers could remove any notion of preference/precedence among these three servers.
 
 It was time to adopt a better naming scheme. For that, I chose the following:
 
