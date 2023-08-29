@@ -79,7 +79,7 @@ His reply confused me to no bounds.
 
 ![](screen09.png)
 
-Did I make him more upset? Why did he just give me another lecture on "tabnabbing".
+Did I make him more upset? Why did he just give me another lecture on "tabnabbing"?
 
 I almost didn't read his email. But I am sure glad I did.
 
