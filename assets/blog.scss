@@ -38,3 +38,16 @@ hr {
     border: none;
     border-top: 3px solid #0099e5;
 }
+blockquote {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid #0099e5;
+
+    :first-child {
+        margin-top: 0;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
