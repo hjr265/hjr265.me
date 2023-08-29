@@ -43,7 +43,3 @@ ssh-keyscan -p ${host.port} ${host.addr} >> known_hosts;
 We loop over all the hosts and run this command once for each host.
 
 Terraform uses `/bin/sh` as the interpreter on Linux. But in this case, we need to use Bash or equivalent to be able to run this script.
-
-<br>
-
-_This post is 21st of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

@@ -78,7 +78,3 @@ func Render(src []byte, display bool) (string, error) {
 The above code gives you the most straightforward implementation. You may want to rewrite it in a way where you evaluate katex.min.js only once and keep using the same `context` for every invocation of `Render`.
 
 Using JavaScript libraries from within Go made packages like [goldmark-katex](https://github.com/FurqanSoftware/goldmark-katex) possible. Of course, for convenience, you are trading a bit of performance (because you are evaluating JavaScript from within Go). But sometimes, that convenience makes it worth it. For goldmark-katex, it was either this or building a KaTeX clone in Go.
-
-<br>
-
-_This post is 9th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

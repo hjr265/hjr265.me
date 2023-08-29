@@ -31,7 +31,3 @@ Example:
 </div>
 
 Got links for more social network share dialogs? Please leave them in the comments below.
-
-<br>
-
-_This post is 10th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

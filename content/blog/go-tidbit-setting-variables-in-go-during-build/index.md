@@ -71,7 +71,3 @@ Here's what the Go program now prints to the log at startup:
 ![](printd.png)
 
 (The line "Release" has the build tag and time.)
-
-<br>
-
-_This post is 16th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

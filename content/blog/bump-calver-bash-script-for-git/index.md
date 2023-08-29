@@ -68,7 +68,3 @@ Create a new release? (Press "y" to confirm.)
 ```
 
 On `Y`, a new Git tag is created and pushed to `origin`. The CI/CD takes care of the rest. Perhaps a story for another day.
-
-<br>
-
-_This post is 5th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

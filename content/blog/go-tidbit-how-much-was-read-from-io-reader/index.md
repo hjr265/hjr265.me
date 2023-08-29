@@ -43,7 +43,3 @@ func uploadToS3(r io.Reader) (int64, error) {
 ```
 
 This method works while the number of bytes in the `io.Reader` is not greater than the maximum possible value of a 64-bit integer. You probably aren't hitting that limit. If you are, you have other challenges to deal with.
-
-<br>
-
-_This post is 13th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

@@ -307,7 +307,3 @@ There are signals, like `SIGKILL` and `SIGSTOP`, that you cannot handle. `SIGKIL
 Go's default behaviour for various signals is documented here: https://pkg.go.dev/os/signal
 
 And you can learn more about all the POSIX signals here: https://man7.org/linux/man-pages/man7/signal.7.html
-
-<br>
-
-_This post is 17th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

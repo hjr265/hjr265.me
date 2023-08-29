@@ -150,7 +150,3 @@ func main() {
 Of course, you can always modify or add extensions to your Markdown renderer to emit HTML with the desired attributes. But with this approach, you can do much more than your Markdown renderer would allow you.
 
 In Toph, we store both the Markdown and the rendered HTML in the database. But there are situations where the final HTML we present to the web browser must be modified slightly based on when it is being used. For example, when the content mentions a user with "@handle", the resulting anchor element is coloured based on the user's rating. This may change after the original Markdown is rendered and stored. With an approach similar to the one described above, we can modify the generated content on the fly before serving it to the web browser.
-
-<br>
-
-_This post is 6th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

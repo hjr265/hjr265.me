@@ -50,7 +50,3 @@ server {
   }
 }
 ```
-
-<br>
-
-_This post is 24th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

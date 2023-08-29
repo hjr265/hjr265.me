@@ -103,7 +103,3 @@ Enter a name for this rule: "Whitelist Toph". Click "Finish".
 ## You Now Have Restricted Internet Access to Toph Only
 
 This should block access to _all_ websites except Toph on a Windows device.
-
-<br>
-
-_This post is 8th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

@@ -217,7 +217,3 @@ You can learn more about the [`$setWindowFields` aggregation operator](https://w
 ## Full Code
 
 For those who want to see the entire MongoDB Shell (mongosh) code: [leaderboard.js](leaderboard.js).
-
-<br>
-
-_This post is 18th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

@@ -19,7 +19,3 @@ Without further ado, here's the game:
 {{< iframe src="https://hjr265.github.io/memflip/" >}}
 
 You can find the [source code for this game on GitHub](https://github.com/hjr265/memflip). It is also [available on NPM](https://www.npmjs.com/package/memflip).
-
-<br>
-
-_This post is 23rd of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

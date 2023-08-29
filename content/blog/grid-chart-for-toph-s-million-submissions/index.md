@@ -84,7 +84,3 @@ I added some flags to the command to make it easy to toy around with the image's
 It is no Monalisa, but hey, it looks neat. Although it reminds me of the disk defragmentation utility from the Windows 9x era.
 
 I am sharing the Go code and the list of one million verdicts in this GitHub repository: [hjr265/toph-million](https://github.com/hjr265/toph-million).
-
-<br>
-
-_This post is 3rd of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

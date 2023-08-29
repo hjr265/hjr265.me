@@ -23,6 +23,18 @@
 			<div class="main">
 				<article>
 					{{.Content}}
+
+					{{if in .Params.tags "100DaysToOffload"}}
+						{{$nth := 0}}
+						{{$pages := where .Site.Pages "Params.tags" "intersect" (slice "100DaysToOffload")}}
+						{{range $i, $_ := $pages}}
+							{{if eq .Permalink $.Permalink}}
+								{{$nth = sub (len $pages) $i}}
+							{{end}}
+						{{end}}
+						<br>
+						<p><em>This post is {{$nth | humanize}} of my <a href="/tags/100daystooffload/">#100DaysToOffload</a> challenge. Want to get involved? Find out more at <a href="https://100daystooffload.com/" target="_blank" rel="noreferrer noopener">100daystooffload.com</a>.</em></p>
+					{{end}}
 				</article>
 			</div>
 

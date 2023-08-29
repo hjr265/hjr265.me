@@ -28,7 +28,3 @@ func PeekSnippet(r io.Reader, n int) ([]byte, io.Reader, error) {
 ```
 
 As you can see, you can use `io.LimitReader` to read the first `n` bytes. Then use `io.MultiReader` to combine those bytes with the remainder of data in `r`.
-
-<br>
-
-_This post is 14th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

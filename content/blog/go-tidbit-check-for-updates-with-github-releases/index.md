@@ -54,7 +54,3 @@ func checkUpdate(ctx context.Context) error {
 Since the API is accessible publicly you do not need to authenticate the GitHub API requests.
 
 The current version is stored in the `buildTag` variable. You can easily set this variable at build time using `ldflags` as shown in [Go Tidbit: Setting Variables in Go During Build](/blog/go-tidbit-setting-variables-in-go-during-build/).
-
-<br>
-
-_This post is 22nd of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

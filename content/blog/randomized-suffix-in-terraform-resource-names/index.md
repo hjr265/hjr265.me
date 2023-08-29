@@ -40,7 +40,3 @@ resource "vultr_instance" "worker" {
 With this example, after running `terraform apply`, the resource label will be something like "toph-storage-vultr-sgp-ns2oh".
 
 _P.S: Yes, I know I should also add the environment (e.g. "production", "staging", etc.) into that naming scheme._ 🙃
-
-<br>
-
-_This post is 20th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

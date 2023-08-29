@@ -58,7 +58,3 @@ And Caddy can then start serving the required HTML with the meta tag at URLs lik
 The template here assumes that all Go modules will have GitLab URLs like `https://gitlab.example.com/{group}/{project}`. Although GitLab supports nested groups, this solution won't be able to handle it.
 
 Alternate and better solutions exist: like [github.com/unknwon/go-import-server](https://github.com/unknwon/go-import-server). And you can always use the same domain for your self-hosted GitLab instance and Go module paths to avoid relying on this quirky workaround.
-
-<br>
-
-_This post is 12th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._

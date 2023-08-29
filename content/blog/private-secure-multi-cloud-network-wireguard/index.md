@@ -200,7 +200,3 @@ You would, at the very least, want to do the following in any setup that is not 
 - Configure all services to listen on and connect only over the WireGuard interface
 
 With that said, tell me what you think and how would you improve this?
-
-<br>
-
-_This post is 11th of my [#100DaysToOffload](/tags/100daystooffload/) challenge. Want to get involved? Find out more at [100daystooffload.com](https://100daystooffload.com/)._
