@@ -73,7 +73,7 @@ Then he/she made his/her second slip-up: the claim that he/she sent me reports o
 
 ![](screen08.png)
 
-"5? No, you have sent me 10." I told him sarcastically. 
+"5? No, you have sent me 10." I told him sarcastically. He never sent me anything apart from this report on potential "tabnabbing".
 
 His reply confused me to no bounds.
 
