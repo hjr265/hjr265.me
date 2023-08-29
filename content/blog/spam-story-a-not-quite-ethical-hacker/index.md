@@ -111,6 +111,6 @@ And the not-quite-ethical hacker had a few:
 
 ![](screen11.png)
 
-But, he finally removed me from his email list.
+At least he removed me from his email list.
 
 The end.
