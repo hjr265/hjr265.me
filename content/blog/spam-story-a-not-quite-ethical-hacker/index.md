@@ -7,7 +7,7 @@ tags:
   - 100DaysToOffload
 ---
 
-On **April 3, 2023**, I received an email from a "security researcher". They scanned one of my sites and found a "critical urgent" vulnerability.
+On **April 3, 2023**, I received an email from a "security researcher". The "security researcher" and his/her "expert team" scanned one of my sites and found a "critical urgent" vulnerability.
 
 ![](screen01.png)
 
