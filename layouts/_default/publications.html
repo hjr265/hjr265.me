@@ -14,7 +14,9 @@
 				<span class="flair__item">{{.Params.medium}}</span>
 			</div>
 
-			<p><a href="{{.}}" target="_blank">{{partial "prettyurl" .Params.link}}</a></p>
+			{{with .Params.link}}
+				<p><a href="{{.}}" target="_blank">{{partial "prettyurl" .}}</a></p>
+			{{end}}
 
 			{{.Content}}
 
