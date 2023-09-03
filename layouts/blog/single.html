@@ -99,4 +99,18 @@
 {{define "styles"}}
 	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
 	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+	{{if .Params.katex}}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.css">
+	{{end}}
+{{end}}
+
+{{define "scripts"}}
+	{{if .Params.katex}}
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.js"></script>
+		<script type="text/javascript">
+			document.querySelectorAll('.math.-block').forEach(function(el) {
+				katex.render(el.textContent, el)
+			})
+		</script>
+	{{end}}
 {{end}}
