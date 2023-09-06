@@ -1,0 +1,19 @@
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / {{.Title}}</h1>
+	</header>
+	{{partial "nav.html" .}}
+
+	<div class="main">
+		<ul class="terms">
+			{{range sort .Site.Taxonomies.tags}}
+				<li><a href="{{.Page.RelPermalink}}">#{{.Page.Title}}</a> <span class="muted">({{.Count}})</span></li>
+			{{end}}
+		</ul>
+	</div>
+{{end}}
+
+{{define "styles"}}
+	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+{{end}}
