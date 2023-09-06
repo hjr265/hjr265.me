@@ -14,7 +14,9 @@ As you would expect with static sites, the pages are all generated ahead of time
 
 Client-side search is one way to work around this limitation of static websites.
 
-You build a search index of your entire website. You serve it as to the client JSON - the web browser. You use the search index JSON in client-side JavaScript to provide fast search functionality. It works quite well in practice.
+You build an array of objects describing all your pages on your website. You serve it to the client as JSON. You use the JSON with client-side JavaScript to provide fast search functionality.
+
+And, it works quite well in practice.
 
 ## Generating the Search Index
 
