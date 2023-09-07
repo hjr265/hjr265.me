@@ -16,6 +16,7 @@ I like <dfn title="as in freedom">free</dfn> software, and [I enjoy making them]
 Elsewhere:
 
 - <a rel="me" href="https://fosstodon.org/@hjr265"><b>fosstodon.org</b>/@hjr265</a>
+- <a rel="me" href="https://floss.social/@hjr265"><b>floss.social</b>/@hjr265</a>
 - [**github.com**/hjr265](https://github.com/hjr265)
 - [**linkedin.com**/in/hjr265](https://www.linkedin.com/in/hjr265/)
 - [**steamcommunity.com**/id/hjr265](https://steamcommunity.com/id/hjr265/)
