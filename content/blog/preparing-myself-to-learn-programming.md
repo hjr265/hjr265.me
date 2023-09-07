@@ -12,13 +12,13 @@ My first exposure to any programming involved writing Batch scripts - think shel
 
 The first time I used a computer was an IBM XT clone. It ran DOS.
 
-I was 11 years old when I got my second computer, a nifty Windows 95 machine. I kept all of my games organized on that second computer. One day I thought of making a number-based menu for my games using Batch scripts. That's where it started.
+I was 11 when I got my second computer, a nifty Windows 95 machine. I kept all of my games organized on that second computer. One day, I thought of making a number-based menu for my games using Batch scripts. That's where it started.
 
-Fast-forward a year or so, my parents wanted me to apply to Saint Joseph School. I was in class 5 at that time. They bought me some computing studies books that were used at that school.
+Fast-forward a year or so, my parents wanted me to apply to the Saint Joseph School. I was in class 5 at that time. They bought me some computing studies books used at that school.
 
 One of the books had some example QBasic programs at the end of it. That's where I got my second dose of exposure and saw some "real" programs (in case you wouldn't call writing Batch scripts programming).
 
-A few years later, my father bought a Bengali IME software, Orko. That software was developed by Daffodil Software Ltd. It was like Avro (the one you use to type Bengali phonetically). I wanted to build something like Orko in Visual Basic / Visual Basic .NET. That's where I got my exposure to reading documentation, mostly around Win32 and Windows API.
+A few years later, my father bought Orko, a Bengali IME software developed by Daffodil Software Ltd. It was like Avro (the one you use to type Bengali phonetically). I wanted to build something like Orko in Visual Basic / Visual Basic .NET. That's where I got exposure to reading documentation, mostly around Win32 and Windows API.
 
 And then, some years later, I entered university.
 
