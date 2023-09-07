@@ -3,7 +3,7 @@
 	{{if or (.IsHome) (gt .WordCount 16)}}
 	<url>
 		<loc>{{.Permalink}}</loc>
-		<lastmod>{{safeHTML ( .Date.Format "2006-01-02T15:04:05-07:00" )}}</lastmod>
+		<lastmod>{{safeHTML (.Date.Format "2006-01-02T15:04:05-07:00")}}</lastmod>
 		{{with .Sitemap.ChangeFreq}}
 		<changefreq>{{.}}</changefreq>
 		{{end}}
