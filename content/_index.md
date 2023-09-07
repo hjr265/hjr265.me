@@ -2,7 +2,7 @@
 title: 'Mahmud Ridwan (hjr265)'
 description: 'Hi, I am Mahmud Ridwan.'
 images: [/avatar.png]
-date: 2020-08-14T13:07:59+06:00
+date: 2023-09-07T10:50:00+06:00
 ---
 
 Hi, I am Mahmud Ridwan. Email: <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a>
