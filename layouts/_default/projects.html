@@ -78,7 +78,7 @@
 
 {{define "intmetric" -}}
 	{{- if gt . 1000 -}}
-		{{- (div . 1000) | printf "%0.0fk" -}}
+		{{- (div . 1000) | printf "%0.1fk" -}}
 	{{- else -}}
 		{{- . -}}
 	{{- end -}}
