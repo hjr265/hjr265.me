@@ -47,6 +47,14 @@ hr {
     border: none;
     border-top: 3px solid #0099e5;
 }
+figure {
+    margin: 0;
+
+    figcaption {
+        text-align: center;
+        color: #5c6873;
+    }
+}
 blockquote {
     margin: 0;
     padding: 0.5rem 1rem;

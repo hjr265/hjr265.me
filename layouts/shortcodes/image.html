@@ -1,0 +1,46 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $captionHTML := .Get "captionHTML" -}}
+
+<figure>
+	{{$image := .Page.Resources.Get $src}}
+	<a href="{{$image.RelPermalink}}" target="_blank">
+		<picture>
+			{{$resized := $image}}
+			{{if gt $resized.Width 750}}
+				{{$resized = $image.Resize (printf "%dx" 750)}}
+			{{end}}
+			{{$resized2x := $image}}
+			{{if gt $resized2x.Width (mul 2 750)}}
+				{{$resized2x = $image.Resize (printf "%dx" (mul 2 750))}}
+			{{end}}
+			{{$mobile := $image}}
+			{{if gt $mobile.Width 504}}
+				{{$mobile = $image.Resize (printf "%dx" 504)}}
+			{{end}}
+			{{$mobile2x := $image}}
+			{{if gt $mobile2x.Width (mul 2 504)}}
+				{{$mobile2x = $image.Resize (printf "%dx" (mul 2 504))}}
+			{{end}}
+			{{if eq $image.MediaType.Type "image/jpeg"}}
+				{{$resizedWebp := $resized.Resize (printf "%dx%d webp" $resized.Width $resized.Height)}}
+				{{$resized2xWebp := $resized2x.Resize (printf "%dx%d webp" $resized2x.Width $resized2x.Height)}}
+				{{$mobileWebp := $mobile.Resize (printf "%dx%d webp" $mobile.Width $mobile.Height)}}
+				{{$mobile2xWebp := $mobile2x.Resize (printf "%dx%d webp" $mobile2x.Width $mobile2x.Height)}}
+				<source type="image/webp" media="(max-width: 575.98px)" srcset="{{$mobileWebp.RelPermalink}} 1x, {{$mobile2xWebp.RelPermalink}} 2x">
+				<source type="image/webp" media="(min-width: 576px)" srcset="{{$resizedWebp.RelPermalink}} 1x, {{$resized2xWebp.RelPermalink}} 2x">
+			{{end}}
+			<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$alt}}" loading="lazy" style="max-width: 750px; width: 100%;">
+		</picture>
+	</a>
+	{{if or $captionHTML $caption}}
+		<figcaption>
+			{{- if $captionHTML}}
+				{{$captionHTML | safeHTML}}
+			{{else}}
+				{{$caption}}
+			{{end -}}
+		</figcaption>
+	{{end}}
+</figure> 
