@@ -5,6 +5,7 @@ tags:
   - RaspberryPi
   - PrivateCloud
   - 100DaysToOffload
+toc: yes
 ---
 
 I don't think I take privacy as seriously as people should. It is hard.
@@ -47,7 +48,7 @@ For hard drives I went for an SSD and a mechanical hard drive. I am using these 
 
 The other hard drive is connected below the PCB.
 
-## Cooling
+## Power and Cooling
 
 The same manufacturer makes another expansion board that provides a cooling fan for the Pi, takes care of power management, and provides an option for adding a power switch: Power Management Board X735 V2.5.
 
@@ -69,13 +70,13 @@ The Raspberry Pi goes on top of the hard drive expansion board. And the power ma
 
 Unfortunately, I couldn't find a case that fits well with this setup. I suppose I have a real reason to use my _benchy-printer_.
 
-## Network
+## Network and Internet
 
 I connect this Raspberry Pi to my home network using ethernet. But I do not expose anything on this Pi over the Internet.
 
 For that, I have a home VPN. When I connect to my home VPN, I can securely access all my private cloud services, even over the Internet.
 
-## Coming Next
+## What's Next?
 
 I will have to cover the operating system setup, how I got RAID 1 working, and the software on this Raspberry Pi through future blog posts.
 
