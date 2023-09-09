@@ -15,7 +15,8 @@ If your application uses one of those silhouette images as a fallback avatar, th
 
 Using letter avatars is one way of providing diverse fallback avatars.
 
-![](letters.png)
+{{< image src="letters.png" alt="Leter avatars" >}}
+
 
 You usually use the first letter of the username or the two-letter initials of a user's full name to generate the avatar. To add some flair, you pick a colour from the predefined palette based on the hash of some user data that is unlikely to change.
 
