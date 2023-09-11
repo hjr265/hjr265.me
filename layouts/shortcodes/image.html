@@ -31,7 +31,7 @@
 				<source type="image/webp" media="(max-width: 575.98px)" srcset="{{$mobileWebp.RelPermalink}} 1x, {{$mobile2xWebp.RelPermalink}} 2x">
 				<source type="image/webp" media="(min-width: 576px)" srcset="{{$resizedWebp.RelPermalink}} 1x, {{$resized2xWebp.RelPermalink}} 2x">
 			{{end}}
-			<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$alt}}" loading="lazy" style="max-width: 750px; width: 100%;">
+			<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$alt}}" loading="lazy">
 		</picture>
 	</a>
 	{{if or $captionHTML $caption}}

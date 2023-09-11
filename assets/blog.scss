@@ -54,6 +54,11 @@ figure {
         text-align: center;
         color: #5c6873;
     }
+
+    picture img {
+        width: 100%;
+        max-width: 750px;
+    }
 }
 blockquote {
     margin: 0;
