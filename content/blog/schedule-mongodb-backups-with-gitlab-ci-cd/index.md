@@ -59,4 +59,4 @@ RUN apt-get update && \
 
 And that's it. You now just need to set up a schedule for this pipeline from the GitLab web interface.
 
-![](screen.png)
+{{< image src="screen.png" alt="Screenshot of Edit Pipeline Schedule page from GitLab" caption="Screenshot of Edit Pipeline Schedule page from GitLab" >}}
