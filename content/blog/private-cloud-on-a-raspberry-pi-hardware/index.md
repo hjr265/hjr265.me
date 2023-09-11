@@ -44,7 +44,7 @@ And best of all, the board has a socket for a barrel jack for 5V in. It can powe
 
 For hard drives I went for an SSD and a mechanical hard drive. I am using these two drives in RAID 1 (mirroring). By mixing the two types of hard drives, I wanted to get the benefits of both types.
 
-{{< image src="x883-hdd.jpg" alt="2.5\" SATA HDD Shield with Hard Drive" caption="2.5\" SATA HDD Shield X883 with Hard Drive" >}}
+{{< image src="x883-hdd.jpg" alt="2.5\" SATA HDD Shield with Hard Drives" caption="2.5\" SATA HDD Shield X883 with Hard Drives" >}}
 
 The other hard drive is connected below the PCB.
 
