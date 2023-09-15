@@ -1,6 +1,7 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" -}}
 {{- $caption := .Get "caption" -}}
+{{- $captionMD := .Get "captionMD" -}}
 {{- $captionHTML := .Get "captionHTML" -}}
 
 <figure>
@@ -34,10 +35,12 @@
 			<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$alt}}" loading="lazy">
 		</picture>
 	</a>
-	{{if or $captionHTML $caption}}
+	{{if or $captionHTML $captionMD $caption}}
 		<figcaption>
 			{{- if $captionHTML}}
 				{{$captionHTML | safeHTML}}
+			{{else if $captionMD}}
+				{{$captionMD | markdownify}}
 			{{else}}
 				{{$caption}}
 			{{end -}}
