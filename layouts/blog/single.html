@@ -58,6 +58,9 @@
 							margin: 0.25rem 0;
 						}
 						#TableOfContents ul ul {
+							{{if .Params.toch2only}}
+								display: none;
+							{{end}}
 							margin-left: 0.75rem;
 						}
 					</style>
