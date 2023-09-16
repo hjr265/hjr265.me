@@ -54,13 +54,18 @@ html {
     font-size: 16px;
 }
 body {
-    padding: 2em;
+    padding: 1em;
     font-family: 'Rubik', sans-serif;
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.875rem;
     {{$bgpng := resources.Get "crossword.png" | fingerprint}}
     background: url({{$bgpng.RelPermalink}});
+}
+@media (min-width: 1200px) {
+    body {
+        padding: 2em;
+    }
 }
 .page {
     max-width: 750px;
