@@ -57,6 +57,11 @@
 						#TableOfContents ul li {
 							margin: 0.25rem 0;
 						}
+						#TableOfContents ul li:before {
+							content: "›";
+							margin-right: 0.5rem;
+							color: #5c6873;
+						}
 						#TableOfContents ul ul {
 							{{if .Params.toch2only}}
 								display: none;
