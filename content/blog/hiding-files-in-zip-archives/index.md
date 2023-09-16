@@ -10,13 +10,13 @@ toc: yes
 katex: yes
 ---
 
-I remember seeint a tool many years ago that could hide other files in BMP image files. I was a bit too young to understand how it worked, but I think I understand the trick now:
+I remember seeing a tool many years ago that could hide other files in BMP image files. I was a bit too young to understand how it worked, but I think I understand the trick now:
 
 - Understand the structure of the file type at the byte level.
 - Find a spot that can hold an arbitrary length of data.
 - Sneak in whatever you want in there.
 
-This an opportunity to understand the byte structure of a file type. If what you want to do is hide files privately, this isn't exactly very useful.
+This is an opportunity to understand the byte structure of a file type. If what you want to do is hide files privately, this isn't exactly very useful.
 
 In this blog post, we will discuss the original ZIP format. Not the ZIP64 format introduced to work around limitations like the 4 GB limit and more.
 
@@ -135,6 +135,6 @@ The hidden file would start from the end of the uncompressed data region of the 
 
 ## Wrap Up
 
-It is worth repeating: If you want store files privately, this is not what you want to do.
+It is worth repeating: If you want to store files privately, this is not what you want to do.
 
 This blog post only briefly outlines the structure of the ZIP file without making it sound like a specification. And demonstrate an example of how one may hide files in other files by taking advantage of the structure of the container format.
