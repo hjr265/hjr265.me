@@ -16,6 +16,12 @@ I remember seeing a tool many years ago that could hide other files in BMP image
 - Find a spot that can hold an arbitrary length of data.
 - Sneak in whatever you want in there.
 
+{{< box >}}
+As a proof of concept, I used Go to make [Sneak](https://github.com/hjr265/sneak) - a program to add or extract a hidden file in a ZIP archive.
+
+You can find the [source code for it on GitHub](https://github.com/hjr265/sneak).
+{{< /box >}}
+
 This is an opportunity to understand the byte structure of a file type. If what you want to do is hide files privately, this isn't exactly very useful.
 
 In this blog post, we will discuss the original ZIP format. Not the ZIP64 format introduced to work around limitations like the 4 GB limit and more.

@@ -73,3 +73,21 @@ blockquote {
         margin-bottom: 0;
     }
 }
+.box {
+    border: 1px dashed #5c6873;
+    
+    &__body {
+        padding: 0 1.25rem;
+    }
+
+    &:not([open]) {
+        cursor: pointer;
+    }
+
+    &:not([open]) &__body {
+        height: 7rem;
+        overflow-y: hidden;
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.25)));
+        mask-image: gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.25)));
+    }
+}
