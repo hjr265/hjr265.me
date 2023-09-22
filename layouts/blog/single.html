@@ -22,6 +22,15 @@
 		<div class="wide">
 			<div class="main">
 				<article>
+					{{if .Params.toc}}
+						<details class="toc">
+							<summary>Table of Contents</summary>
+							<div>
+								{{.TableOfContents}}
+							</div>
+						</details>
+					{{end}}
+
 					{{.Content}}
 
 					{{if in .Params.tags "100DaysToOffload"}}
@@ -40,35 +49,40 @@
 
 			{{if .Params.toc}}
 				<div class="side">
-					<div class="muted">Table of Contents</div>
-					<div>
-						{{.TableOfContents}}
+					<div class="toc">
+						<div class="muted">Table of Contents</div>
+						<div>
+							{{.TableOfContents}}
+						</div>
+						<style type="text/css">
+							#TableOfContents {
+	/*							font-size: 1rem;*/
+								line-height: 1.75rem;
+							}
+							#TableOfContents ul {
+								list-style: none;
+								margin: 0;
+								padding: 0;
+							}
+							#TableOfContents ul li {
+								margin: 0.25rem 0;
+							}
+							#TableOfContents ul li:before {
+								content: "›";
+								margin-right: 0.5rem;
+								color: #5c6873;
+							}
+							#TableOfContents ul ul li:before {
+								content: "ꞏ";
+							}
+							#TableOfContents ul ul {
+								{{if .Params.toch2only}}
+									display: none;
+								{{end}}
+								margin-left: 0.75rem;
+							}
+						</style>
 					</div>
-					<style type="text/css">
-						#TableOfContents {
-							font-size: 1rem;
-							line-height: 1.75rem;
-						}
-						#TableOfContents ul {
-							list-style: none;
-							margin: 0;
-							padding: 0;
-						}
-						#TableOfContents ul li {
-							margin: 0.25rem 0;
-						}
-						#TableOfContents ul li:before {
-							content: "›";
-							margin-right: 0.5rem;
-							color: #5c6873;
-						}
-						#TableOfContents ul ul {
-							{{if .Params.toch2only}}
-								display: none;
-							{{end}}
-							margin-left: 0.75rem;
-						}
-					</style>
 				</div>
 			{{end}}
 		</div>
