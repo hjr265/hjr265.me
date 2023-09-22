@@ -54,7 +54,7 @@ The function can then be used as follows:
 func handleLogin(r *http.Request, w http.ResponseWriter) {
 	username := r.FormValue("username")
 
-	limited, _ := isRateLimited(context.TODO(), fmt.Sprintf("rateLimit:login:username:%s", username, 5))
+	limited, _ := isRateLimited(context.TODO(), fmt.Sprintf("rateLimit:login:username:%s", username), 5)
 	if limited {
 		http.Error(w, "Too Many Attempts", http.StatusTooManyRequests)
 		return
