@@ -1,0 +1,23 @@
+{{if not (.Page.Scratch.Get "hasBookmarkletStyle")}}
+	{{.Page.Scratch.Set "hasBookmarkletStyle" true}}
+	<style type="text/css">
+		.bookmarklet {
+			text-align: center;
+		}
+		.bookmarklet__anchor {
+			display: inline-flex;
+			gap: 0.5rem;
+			align-items: center;
+			padding: 0.25rem 0.5rem;
+		    border: 1px dashed #5c6873;
+		    border-radius: 0.375rem;
+		}
+	</style>
+{{end}}
+<div class="bookmarklet">
+	<a class="bookmarklet__anchor" {{ printf "href=\"%s\"" (trim .Inner " \n" | htmlEscape) | safeHTMLAttr }} title="Drag and drop me on your bookmark toolbar">
+		{{$bookmarksvg := resources.Get "bookmark.svg" | fingerprint}}
+		<img src="{{$bookmarksvg.RelPermalink}}" alt="" style="width: 1rem;">
+		{{.Get "label"}}
+	</a>
+</div>
