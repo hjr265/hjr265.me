@@ -13,7 +13,7 @@
 							<a href="{{.Permalink}}">{{.Title}}</a>
 						</div>
 						<div class="flair">
-							<span class="flair__item">{{.PublishDate.Format "January 2, 2006"}}</span>
+							<span class="flair__item muted">{{.PublishDate.Format "January 2, 2006"}}</span>
 							{{with .Params.tags}}
 								<span class="flair__item">
 									{{range sort (first 3 .)}}
