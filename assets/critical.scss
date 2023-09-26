@@ -102,11 +102,14 @@ a {
     color: #207cbb;
 }
 a:hover {
-    color: #195e8e;
+    color: darken(#207cbb, 25%);
 }
-a.muted, a.muted:hover {
+a.muted {
     text-decoration: none;
     color: #5c6873;
+}
+a.muted:hover {
+    color: darken(#5c6873, 25%);
 }
 a.subtle, a.subtle:hover {
     text-decoration: none;
