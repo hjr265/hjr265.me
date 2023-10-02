@@ -44,8 +44,8 @@ go install github.com/akavel/rsrc@latest
 And use it to generate `.syso` files
 
 ``` sh
-$GOPATH/bin/rsrc -arch 386 -icon icon.ico
-$GOPATH/bin/rsrc -arch amd64 -icon icon.ico
+$GOPATH/bin/rsrc -arch 386 -ico icon.ico
+$GOPATH/bin/rsrc -arch amd64 -ico icon.ico
 ```
 
 Run this tool multiple times, once for each architecture you are targetting.
