@@ -23,7 +23,7 @@ If you have a PNG file, there are online tools that you can use to convert from 
 
 If you have the ImageMagick tool handy, you can use it like so:
 
-``` sh
+``` sh {linenos=false}
 convert icon_16.png icon_32.png icon_48.png icon_256.png -colors 256 icon.ico
 ```
 
@@ -33,11 +33,11 @@ Try including 16×16, 32×32, 48×48 and 256×256 icons to cover all your bases.
 
 ## Step 2: Generate `.syso` Files
 
-This step requires a special tool: [github.com/akavel/rsrc](https://github.com/akavel/rsrc).
+This step requires a special tool: [github.com/akavel/rsrc](https://github.com/akavel/rsrc)
 
 Install `rsrc`:
 
-``` sh
+``` sh {linenos=false}
 go install github.com/akavel/rsrc@latest
 ```
 
