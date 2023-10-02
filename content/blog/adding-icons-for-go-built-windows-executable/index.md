@@ -5,6 +5,7 @@ tags:
   - Go
   - Tidbit
   - 100DaysToOffload
+toc: yes
 ---
 
 I have been using Windows for video games only for several years now. But that changed a little as I started working on [Printd](https://github.com/FurqanSoftware/toph-printd), Toph's print server daemon.
