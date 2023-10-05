@@ -23,11 +23,12 @@ Here is how you can do it:
     #!/bin/sh
     MATTERMOST_HOST='...'
     MATTERMOST_WEBHOOK_KEY='...'
+    MATTERMOST_CHANNEL='...'
     REMOTE_IP=`echo $SSH_CONNECTION | awk '{print $1}'`
     SERVER_HOSTNAME=`hostname`
     curl -i -X POST \
         -H 'Content-Type: application/json' \
-        -d '{"text": "Someone just logged in to your server '${SERVER_HOSTNAME}' from '${REMOTE_IP}'"}' \
+        -d '{"channel":"'${MATTERMOST_CHANNEL}'","text": "Someone just logged in to your server '${SERVER_HOSTNAME}' from '${REMOTE_IP}'"}' \
         https://${MATTERMOST_HOST}/hooks/${MATTERMOST_WEBHOOK_KEY}
     ```
 
@@ -44,6 +45,11 @@ Here is how you can do it:
         -d '{"channel":"'${SLACK_CHANNEL}'","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"Someone just logged in to your server '${SERVER_HOSTNAME}' from '${REMOTE_IP}'"}}]}' \
         https://slack.com/api/chat.postMessage
     ```
+
+    Related documentations:
+
+    - [Mattermost Webhooks](https://developers.mattermost.com/integrate/webhooks/)
+    - [Posting Slack Messages Using Curl](https://api.slack.com/tutorials/tracks/posting-messages-with-curl)
 
 2. Add the following line to the bottom of `/etc/pam.d/sshd`.
 
