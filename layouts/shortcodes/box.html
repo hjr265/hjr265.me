@@ -1,5 +1,5 @@
 <div class="box" onclick="this.setAttribute('open', '')">
 	<div class="box__body">
-		{{.InnerDeindent | markdownify}}
+		{{.Page.RenderString .InnerDeindent}}
 	</div>
 </div>
