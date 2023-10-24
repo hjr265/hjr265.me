@@ -61,10 +61,10 @@ hjr265.me {
 
 	file_server {
 		fs s3 {
-			bucket BUCKET_NAME
-			region LINODE_REGION
+			bucket hjr265.me
+			region ap-south-1
 
-			endpoint LINODE_REGION.linodeobjects.com
+			endpoint ap-south-1.linodeobjects.com
 			profile PROFILE_NAME
 		}
 		index index.html
@@ -89,11 +89,11 @@ To solve that, I need to add a `handle_errors` directive.
 (s3-file-server) {
 	file_server {
 		fs s3 {
-			bucket BUCKET_NAME
-			region LINODE_REGION
+			bucket hjr265.me
+			region ap-south-1
 
-			endpoint LINODE_REGION.linodeobjects.com
-			profile BUCKET_NAME
+			endpoint ap-south-1.linodeobjects.com
+			profile hjr265.me
 		}
 		index index.html
 	}
