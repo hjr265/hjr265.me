@@ -1,4 +1,4 @@
-<div class="box" onclick="this.setAttribute('open', '')">
+<div class="box" {{if .Get "open"}}open{{else}}onclick="this.setAttribute('open', '')"{{end}}>
 	<div class="box__body">
 		{{.Page.RenderString .InnerDeindent}}
 	</div>
