@@ -17,7 +17,7 @@ Hugo's deployment function uses the [blob package from the Go Cloud Development 
 
 I have been using `s3cmd` to apply the "public-read" ACL for all the objects uploaded by Hugo.
 
-I am using Caddy to serve the website using Linode Object Storage's website endpoint.
+I am using Caddy to serve the website using [Linode](https://www.linode.com/lp/refer/?r=8d4f388136825d3d04a90d3f7b0ce6b29732a835) (referral) Object Storage's website endpoint.
 
 The catch? Unless the objects had a "public-read" ACL set, Caddy would serve 404.
 
