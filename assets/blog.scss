@@ -123,12 +123,7 @@ blockquote {
     }
 }
 @media (min-width: 1200px) {
-    .main .toc {
-        display: none;
-    }
-}
-@media (max-width: 1199px) {
-    .side .toc {
+    .main .toclink {
         display: none;
     }
 }

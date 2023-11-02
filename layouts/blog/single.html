@@ -23,12 +23,7 @@
 			<div class="main">
 				<article>
 					{{if .Params.toc}}
-						<details class="toc">
-							<summary>Table of Contents</summary>
-							<div>
-								{{.TableOfContents}}
-							</div>
-						</details>
+						<a class="toclink" href="#table-of-contents">Table of Contents</a>
 					{{end}}
 
 					{{.Content}}
@@ -49,7 +44,7 @@
 
 			{{if .Params.toc}}
 				<div class="side">
-					<div class="toc">
+					<div id="table-of-contents" class="toc">
 						<div class="muted">Table of Contents</div>
 						<div>
 							{{.TableOfContents}}
