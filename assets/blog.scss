@@ -3,8 +3,8 @@ ul.posts {
     margin-left: 0;
     padding-left: 0;
 
-    li {
-        margin-bottom: 1.5em;
+    > li + li {
+        margin-top: 1.5em;
     }
 }
 ul.terms {
