@@ -27,6 +27,21 @@ article {
 article h1 {
     line-height: 2.25rem;
 }
+article .hlink {
+    display: none;
+    margin-left: 0.5rem;
+
+    img {
+        width: 0.675em;
+    }
+}
+article h1:hover,
+article h2:hover,
+article h3:hover {
+    .hlink {
+        display: inline-block;
+    }
+}
 article > p > img,
 article > p > a > img {
     display: block;

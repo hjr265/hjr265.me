@@ -1,0 +1,5 @@
+<h{{.Level}} id="{{.Anchor | safeURL}}">
+	{{.Text | safeHTML}}
+	{{$linksvg := resources.Get "link.svg"}}
+	<a class="hlink" href="#{{.Anchor | safeURL}}"><img src="{{$linksvg.RelPermalink}}" alt=""></a>
+</h{{.Level}}>
