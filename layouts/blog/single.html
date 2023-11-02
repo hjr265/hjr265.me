@@ -84,6 +84,41 @@
 		<hr>
 
 		{{ template "_internal/disqus.html" . }}
+
+		{{$related := .Site.RegularPages.Related . | first 2}}
+		{{with $related}}
+			<div>
+				<br>
+				<div class="box" open>
+					<div class="box__body">
+						<div style="font-weight: bold;">Similar Blog Posts</div>
+						{{range .}}
+							<div>
+								<div>
+									<a href="{{.Permalink}}">{{.Title}}</a>
+								</div>
+								<div class="flair">
+									<span class="flair__item muted">{{.PublishDate.Format "January 2, 2006"}}</span>
+									{{with .Params.tags}}
+										<span class="flair__item">
+											{{range sort (first 3 .)}}
+												<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+											{{end}}
+											{{if gt (len .) 3}}
+												<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+											{{end}}
+											{{range sort (after 3 .)}}
+												<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
+											{{end}}
+										</span>
+									{{end}}
+								</div>
+							</div>
+						{{end}}
+					</div>
+				</div>
+			</div>
+		{{end}}
 	</article>
 
 	<script type="application/ld+json">
