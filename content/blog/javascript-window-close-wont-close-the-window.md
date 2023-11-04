@@ -28,4 +28,6 @@ Instead of `href`:
 <a href="/_/contests/{{.Contest.ID}}/participants/credential_slips#intent=print">Print Slips</a>
 ```
 
-Well, at least there was a solution to this. And, `window.open` reminded me of the time when Internal Explorer was a thing and had the largest share in the web browser market. Eek!
+Well, at least there was a solution to this.
+
+And, `window.open` reminded me of the time when Internal Explorer was a thing and had the largest share in the web browser market. Back then, pop-ups were a plague, and you needed pop-up blockers if you wanted to do anything on the Internet other than check your emails. Eek!
