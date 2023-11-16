@@ -28,7 +28,6 @@ import (
 
 func forwardPort(sshClient *ssh.Client, local, remote int) {
   l, _ := net.Listen("tcp", fmt.Sprintf(":%d", local))
-
   for {
     conn, _ := l.Accept()
     go connect(conn, remote)
