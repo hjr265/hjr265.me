@@ -5,8 +5,11 @@ enableRobotsTXT = true
 disqusShortname = "https-hjr265-me"
 
 [params]
-author = "Mahmud Ridwan"
 github = "hjr265"
+
+[params.author]
+name  = "Mahmud Ridwan"
+email = "m@hjr265.me"
 
 [taxonomies]
 tag = "tags"

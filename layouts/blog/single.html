@@ -131,14 +131,14 @@
 			"dateModified": {{.Lastmod}},
 			"author": {
 				"@type": "Person",
-				"name": {{.Site.Params.author}}
+				"name": {{.Site.Params.author.name}}
 			},
 			"mainEntityOfPage": {
 				"@type": "WebPage"
 			},
 			"publisher": {
 				"@type": "Person",
-				"name": {{.Site.Params.author}}
+				"name": {{.Site.Params.author.name}}
 			},
 			"description": {{with .Description}}{{.}}{{else}}{{if .IsPage}}{{.Summary}}{{else}}{{with .Site.Params.description}}{{.}}{{end}}{{end}}{{end}},
 			"keywords": [{{range $i, $e := .Params.tags}}{{if $i}}, {{end}}{{$e}}{{end}}]
