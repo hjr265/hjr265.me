@@ -22,7 +22,6 @@ In Go, you need to do a bit more:
 import (
   "io"
   "net"
-  "sync"
 
   "golang.org/x/crypto/ssh"
 )
