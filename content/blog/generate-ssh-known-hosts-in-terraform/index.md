@@ -13,8 +13,8 @@ Something that I wanted to do with Terraform was to generate an SSH known_hosts 
 ``` tf
 locals {
   ssh_hosts = merge(
-    [for i, v in vultr_instance.servers : { addr = v.main_ip, port = 22 }],
-    [for i, v in linode_instance.servers : { addr = v.ip_address, port = 22 }],
+    [for i, v in vultr_instance.servers : { host = v.main_ip, port = 22 }],
+    [for i, v in linode_instance.servers : { host = v.ip_address, port = 22 }],
     # ...
   )
 }
@@ -24,7 +24,7 @@ resource "null_resource" "known_hosts" {
     command = <<EOT
   rm -f known_hosts;
 %{ for i, host in local.ssh_hosts }
-  ssh-keyscan -p ${host.port} ${host.addr} >> known_hosts;
+  ssh-keyscan -p ${host.port} ${host.host} >> known_hosts;
 %{ endfor ~}
 EOT
     interpreter = ["/bin/bash", "-c"]
@@ -34,10 +34,10 @@ EOT
 
 All you need to do is put all your SSH hostnames/addresses and ports in a local variable. And, then use a `local-exec` provisioner in a `null_resource` to run `ssh-keyscan` for each host, appending the output to a "known_hosts" file.
 
-Note that our local `ssh_hosts` variable is a list of objects. Each object has the key `addr` and `port`. We use these values as a part of our `ssh-keyscan` command:
+Note that our local `ssh_hosts` variable is a list of objects. Each object has the key `host` and `port`. We use these values as a part of our `ssh-keyscan` command:
 
 ``` txt {linenos=false}
-ssh-keyscan -p ${host.port} ${host.addr} >> known_hosts;
+ssh-keyscan -p ${host.port} ${host.host} >> known_hosts;
 ```
 
 We loop over all the hosts and run this command once for each host.
