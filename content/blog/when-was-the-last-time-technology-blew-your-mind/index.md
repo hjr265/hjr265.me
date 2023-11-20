@@ -60,7 +60,7 @@ Although it is not the product that caught my attention, it was the technology: 
 
 So much so that for GopherGala 2016 (a Go programming language hackathon), I built [Papyrus](github.com/FurqanSoftware/papyrus). It is a real-time collaborative Markdown editor.
 
-I enjoyed the hackathon. But I enjoyed learning about operational transformation, reading [whitepapers on the topic](https://svn.apache.org/repos/asf/incubator/wave/whitepapers/operational-transform/operational-transform.html) and all.
+I enjoyed learning about operational transformation, reading [whitepapers on the topic](https://svn.apache.org/repos/asf/incubator/wave/whitepapers/operational-transform/operational-transform.html) and all.
 
 Too bad Google Wave had to die to make room for, I don't know what. It was a Google product. It was as mortal as any other Google product, I suppose.
 
