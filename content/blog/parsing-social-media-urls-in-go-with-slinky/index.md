@@ -54,7 +54,7 @@ Right now, it supports URLs from the following social media platforms:
 "www.youtube.com"
 ```
 
-When you pass a URL like "https://github.com/hjr265" to `slinky.Parse`, Slinky will parse the URL into this:
+When you pass a URL like "[https://github.com/hjr265](https://github.com/hjr265)" to `slinky.Parse`, Slinky will parse the URL into this:
 
 ``` go
 &URL{
