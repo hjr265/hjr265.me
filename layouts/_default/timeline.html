@@ -20,6 +20,9 @@
 						{{with .Params.detail}}
 							<span class="flair__item">{{.}}</span>
 						{{end}}
+						{{range .Params.flairs}}
+							<span class="flair__item"><a class="muted" href="{{.link}}">{{.text}}</a></span>
+						{{end}}
 					</div>
 				</div>
 			</div>
