@@ -25,7 +25,7 @@ deploy:production:
   stage: production
   environment:
     name: production
-    url: https://furqansoftware.com/
+    url: https://hjr265.me/
   only:
     - tags
   dependencies:
