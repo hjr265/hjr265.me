@@ -1,0 +1,46 @@
+stages:
+  - build
+  - production
+
+build:
+  image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
+  stage: build
+  script:
+    - npm install --also=dev --cache .npm --prefer-offline
+    - hugo --minify
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - public/
+  cache:
+    key: npm
+    paths:
+      - ".npm"
+  tags:
+    - shared
+    - hugo
+    - protected
+
+deploy:production:
+  image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
+  stage: production
+  environment:
+    name: production
+    url: https://furqansoftware.com/
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - hugo deploy
+  variables:
+    AWS_ACCESS_KEY_ID: "$PRODUCTION_AWS_ACCESS_KEY_ID"
+    AWS_SECRET_ACCESS_KEY: "$PRODUCTION_AWS_SECRET_ACCESS_KEY"
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - public/
+  tags:
+    - shared
+    - hugo
+    - protected
