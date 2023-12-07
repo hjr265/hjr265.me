@@ -6,7 +6,6 @@ build:
   image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
   stage: build
   script:
-    - npm install --also=dev --cache .npm --prefer-offline
     - hugo --minify
   artifacts:
     expire_in: 1 day
