@@ -15,10 +15,6 @@ build:
     key: npm
     paths:
       - ".npm"
-  tags:
-    - shared
-    - hugo
-    - protected
 
 deploy:production:
   image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
@@ -39,7 +35,3 @@ deploy:production:
     expire_in: 1 day
     paths:
       - public/
-  tags:
-    - shared
-    - hugo
-    - protected
