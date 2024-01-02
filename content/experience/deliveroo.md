@@ -2,7 +2,7 @@
 title: Integration Developer
 order: 202209
 period: Jul ‘21 - Sep ‘22
-company: Deliveroo (as Toptal Freelancer)
+company: Deliveroo
 website: https://deliveroo.co.uk
 duties:
   - Designed and implemented state machine-based data pipelines.
@@ -15,4 +15,5 @@ stack:
   - Redis
   - AWS (Lambda, S3, Step Functions)
   - Terraform
+agency: Toptal
 ---

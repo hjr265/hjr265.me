@@ -8,12 +8,19 @@
 		{{$website := .Params.website}}
 
 		<article id="{{printf "%s %s" .Title .Params.company | urlize}}">
-			<h2>{{.Title}} <small>({{.Params.period}})</small></h2>
+			<h2>
+				{{.Title}}
+				<span class="muted">@</span>
+				<a href="{{.Params.website}}" target="_blank">{{.Params.company}}</a>
+			</h2>
 			
 			<div class="flair">
-				<span class="flair__item">{{.Params.company}}</span>
-				{{with .Params.website}}
-					<a class="flair__item" href="{{.}}" target="_blank">{{partial "prettyurl" .}}</a>
+				<span class="flair__item muted">{{.Params.period}}</span>
+				{{with .Params.agency}}
+					{{if eq . ""}}
+					{{else if eq . "Toptal"}}
+						<a class="flair__item muted" href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" target="_blank">Toptal Engagement</a>
+					{{end}}
 				{{end}}
 			</div>
 
