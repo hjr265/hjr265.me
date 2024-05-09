@@ -13,10 +13,10 @@ When a user clicks the Print button, open a new tab/window and activate the prin
 
 ## Attempt 1: Call `window.close()` Immediately After `window.print()`
 
-I linked the Print button to a separate page. I used `target="_blank"` on the link so the page opens in a new tab/window.
+I used the `onclick` attribute on the Print button to open the page to be printed on a new tab/window.
 
 ``` html
-<a href="..." target="_blank">Print</a>
+<a href="javascript:;" onclick="window.open(...)">Print</a>
 ```
 
 And on that other page I tucked away a `<script>` element right before closing the `<body>`:
