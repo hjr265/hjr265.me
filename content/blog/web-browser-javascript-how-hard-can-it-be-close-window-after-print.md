@@ -68,6 +68,6 @@ I don't know why I tried this. It is like my brain is used to this idea that if 
 </script>
 ```
 
-And yes, doing this did the trick. It now works on Google Chrome and the web browser _funded_ by Google.
+And yes, doing this did the trick. It now works on Google Chrome and the other web browser _funded_ by Google.
 
 Any other important web browser I am missing?
