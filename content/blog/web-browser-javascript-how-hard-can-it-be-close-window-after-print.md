@@ -7,7 +7,7 @@ tags:
   - HowHardCanItBe
 ---
 
-So here is a _simple_ JavaScript task I had to tackle for [Toph]:
+So here is a _simple_ JavaScript task I had to tackle for [Toph](https://toph.co):
 
 When a user clicks the Print button, open a new tab/window and activate the print dialog. Close the window when the user confirms the print or cancels the dialog.
 
