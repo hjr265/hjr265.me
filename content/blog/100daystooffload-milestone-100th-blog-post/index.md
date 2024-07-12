@@ -49,7 +49,7 @@ While working through the challenge, I realized once again that being consistent
 
 {{< image src="activity.png" alt="Visualization of my 100DaysToOffload blog posts cadence" captionMD="Visualization of my [100DaysToOffload](/tags/100daystooffload/) blog posts cadence" >}}
 
-Although I wasn't consistent during the whole year, I suppose, in this case, all's well that ends.
+Although I wasn't consistent during the whole year, I suppose, in this case, all's well that ends well.
 
 ## No Matter How Small
 
