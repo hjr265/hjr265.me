@@ -9,7 +9,7 @@ toc: yes
 
 It was the second week of August 2024. We realized that the television in our family space had suddenly stopped working. It would start, flash blue for a moment, and restart.
 
-If we left it running for a while, the boot logo would appear with parts of the panel garbled. 
+If we left it running for a while, the boot logo would appear with parts of the panel garbled.
 
 This was no cheap, no-name, no-brand "smart" TV—at least that is what the salesperson told us when we bought it. It was a well-known brand.
 
@@ -23,7 +23,7 @@ When you live in a country lacking human rights, customer rights are a luxury.
 
 ## Warranty Card
 
-We tried a few "turn it off and on" troubleshooting techniques before reaching for the warranty card. It had a customer support telephone number on it.
+We reached for the warranty card after we tried a few "turn it off and on" troubleshooting techniques. It had a customer support telephone number on it.
 
 The telephone number belonged to the organization that ran the outlet from where we had bought the TV.
 
@@ -101,13 +101,13 @@ And, that's exactly what I reminded Famfung's email support team in my first ema
 
 > I am writing to inform you and document that I have been struggling to get a warranty service for that TV for almost a month.
 
-I wrote in some detail of my entire experience so far and requested that they either replace the failed TV or refund the money.
+I wrote in some detail about my entire experience so far and requested that they either replace the failed TV or refund the money.
 
 They responded with some assurances:
 
 - Famfung is always determined and dedicated to achieving satisfaction from its consumers
 - I am one of their valuable clients
-- They deeply regretted the challenges I am facing
+- They deeply regretted the challenges I was facing
 - They have escalated my complaint to our concerned service centre
 - They hoped that the relevant department would take the necessary steps to complete the repair service as soon as possible
 
@@ -123,7 +123,7 @@ Every time I would write an email to them, I would get similar assurances, but n
 
 After waiting for a week for them to get back, I emailed them. This time I suggested a deadline for my first option (replacing the TV):
 
-> Can you replace my TV within this week (before the end of the day Thursday, September 12, 2024)?
+> Can you replace my TV within this week (before the end of the day on Thursday, September 12, 2024)?
 > 
 > If not, I request that you refund the money I had paid for this terrible [Famfung] product.
 
@@ -153,7 +153,7 @@ I pick up the phone. Yes. It is Famfung!
 
 Despite my excitement, I do not forget to ask the caller for permission to record the call and start recording it.
 
-The caller, with all due respect, is not as eloquent as the call centre representatives. He admits some of the strangest things during the phone call. I have no idea how Famfung expects to be on the clear, legally speaking, with these details shared with the customer:
+The caller, with all due respect, is not as eloquent as the call centre representatives. He admits some of the strangest things during the phone call. I have no idea how Famfung expects to be in the clear, legally speaking, with these details shared with the customer:
 
 - They do not have an ETA for when the TV can be repaired
 - They are usually very busy and suggest the customer not expect them to be reachable over the phone
@@ -199,7 +199,7 @@ I called that service centre person back and told him about it. He suggested tha
 
 I suggest to him that he can refund me the money for the TV, and I can go to that same store where it is giving me the lowest price.
 
-He says that refunding is not an option. I reminded him that a refund would be the only option since he was unable to repair the TV and replace it with the same model.
+He says that refunding is not an option. I reminded him that a refund would be the only option since Famfung was unable to repair the TV and replace it with the same model.
 
 He said that he would get back to me and ended the call.
 
@@ -235,4 +235,4 @@ So what had helped with this whole third-world customer support adventure?
 
 **Persevere:** Don't give up.
 
-And, I want to remind you that these customer harrasment practices are not unique to Famfung. 
+And, I want to remind you that these customer harassment practices are not unique to Famfung. 
