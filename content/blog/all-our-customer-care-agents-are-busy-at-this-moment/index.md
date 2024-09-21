@@ -75,7 +75,7 @@ Every time I called Famfung's call centre and a representative would pick up the
 
 I explained the whole ordeal to the first person I spoke to and asked him for help.
 
-At one point, I took the opportunity to tell him that "bhokta hishabe amar tto kichhu odhikar acche" in an inquisitive tone. The line translates to "I do have some rights as a customer, don't I?" where I could have used the word "customer" instead of "bhokta". But, I intended to use the words "bhokta odhikar" in the same sentence to remind them of the government agency in Bangladesh of the same name relevant to ensuring customer rights.
+At one point, I took the opportunity to tell him that "bhokta hishabe amar tto kichhu odhikar acche" in an inquisitive tone. The line translates to "I do have some rights as a customer, don't I?" where I could have used the word "customer" instead of "bhokta". But, I intended to use the words "bhokta odhikar" in the same sentence to remind them of the government agency of the same name relevant to ensuring customer rights.
 
 This would not have helped if it was before August 5, 2024. But that would be a different topic to write about someday in sha Allah.
 
