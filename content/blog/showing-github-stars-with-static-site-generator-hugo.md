@@ -32,7 +32,7 @@ Implementing them both is pretty straightforward.
 First, implement a partial template like so:
 
 ``` html
-{{with getJSON "https://api.github.com/repos/" .}}
+{{with resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
   {{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
   <img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.stargazers_count}}
 {{end}}

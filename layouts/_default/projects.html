@@ -10,7 +10,7 @@
 		{{$downloads := 0}}
 
 		{{with .Params.github}}
-			{{$githubData := getJSON "https://api.github.com/repos/" .}}
+			{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
 			{{$website = . | printf "https://github.com/%s"}}
 			{{with $githubData}}
 				{{$stars = .stargazers_count}}
@@ -18,7 +18,7 @@
 		{{end}}
 
 		{{with .Params.npm}}
-			{{$npmData := getJSON "https://api.npmjs.org/versions/" . "/last-week"}}
+			{{$npmData := resources.GetRemote (printf "https://api.npmjs.org/versions/%s/last-week" .) | transform.Unmarshal}}
 			{{with $npmData}}
 				{{range .downloads}}
 					{{$downloads = add $downloads .}}
@@ -28,7 +28,7 @@
 
 		<article>
 			<h2>{{.Title}}</h2>
-			
+
 			{{if or $website $stars $downloads .Params.flairs .Params.company}}
 				<div class="flair">
 					<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
