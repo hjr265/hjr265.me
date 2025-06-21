@@ -2,7 +2,7 @@
 title: Lead Editor for Engineering Blog
 order: 202105
 period: Jan ‘15 - May ‘21
-company: Toptal LLC
+company: Toptal
 website: https://www.toptal.com
 posts:
   - title: "Separation Anxiety: A Tutorial for Isolating Your System with Linux Namespaces"
