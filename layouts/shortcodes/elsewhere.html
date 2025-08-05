@@ -1,0 +1,17 @@
+{{$site := .Get "site"}}
+{{if not $site}}
+	{{with urls.Parse (.Get "href")}}
+		{{$site = .Hostname}}
+		{{$site = strings.TrimPrefix "www." $site}}
+	{{end}}
+{{end}}
+{{$path := .Get "path"}}
+{{if not $path}}
+	{{with urls.Parse (.Get "href")}}
+		{{$path = .Path}}
+		{{$path = strings.TrimSuffix "/" $path}}
+	{{end}}
+{{end}}
+<a {{with .Get "rel"}}rel="{{.}}"{{end}} href="{{.Get "href"}}"
+	>{{$site}}<small class="muted">{{$path}}</small></a
+>

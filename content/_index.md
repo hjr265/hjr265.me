@@ -15,12 +15,12 @@ I like <dfn title="as in freedom">free</dfn> software, and [I enjoy making them]
 
 Elsewhere:
 
-- <a rel="me" href="https://fosstodon.org/@hjr265"><b>fosstodon.org</b>/@hjr265</a>
-- <a rel="me" href="https://floss.social/@hjr265"><b>floss.social</b>/@hjr265</a>
-- [**github.com**/hjr265](https://github.com/hjr265)
-- [**linkedin.com**/in/hjr265](https://www.linkedin.com/in/hjr265/)
-- [**steamcommunity.com**/id/hjr265](https://steamcommunity.com/id/hjr265/)
-- [**toph.co**/u/hjr265](https://toph.co/u/hjr265)
-- [**toptal.com**/resume/mahmud-ridwan](https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent) (referral)
-- [**twitter.com**/hjr265](https://twitter.com/hjr265)
-- [**upwork.com**/.../users/~01551cbdc32d9260be](https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/)
+- {{< elsewhere href="https://fosstodon.org/@hjr265" rel="me" >}}
+- {{< elsewhere href="https://floss.social/@hjr265" rel="me" >}}
+- {{< elsewhere href="https://github.com/hjr265" >}}
+- {{< elsewhere href="https://www.linkedin.com/in/hjr265/" >}}
+- {{< elsewhere href="https://steamcommunity.com/id/hjr265/" >}}
+- {{< elsewhere href="https://toph.co/u/hjr265" >}}
+- {{< elsewhere href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" path="/resume/mahmud-ridwan" >}} <small class="muted">(referral)</small>
+- {{< elsewhere href="https://twitter.com/hjr265" >}}
+- {{< elsewhere href="https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/" path="/.../users/~01551cbdc32d9260be" >}}
