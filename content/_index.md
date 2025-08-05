@@ -5,13 +5,15 @@ images: [/avatar.png]
 date: 2023-09-07T10:50:00+06:00
 ---
 
-Hi, I am Mahmud Ridwan. I am a software engineer, based in Dhaka, Bangladesh.
+Hi, I’m Mahmud Ridwan, a software engineer based in Dhaka, Bangladesh.
 
-I started [my career](/experience/) in the industry as a remote freelance software developer in 2010. I completed my B. Sc. in Computer Science at the end of 2012. During my years in academia, I fell in love with competitive programming.
+I began [my career](/experience/) in 2010 as a software developer. I earned my B.Sc. in Computer Science in late 2012, during which I developed a passion for competitive programming.
 
-In 2015, I started [Furqan Software](https://furqansoftware.com/) and turned my pet project into [Toph](https://toph.co/). Today, Toph is the leading competitive programming platform in Bangladesh.
+In 2015, I founded [Furqan Software](https://furqansoftware.com/) and transformed my pet project into [Toph](https://toph.co/), which has since become the leading competitive programming platform in Bangladesh.
 
-I like <dfn title="as in freedom">free</dfn> software, and [I enjoy making them](/open-source/).
+Additionally, I work through networks like Toptal as a freelance software engineer, allowing me to collaborate on diverse projects.
+
+I have a strong affinity for <dfn title="as in freedom">free</dfn> software and take great pleasure in creating [open-source software](/open-source/).
 
 Elsewhere:
 
