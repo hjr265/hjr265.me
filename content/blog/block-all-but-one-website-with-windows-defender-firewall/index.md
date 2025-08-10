@@ -3,7 +3,7 @@ title: Block All But One Website With Windows Defender Firewall
 date: 2022-12-11T00:15:00+06:00
 tags:
   - Windows
-  - Network
+  - Networking
   - 100DaysToOffload
   - WindowsDefender
   - WindowsFirewall
