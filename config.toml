@@ -9,7 +9,7 @@ github = "hjr265"
 goatCounterHost = "goatcounter.hjr265.me"
 
 [params.author]
-name  = "Mahmud Ridwan"
+name = "Mahmud Ridwan"
 email = "m@hjr265.me"
 
 [taxonomies]
