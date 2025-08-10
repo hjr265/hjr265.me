@@ -6,6 +6,7 @@ disqusShortname = "https-hjr265-me"
 
 [params]
 github = "hjr265"
+goatCounterHost = "goatcounter.hjr265.me"
 
 [params.author]
 name  = "Mahmud Ridwan"

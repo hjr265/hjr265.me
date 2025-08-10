@@ -1,1 +1,3 @@
-<script src="//goatcounter.hjr265.me/count.js" async data-goatcounter="https://goatcounter.hjr265.me/count"></script>
+{{with .Site.Params.goatCounterHost}}
+	<script src="//{{.}}/count.js" async data-goatcounter="https://{{.}}/count"></script>
+{{end}}
