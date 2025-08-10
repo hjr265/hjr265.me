@@ -1,0 +1,164 @@
+{{define "head:append"}}
+	{{template "_internal/schema.html" .}}
+{{end}}
+
+{{define "content"}}
+	<article>
+		<div><a href="/">hjr265.me</a> / <a href="/notes/">notes</a> /</div>
+		<header class="-leaf">
+			<h1>{{.Title}}</h1>
+			<p class="muted">{{.Params.subtitle}}</p>
+			<div class="flair">
+				{{with .Params.tags}}
+					<span class="flair__item">
+						{{range sort .}}
+							<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+						{{end}}
+					</span>
+				{{end}}
+			</div>
+		</header>
+
+		<div class="wide">
+			<div class="main">
+				<article>
+					{{if .Params.toc}}
+						<a class="toclink" href="#table-of-contents">Table of Contents</a>
+					{{end}}
+
+					{{.Content}}
+
+					{{if in .Params.tags "100DaysToOffload"}}
+						{{$nth := 0}}
+						{{$pages := where .Site.Pages "Params.tags" "intersect" (slice "100DaysToOffload")}}
+						{{range $i, $_ := $pages}}
+							{{if eq .Permalink $.Permalink}}
+								{{$nth = sub (len $pages) $i}}
+							{{end}}
+						{{end}}
+						<br>
+						<p><em>This post is {{$nth | humanize}} of my <a href="/tags/100daystooffload/">#100DaysToOffload</a> challenge. Want to get involved? Find out more at <a href="https://100daystooffload.com/" target="_blank" rel="noreferrer noopener">100daystooffload.com</a>.</em></p>
+					{{end}}
+				</article>
+			</div>
+
+			{{if .Params.toc}}
+				<div class="side">
+					<div id="table-of-contents" class="toc">
+						<div class="muted">Table of Contents</div>
+						<div>
+							{{.TableOfContents}}
+						</div>
+						<style type="text/css">
+							#TableOfContents {
+								line-height: 1.75rem;
+							}
+							#TableOfContents ul {
+								list-style: none;
+								margin: 0;
+								padding: 0;
+							}
+							#TableOfContents ul li {
+								margin: 0.25rem 0;
+							}
+							#TableOfContents ul li:before {
+								content: "›";
+								margin-right: 0.5rem;
+								color: #5c6873;
+							}
+							#TableOfContents ul ul li:before {
+								content: "ꞏ";
+							}
+							#TableOfContents ul ul {
+								{{if .Params.toch2only}}
+									display: none;
+								{{end}}
+								margin-left: 0.75rem;
+							}
+						</style>
+					</div>
+				</div>
+			{{end}}
+		</div>
+
+		<hr>
+
+		{{$related := .Site.RegularPages.Related . | first 2}}
+		{{with $related}}
+			<div>
+				<br>
+				<div class="box" open>
+					<div class="box__body">
+						<div style="font-weight: bold;">Related Blog Posts</div>
+						{{range .}}
+							<div>
+								<div>
+									<a href="{{.Permalink}}">{{.Title}}</a>
+								</div>
+								<div class="flair">
+									<span class="flair__item muted">{{.PublishDate.Format "January 2, 2006"}}</span>
+									{{with .Params.tags}}
+										<span class="flair__item">
+											{{range sort (first 3 .)}}
+												<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+											{{end}}
+											{{if gt (len .) 3}}
+												<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+											{{end}}
+											{{range sort (after 3 .)}}
+												<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
+											{{end}}
+										</span>
+									{{end}}
+								</div>
+							</div>
+						{{end}}
+					</div>
+				</div>
+			</div>
+		{{end}}
+	</article>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": {{.Title}},
+			"image": {{.Params.featuredImage | absURL}},
+			"datePublished": {{.PublishDate}},
+			"dateModified": {{.Lastmod}},
+			"author": {
+				"@type": "Person",
+				"name": {{.Site.Params.author.name}}
+			},
+			"mainEntityOfPage": {
+				"@type": "WebPage"
+			},
+			"publisher": {
+				"@type": "Person",
+				"name": {{.Site.Params.author.name}}
+			},
+			"description": {{with .Description}}{{.}}{{else}}{{if .IsPage}}{{.Summary}}{{else}}{{with .Site.Params.description}}{{.}}{{end}}{{end}}{{end}},
+			"keywords": [{{range $i, $e := .Params.tags}}{{if $i}}, {{end}}{{$e}}{{end}}]
+		}
+	</script>
+{{end}}
+
+{{define "styles"}}
+	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+	{{if .Params.katex}}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.css">
+	{{end}}
+{{end}}
+
+{{define "scripts"}}
+	{{if .Params.katex}}
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.js"></script>
+		<script type="text/javascript">
+			document.querySelectorAll('.math.-block').forEach(function(el) {
+				katex.render(el.textContent, el)
+			})
+		</script>
+	{{end}}
+{{end}}

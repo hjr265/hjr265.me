@@ -6,39 +6,31 @@
 
 	<div class="wide">
 		<div class="main">
-			<div>
-				<div class="flair">
-					<span class="flair__item muted">Showing {{len .Pages}} of {{len (where .Site.RegularPages "Section" "blog")}} posts from <a href="/blog/">Blog</a></span>
-				</div>
-			</div>
-
-			<ul class="posts">
-				{{range .Pages.ByWeight}}
-					<li>
-						<div>
-							<a href="{{.Permalink}}">{{.Title}}</a>
-						</div>
-						<div class="flair">
-							<span class="flair__item">{{.PublishDate.Format "January 2, 2006"}}</span>
-							{{with complement (slice $.Data.Term) (.Params.tags)}}
-								<span class="flair__item">
-									{{range sort (first 3 .)}}
-										<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
-									{{end}}
-									{{if gt (len .) 3}}
-										<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
-									{{end}}
-									{{range sort (after 3 .)}}
-										<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
-									{{end}}
-								</span>
-							{{end}}
-						</div>
-					</li>
+			{{$sections := slice
+				(dict
+					"Section" "blog"
+					"SectionLabel" "Blog"
+					"EntryName" "posts"
+					"AllText" "Show All Blog Posts"
+					"AllHref" "/blog/"
+				)
+				(dict
+					"Section" "notes"
+					"SectionLabel" "Notes"
+					"EntryName" "notes"
+					"AllText" "Show All Notes"
+					"AllHref" "/notes"
+				)
+			}}
+			{{$first := true}}
+			{{range $sections}}
+				{{if eq (len (where $.Pages "Section" .Section)) 0}}
+					{{continue}}
 				{{end}}
-			</ul>
-
-			<a href="/blog/">Show All Posts</a>
+				<div style="margin-bottom: 3.75rem;">
+					{{template "section" (collections.Merge (dict "Pages" $.Pages "Site" $.Site) .)}}
+				</div>
+			{{end}}
 		</div>
 	</div>
 {{end}}
@@ -46,4 +38,51 @@
 {{define "styles"}}
 	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
 	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+{{end}}
+
+{{define "section"}}
+	<h2>{{.SectionLabel}}</h2>
+
+	<div>
+		<div class="flair">
+			<span class="flair__item muted">Showing {{len (where .Pages "Section" .Section)}} of {{len (where .Site.RegularPages "Section" .Section)}} {{.EntryName}} from <a href="/blog/">{{.SectionLabel}}</a></span>
+		</div>
+	</div>
+
+	<ul class="posts">
+		{{range where .Pages "Section" .Section}}
+			{{template "post" .}}
+		{{end}}
+	</ul>
+
+	<a href="{{.AllHref}}">{{.AllText}}</a>
+{{end}}
+
+{{define "post"}}
+	<li>
+		<div>
+			<a href="{{.Permalink}}">{{.Title}}</a>
+		</div>
+		{{if eq .Section "notes"}}
+			<div class="muted">{{.Params.subtitle}}</div>
+		{{end}}
+		<div class="flair">
+			{{if ne .Section "notes"}}
+				<span class="flair__item muted">{{.PublishDate.Format "January 2, 2006"}}</span>
+			{{end}}
+			{{with complement (slice $.Data.Term) (.Params.tags)}}
+				<span class="flair__item">
+					{{range sort (first 3 .)}}
+						<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+					{{end}}
+					{{if gt (len .) 3}}
+						<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+					{{end}}
+					{{range sort (after 3 .)}}
+						<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
+					{{end}}
+				</span>
+			{{end}}
+		</div>
+	</li>
 {{end}}

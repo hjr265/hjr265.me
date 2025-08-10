@@ -1,0 +1,52 @@
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / Notes</h1>
+	</header>
+	{{partial "nav.html" .}}
+
+	<div class="wide">
+		<div class="main">
+			<ul class="posts">
+				{{range .Pages.ByTitle}}
+					<li>
+						<div>
+							<a href="{{.Permalink}}">{{.Title}}</a>
+						</div>
+						<div class="muted">{{.Params.subtitle}}</div>
+						<div class="flair">
+							{{with .Params.tags}}
+								<span class="flair__item">
+									{{range sort (first 3 .)}}
+										<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
+									{{end}}
+									{{if gt (len .) 3}}
+										<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+									{{end}}
+									{{range sort (after 3 .)}}
+										<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>
+									{{end}}
+								</span>
+							{{end}}
+						</div>
+					</li>
+				{{end}}
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		document.querySelectorAll('.flair__more').forEach(function(el) {
+			el.addEventListener('click', function() {
+				el.parentNode.querySelectorAll('a').forEach(function(item) {
+					item.style.display = 'inline'
+				})
+				el.style.display = 'none'
+			})
+		});
+	</script>
+{{end}}
+
+{{define "styles"}}
+	{{$blogcss := resources.Get "blog.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$blogcss.RelPermalink}}">
+{{end}}
