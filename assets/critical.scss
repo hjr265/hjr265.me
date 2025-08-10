@@ -1,39 +1,71 @@
 @font-face {
-    font-family: 'Rubik';
-    src: url('/rubik-regular-webfont.woff2') format('woff2'),
-        url('/rubik-regular-webfont.woff') format('woff');
+    font-family: 'Space Grotesk';
+    src: url('/SpaceGrotesk-Regular.woff2') format('woff2'),
+        url('/SpaceGrotesk-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Rubik';
-    src: url('/rubik-italic-webfont.woff2') format('woff2'),
-        url('/rubik-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
+    font-family: 'Space Grotesk';
+    src: url('/SpaceGrotesk-Medium.woff2') format('woff2'),
+        url('/SpaceGrotesk-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Rubik';
-    src: url('/rubik-medium-webfont.woff2') format('woff2'),
-        url('/rubik-medium-webfont.woff') format('woff');
+    font-family: 'Space Grotesk';
+    src: url('/SpaceGrotesk-Light.woff2') format('woff2'),
+        url('/SpaceGrotesk-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/SpaceGrotesk-Bold.woff2') format('woff2'),
+        url('/SpaceGrotesk-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Rubik';
-    src: url('/rubik-mediumitalic-webfont.woff2') format('woff2'),
-        url('/rubik-mediumitalic-webfont.woff') format('woff');
+    font-family: 'Space Grotesk';
+    src: url('/SpaceGrotesk-SemiBold.woff2') format('woff2'),
+        url('/SpaceGrotesk-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/SpaceMono-Bold.woff2') format('woff2'),
+        url('/SpaceMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/SpaceMono-Italic.woff2') format('woff2'),
+        url('/SpaceMono-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/SpaceMono-BoldItalic.woff2') format('woff2'),
+        url('/SpaceMono-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Agave';
-    src: url('/Agave-Regular.woff2') format('woff2'),
-        url('/Agave-Regular.woff') format('woff');
+    font-family: 'Space Mono';
+    src: url('/SpaceMono-Regular.woff2') format('woff2'),
+        url('/SpaceMono-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -55,7 +87,7 @@ html {
 }
 body {
     padding: 1em;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.875rem;
@@ -127,7 +159,7 @@ header {
 }
 h1 {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 600;
 }
 .menu {
     margin-bottom: 3em;
@@ -151,7 +183,9 @@ p code,
 pre code,
 pre,
 code {
-    font-family: Agave, monospace;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.25rem;
 }
 .flair {
     display: flex;
