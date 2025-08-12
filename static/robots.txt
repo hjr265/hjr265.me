@@ -1,6 +1,6 @@
 Sitemap: https://hjr265.me/sitemap.xml
 
-# Come back when you build something better than a parrot emulator.
+# Come back when you have built something better than a parrot emulator.
 User-agent: AdsBot-Google
 User-agent: Amazonbot
 User-agent: anthropic-ai
