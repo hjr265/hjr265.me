@@ -2,7 +2,7 @@
     position: relative;
 }
 .timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     height: 100%;
@@ -31,12 +31,20 @@
     text-align: center;
 }
 .timeline__icon.-blue {
-    background-color: lighten(#0a579c, 33%);
-    border-color: #0a579c;
+    background-color: lighten(#005f87, 12.5%);
+    border: 2px solid #005f87;
 }
 .timeline__icon.-red {
-    background-color: lighten(#c20000, 33%);
-    border-color: #c20000;
+    background-color: lighten(#af0000, 12.5%);
+    border: 2px solid #af0000;
+}
+.timeline__icon.-green {
+    background-color: lighten(#008700, 12.5%);
+    border: 2px solid #008700;
+}
+.timeline__icon.-orange {
+    background-color: lighten(#d75f00, 12.5%);
+    border: 2px solid #d75f00;
 }
 .timeline__meta {
     color: grey;
