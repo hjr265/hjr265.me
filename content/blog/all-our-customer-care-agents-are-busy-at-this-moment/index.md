@@ -108,7 +108,7 @@ They responded with some assurances:
 - Famfung is always determined and dedicated to achieving satisfaction from its consumers
 - I am one of their valuable clients
 - They deeply regretted the challenges I was facing
-- They have escalated my complaint to our concerned service centre
+- They have escalated my complaint to their concerned service centre
 - They hoped that the relevant department would take the necessary steps to complete the repair service as soon as possible
 
 Did they complete the repair as soon as possible? No.
@@ -124,7 +124,7 @@ Every time I would write an email to them, I would get similar assurances, but n
 After waiting for a week for them to get back, I emailed them. This time I suggested a deadline for my first option (replacing the TV):
 
 > Can you replace my TV within this week (before the end of the day on Thursday, September 12, 2024)?
-> 
+>
 > If not, I request that you refund the money I had paid for this terrible [Famfung] product.
 
 What did I get in response?
@@ -149,7 +149,7 @@ An hour later, my phone rings. A call from an unknown number.
 
 Could it be that Famfung has finally decided to call the customer?
 
-I pick up the phone. Yes. It is Famfung! 
+I pick up the phone. Yes. It is Famfung!
 
 Despite my excitement, I do not forget to ask the caller for permission to record the call and start recording it.
 
@@ -235,4 +235,4 @@ So what had helped with this whole third-world customer support adventure?
 
 **Persevere:** Don't give up.
 
-And, I want to remind you that these customer harassment practices are not unique to Famfung. 
+And, I want to remind you that these customer harassment practices are not unique to Famfung.
