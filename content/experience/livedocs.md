@@ -1,7 +1,7 @@
 ---
 title: Language Server Integration Developer
 order: 202507
-period: Jul ‘25
+period: Jun ‘25 - Jul ‘25
 company: LiveDocs
 website: https://livedocs.com/
 duties:
