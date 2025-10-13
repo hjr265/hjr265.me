@@ -19,7 +19,7 @@
 					"SectionLabel" "Notes"
 					"EntryName" "notes"
 					"AllText" "Show All Notes"
-					"AllHref" "/notes"
+					"AllHref" "/notes/"
 				)
 			}}
 			{{$first := true}}
@@ -45,7 +45,7 @@
 
 	<div>
 		<div class="flair">
-			<span class="flair__item muted">Showing {{len (where .Pages "Section" .Section)}} of {{len (where .Site.RegularPages "Section" .Section)}} {{.EntryName}} from <a href="/blog/">{{.SectionLabel}}</a></span>
+			<span class="flair__item muted">Showing {{len (where .Pages "Section" .Section)}} of {{len (where .Site.RegularPages "Section" .Section)}} {{.EntryName}} from <a href="{{.AllHref}}">{{.SectionLabel}}</a></span>
 		</div>
 	</div>
 
