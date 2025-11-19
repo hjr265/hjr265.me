@@ -3,6 +3,9 @@ title: 'Mahmud Ridwan (hjr265)'
 description: 'Hi, I am Mahmud Ridwan.'
 images: [/avatar.png]
 date: 2023-09-07T10:50:00+06:00
+sitemap:
+  changeFreq: 'monthly'
+  priority: 1
 ---
 
 Hi, I’m Mahmud Ridwan, a software engineer based in Dhaka, Bangladesh.

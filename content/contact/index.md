@@ -2,6 +2,9 @@
 title: "Contact"
 layout: contact
 date: 2023-02-14T12:00:00+06:00
+sitemap:
+  changeFreq: 'monthly'
+  priority: 0.8
 ---
 
 If you want to talk to me about one of my posts, please leave a comment under it. In most cases, I prefer discussing my work in public. It may also be that others can benefit from our discussions.
