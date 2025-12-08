@@ -1,0 +1,12 @@
+{{define "content"}}
+	<header>
+		<h1><a href="/">hjr265.me</a> / Now</h1>
+	</header>
+	{{partial "nav.html" .}}
+
+	<article>
+		{{.Content}}
+		
+		<div class="muted">Last Updated: {{.Date.Format "January 2, 2006"}}</div>
+	</article>
+{{end}}
