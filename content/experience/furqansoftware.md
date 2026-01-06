@@ -2,7 +2,7 @@
 title: Software Engineer / CEO
 order: 999999
 period: Sep ‘15 - present
-company: Furqan Software Ltd.
+company: Furqan Software
 website: https://furqansoftware.com
 ---
 
