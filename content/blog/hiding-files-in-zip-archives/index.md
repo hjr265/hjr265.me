@@ -82,7 +82,7 @@ But with a bit of intuition, you can figure out what the maximum possible size o
 
 The comment length is stored in a 2-byte field. That is 16 bits. The longest comment possible is:
 
-<center><span class="math -block">2^16 = 65536</span></center>
+<center><span class="math -block">2^{16} = 65536</span></center>
 
 The maximum possible size of the record is:
 
