@@ -71,6 +71,7 @@ The End of Central Directory Record consists of 9 fields.
 | Central Directory Start Offset | 16 | 4 |
 | Comment Length | 20 | 2 |
 | Comment | 22 | {Comment Length} |
+{.table}
 
 All we need to do is add to the `Central Directory Start Offset` field the number of bytes we are sneaking into the ZIP file.
 

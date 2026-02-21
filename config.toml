@@ -12,6 +12,9 @@ goatCounterHost = "goatcounter.hjr265.me"
 name = "Mahmud Ridwan"
 email = "m@hjr265.me"
 
+[markup.goldmark.parser.attribute]
+block = true
+
 [taxonomies]
 tag = "tags"
 

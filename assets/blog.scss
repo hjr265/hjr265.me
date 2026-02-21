@@ -66,6 +66,20 @@ article > p > a > img {
         padding: 0.25rem 0 0.25rem 0.25rem;
     }
 }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead tr th {
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #eef3ef;
+    }
+}
 hr {
     width: 100px;
     margin: 50px auto;
@@ -150,8 +164,20 @@ blockquote {
     &:not([open]) &__body {
         height: 7rem;
         overflow-y: hidden;
-        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.25)));
-        mask-image: gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.25)));
+        -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(0, 0, 0, 1)),
+            to(rgba(0, 0, 0, 0.25))
+        );
+        mask-image: gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(0, 0, 0, 1)),
+            to(rgba(0, 0, 0, 0.25))
+        );
     }
 }
 .flow > * + * {
