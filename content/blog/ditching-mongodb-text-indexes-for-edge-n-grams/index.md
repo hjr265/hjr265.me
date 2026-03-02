@@ -1,5 +1,7 @@
 ---
 title: 'Ditching MongoDB Text Indexes for Edge N-Grams'
+htmltitle: 'How I Built Partial-Word Search in MongoDB With Edge N-Grams'
+htmldescription: 'MongoDB text indexes only match whole words. I switched to pregenerated edge n-grams and a simple relevance scoring pipeline and got prefix search working without any external search engine.'
 date: 2026-03-02T11:00:00+06:00
 tags:
   - Go
@@ -32,7 +34,7 @@ The fix came in two parts.
 
 **Second**: at query time, score each match using simple arithmetic and sort by that score.
 
-![](cover.png)
+![MongoDB partial text search using edge n-grams](cover.png)
 
 Let me walk through both.
 
