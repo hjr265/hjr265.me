@@ -8,6 +8,7 @@ tags:
   - MongoDB
   - Toph
 toc: yes
+jsonldtype: TechArticle
 ---
 
 I like software that just works. If I type "North South" into a search box, I expect to find "North South University". But if I type "North So", I should still find it. Maybe not at the top, but it should be there.
