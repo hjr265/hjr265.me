@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>{{or .Params.htmltitle .Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
+		{{with .Params.htmldescription}}
+			<meta name="description" content="{{.}}">
+		{{end}}
 
 		<link rel="canonical" href="{{.Permalink}}" />
 
