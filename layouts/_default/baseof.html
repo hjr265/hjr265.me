@@ -23,7 +23,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" . | toCSS | minify}}
+		{{$bgpng := resources.Get "crossword.png" | fingerprint}}
+		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" (dict "BodyBackground" $bgpng) | toCSS | minify}}
 		<style type="text/css">
 			{{$criticalcss.Content | safeCSS}}
 		</style>
