@@ -161,7 +161,7 @@ The scoring rules are straightforward:
 - +10 for each query term that matches at the start of the name
 - +5 for each query term that appears anywhere in the full name
 
-So "North" typed as a query gives "North South University" a score of 10 because "north" is a word-start match. An institution where "north" appears buried mid-word would score only 5. The better match floats to the top.
+So "North" typed as a query gives "North South University" a score of 10 because "north" is a name-start match. An institution where "north" appears buried mid-word would score only 5. The better match floats to the top.
 
 The final pipeline sorts by score descending, then name ascending as a tiebreaker:
 
