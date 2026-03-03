@@ -1,7 +1,5 @@
 {{define "content"}}
-	<header>
-		<h1><a href="/">hjr265.me</a> / #{{.Title}} posts</h1>
-	</header>
+	{{partial "header.html" (printf "#%s posts" .Title)}}
 	{{partial "nav.html" .}}
 
 	<div class="wide">

@@ -1,0 +1,12 @@
+<header>
+	<h1>
+		{{$avatarsrc := resources.Get "avatar.png"}}
+		{{$avatar := $avatarsrc.Resize "84x84 webp" | fingerprint}}
+		<a href="/"><img src="{{$avatar.RelPermalink}}" alt="Mahmud Ridwan" width="42" height="42"></a>
+		{{if .}}
+			<a href="/">hjr265.me</a> / {{.}}
+		{{else}}
+			hjr265.me
+		{{end}}
+	</h1>
+</header>

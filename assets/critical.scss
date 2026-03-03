@@ -140,6 +140,16 @@ header {
     &:not(.-leaf) {
         text-transform: lowercase;
     }
+
+    h1 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+            border-radius: 22%;
+        }
+    }
 }
 h1 {
     font-size: 28px;
