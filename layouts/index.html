@@ -9,10 +9,12 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"name": {{.Site.Params.author.name}},
-			"url": {{.Site.BaseURL}},
+			"name": {{.Site.Params.author.name | jsonify}},
+			"url": {{.Site.BaseURL | jsonify}},
 			"sameAs": [
 				"https://github.com/{{.Site.Params.github}}",
+				"https://fosstodon.org/@hjr265",
+				"https://floss.social/@hjr265",
 				"https://www.linkedin.com/in/hjr265/",
 				"https://twitter.com/hjr265"
 			]

@@ -136,24 +136,26 @@
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
-			"@type": {{with .Params.jsonldtype}}"{{.}}"{{else}}"BlogPosting"{{end}},
-			"headline": {{.Title}},
-			"image": {{.Params.featuredImage | absURL}},
-			"datePublished": {{.PublishDate}},
-			"dateModified": {{.Lastmod}},
+			"@type": {{with .Params.jsonldtype}}{{. | jsonify}}{{else}}"BlogPosting"{{end}},
+			"headline": {{.Title | jsonify}},
+			"image": {{(or .Params.featuredImage "/avatar.png") | absURL | jsonify}},
+			"datePublished": {{.PublishDate.Format "2006-01-02T15:04:05-07:00" | jsonify}},
+			"dateModified": {{.Lastmod.Format "2006-01-02T15:04:05-07:00" | jsonify}},
 			"author": {
 				"@type": "Person",
-				"name": {{.Site.Params.author.name}}
+				"name": {{.Site.Params.author.name | jsonify}},
+				"url": {{.Site.BaseURL | jsonify}}
 			},
 			"mainEntityOfPage": {
-				"@type": "WebPage"
+				"@type": "WebPage",
+				"@id": {{.Permalink | jsonify}}
 			},
 			"publisher": {
 				"@type": "Person",
-				"name": {{.Site.Params.author.name}}
+				"name": {{.Site.Params.author.name | jsonify}}
 			},
-			"description": {{with .Description}}{{.}}{{else}}{{if .IsPage}}{{.Summary}}{{else}}{{with .Site.Params.description}}{{.}}{{end}}{{end}}{{end}},
-			"keywords": [{{range $i, $e := .Params.tags}}{{if $i}}, {{end}}{{$e}}{{end}}]
+			"description": {{(or .Description .Summary) | jsonify}},
+			"keywords": [{{range $i, $e := .Params.tags}}{{if $i}}, {{end}}{{$e | jsonify}}{{end}}]
 		}
 	</script>
 {{end}}
