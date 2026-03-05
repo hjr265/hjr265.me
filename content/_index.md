@@ -14,7 +14,7 @@ In 2015, I founded [Furqan Software](https://furqansoftware.com/) and turned a s
 
 I take on freelance work through networks like Toptal, collaborating on diverse engineering challenges across the stack. I am also an open-source enthusiast. You can find much of what I have built and contributed to on my [open-source page](/open-source/).
 
-I've been writing software professionally since 2010. I care about free software, elegant solutions, and shipping things that actually work.
+I've been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
 
 See what I am focused on right now on my [now page](/now/).
 
@@ -26,6 +26,6 @@ Elsewhere:
 - {{< elsewhere href="https://www.linkedin.com/in/hjr265/" >}}
 - {{< elsewhere href="https://steamcommunity.com/id/hjr265/" >}}
 - {{< elsewhere href="https://toph.co/u/hjr265" >}}
-- {{< elsewhere href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" path="/resume/mahmud-ridwan" >}} <small class="muted">(referral)</small>
+- {{< elsewhere href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" path="/resume/mahmud-ridwan" >}}
 - {{< elsewhere href="https://twitter.com/hjr265" >}}
 - {{< elsewhere href="https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/" path="/.../users/~01551cbdc32d9260be" >}}
