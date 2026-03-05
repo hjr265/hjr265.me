@@ -14,7 +14,7 @@ In 2015, I founded [Furqan Software](https://furqansoftware.com/) and turned a s
 
 I take on freelance work through networks like Toptal, collaborating on diverse engineering challenges across the stack. I am also an open-source enthusiast. You can find much of what I have built and contributed to on my [open-source page](/open-source/).
 
-I've been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
+I have been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
 
 See what I am focused on right now on my [now page](/now/).
 
