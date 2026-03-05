@@ -27,5 +27,5 @@ Elsewhere:
 - {{< elsewhere href="https://steamcommunity.com/id/hjr265/" >}}
 - {{< elsewhere href="https://toph.co/u/hjr265" >}}
 - {{< elsewhere href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" path="/resume/mahmud-ridwan" >}}
-- {{< elsewhere href="https://twitter.com/hjr265" >}}
 - {{< elsewhere href="https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/" path="/.../users/~01551cbdc32d9260be" >}}
+- {{< elsewhere href="https://x.com/hjr265" >}}
