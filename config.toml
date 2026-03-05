@@ -7,7 +7,7 @@ disqusShortname = "https-hjr265-me"
 [params]
 github = "hjr265"
 goatCounterHost = "goatcounter.hjr265.me"
-description = "Software engineer based in Dhaka, Bangladesh. Founder of Furqan Software and creator of Toph, a competitive programming platform."
+description = "Founder of Furqan Software. Built Toph, Bangladesh's leading competitive programming platform. Software engineer based in Dhaka 🇧🇩."
 images = ["/avatar.png"]
 
 [params.author]
