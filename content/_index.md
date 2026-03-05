@@ -1,8 +1,8 @@
 ---
 title: 'Mahmud Ridwan (hjr265)'
-description: 'Hi, I am Mahmud Ridwan.'
+description: "Founder of Furqan Software. Built Toph, Bangladesh's leading competitive programming platform. Software engineer based in Dhaka 🇧🇩."
 images: [/avatar.png]
-date: 2023-09-07T10:50:00+06:00
+date: 2026-03-05T15:25:00+06:00
 sitemap:
   changeFreq: 'monthly'
   priority: 1
