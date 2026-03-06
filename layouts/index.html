@@ -20,8 +20,8 @@
 		{{$blog := site.GetPage "blog"}}
 		{{range first 3 $blog.Pages.ByWeight}}
 		<div class="post">
-			<a href="{{.Permalink}}">{{.Title}}</a>
-			<span class="muted">{{.PublishDate.Format "Jan 2, 2006"}}</span>
+			<div><a href="{{.Permalink}}">{{.Title}}</a></div>
+			<div class="muted">{{.PublishDate.Format "January 2, 2006"}}</div>
 		</div>
 		{{end}}
 		<a class="section__more" href="/blog/">See all blog posts →</a>
