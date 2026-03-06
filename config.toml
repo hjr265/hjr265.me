@@ -28,7 +28,7 @@ items = ["Node.js", "Django"]
 
 [[params.skills]]
 group = "Databases"
-items = ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ"]
+items = ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Firebase"]
 
 [[params.skills]]
 group = "DevOps"
