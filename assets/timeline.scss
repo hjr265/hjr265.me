@@ -11,8 +11,9 @@
 }
 .timeline__year {
     color: grey;
-    margin: 30px 0 30px 40px;
     text-decoration: underline;
+    font-size: 1.125rem;
+    margin: 2em 0 0.5em 40px;
 }
 .timeline__event {
     display: flex;
@@ -20,31 +21,48 @@
 }
 .timeline__icon {
     flex-shrink: 0;
-    width: 25px;
-    height: 25px;
-    margin-top: 2px;
-    margin-right: 25px;
-    margin-left: 1px;
-    border-radius: 100%;
-    border: 1px solid grey;
+    width: 34px;
+    height: 34px;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-left: -4px;
+    border-radius: 22%;
+    border: 1.5px solid #aaa;
     background-color: white;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
 }
 .timeline__icon.-blue {
-    background-color: lighten(#005f87, 12.5%);
-    border: 2px solid #005f87;
+    background-color: #e0f2fe;
+    border-color: #0ea5e9;
+    color: #0ea5e9;
 }
 .timeline__icon.-red {
-    background-color: lighten(#af0000, 12.5%);
-    border: 2px solid #af0000;
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #ef4444;
 }
 .timeline__icon.-green {
-    background-color: lighten(#008700, 12.5%);
-    border: 2px solid #008700;
+    background-color: #dcfce7;
+    border-color: #22c55e;
+    color: #22c55e;
 }
 .timeline__icon.-orange {
-    background-color: lighten(#d75f00, 12.5%);
-    border: 2px solid #d75f00;
+    background-color: #ffedd5;
+    border-color: #f97316;
+    color: #f97316;
+}
+.timeline__icon.-purple {
+    background-color: #f3e8ff;
+    border-color: #a855f7;
+    color: #a855f7;
 }
 .timeline__meta {
     color: grey;

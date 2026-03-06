@@ -1,4 +1,4 @@
 {{with resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
-	{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
+	{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
 	<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.stargazers_count}}
 {{end}}

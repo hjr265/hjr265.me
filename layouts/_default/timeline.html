@@ -7,14 +7,25 @@
 		{{range sort (.Resources.Match "*.md") "Date" "desc"}}
 			{{if ne $lastYear .Date.Year}}
 				{{$lastYear = .Date.Year}}
-				<div class="timeline__year"></div>
+				<div class="timeline__year">{{$lastYear}}</div>
 			{{end}}
 			<div class="timeline__event">
-				<div class="timeline__icon {{with .Params.color}}-{{.}}{{end}}"></div>
+				{{$iconfile := "books.svg"}}
+				{{if eq .Params.branch "work"}}{{$iconfile = "company.svg"}}
+				{{else if eq .Params.branch "family"}}{{$iconfile = "heart.svg"}}
+				{{else if eq .Params.branch "competition"}}{{$iconfile = "star.svg"}}
+				{{end}}
+				{{$iconsvg := resources.GetMatch $iconfile}}
+				<div class="timeline__icon {{with .Params.color}}-{{.}}{{end}}">
+					{{$iconsvg.Content | safeHTML}}
+				</div>
 				<div class="timeline__body">
 					{{.Title}}
 					<div class="timeline__meta flair">
-						<span class="flair__item">{{.Date.Format "Jan 2006"}}</span>
+						<span class="flair__item">{{.Date.Format "January"}}</span>
+						{{with .Params.agency}}
+							<span class="flair__item">{{.}}</span>
+						{{end}}
 						{{with .Params.detail}}
 							<span class="flair__item">{{.}}</span>
 						{{end}}

@@ -32,7 +32,7 @@
 					<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
 					{{with $stars}}
 						<span class="flair__item">
-							{{$starsvg := resources.GetMatch "star.svg" | fingerprint}}
+							{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
 							<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
 						</span>
 					{{end}}
