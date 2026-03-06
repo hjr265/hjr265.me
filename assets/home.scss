@@ -1,6 +1,12 @@
 .page {
     width: 65ch;
 }
+.post {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    line-height: 2rem;
+}
 .experience {
     line-height: 2rem;
 

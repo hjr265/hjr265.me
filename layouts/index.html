@@ -3,6 +3,19 @@
 	{{partial "nav.html" .}}
 	{{.Content}}
 
+	{{$pencilsvg := resources.GetMatch "pencil.svg" | fingerprint}}
+	<section class="section">
+		<h2 class="section__heading"><img class="section__icon" src="{{$pencilsvg.RelPermalink}}" alt="">Recent Posts</h2>
+		{{$blog := site.GetPage "blog"}}
+		{{range first 3 $blog.Pages.ByWeight}}
+		<div class="post">
+			<a href="{{.Permalink}}">{{.Title}}</a>
+			<span class="muted">{{.PublishDate.Format "Jan 2, 2006"}}</span>
+		</div>
+		{{end}}
+		<a class="section__more" href="/blog/">See all blog posts →</a>
+	</section>
+
 	{{$companysvg := resources.GetMatch "company.svg" | fingerprint}}
 	<section class="section -experience">
 		<h2 class="section__heading"><img class="section__icon" src="{{$companysvg.RelPermalink}}" alt="">Recent Experience</h2>
