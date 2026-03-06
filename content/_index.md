@@ -17,15 +17,3 @@ I take on freelance work through networks like Toptal, collaborating on diverse 
 I have been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
 
 See what I am focused on right now on my [now page](/now/).
-
-Elsewhere:
-
-- {{< elsewhere href="https://fosstodon.org/@hjr265" rel="me" >}}
-- {{< elsewhere href="https://floss.social/@hjr265" rel="me" >}}
-- {{< elsewhere href="https://github.com/hjr265" >}}
-- {{< elsewhere href="https://www.linkedin.com/in/hjr265/" >}}
-- {{< elsewhere href="https://steamcommunity.com/id/hjr265/" >}}
-- {{< elsewhere href="https://toph.co/u/hjr265" >}}
-- {{< elsewhere href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" path="/resume/mahmud-ridwan" >}}
-- {{< elsewhere href="https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/" path="/.../users/~01551cbdc32d9260be" >}}
-- {{< elsewhere href="https://x.com/hjr265" >}}

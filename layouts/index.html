@@ -3,6 +3,37 @@
 	{{partial "nav.html" .}}
 	{{.Content}}
 
+	{{$companysvg := resources.GetMatch "company.svg" | fingerprint}}
+	<section class="section -experience">
+		<h2 class="section__heading"><img class="section__icon" src="{{$companysvg.RelPermalink}}" alt="">Recent Experience</h2>
+		{{$experience := site.GetPage "experience"}}
+		{{range sort (where ($experience.Resources.Match "*.md") "Params.featured" true) "Params.order" "desc"}}
+		<div class="experience">
+			<span class="experience__title">{{.Title}}</span>
+			<span class="experience__sep muted">@</span>
+			<a href="{{.Params.website}}" target="_blank">{{.Params.company}}</a>
+		</div>
+		{{end}}
+		<a class="section__more" href="/experience/">See full experience →</a>
+	</section>
+
+	{{$atsvg := resources.GetMatch "at.svg" | fingerprint}}
+	<section class="section">
+		<h2 class="section__heading"><img class="section__icon" src="{{$atsvg.RelPermalink}}" alt="">Elsewhere</h2>
+		<ul class="elsewhere">
+			<li><a rel="me" href="https://fosstodon.org/@hjr265">fosstodon.org<small class="muted">/@hjr265</small></a></li>
+			<li><a rel="me" href="https://floss.social/@hjr265">floss.social<small class="muted">/@hjr265</small></a></li>
+			<li><a href="https://github.com/hjr265">github.com<small class="muted">/hjr265</small></a></li>
+			<li><a href="https://www.linkedin.com/in/hjr265/">linkedin.com<small class="muted">/in/hjr265</small></a></li>
+			<li><a href="https://steamcommunity.com/id/hjr265/">steamcommunity.com<small class="muted">/id/hjr265</small></a></li>
+			<li><a href="https://toph.co/u/hjr265">toph.co<small class="muted">/u/hjr265</small></a></li>
+			<li><a href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent">toptal.com<small class="muted">/resume/mahmud-ridwan</small></a></li>
+			<li><a href="https://www.upwork.com/o/profiles/users/~01551cbdc32d9260be/">upwork.com<small class="muted">/.../users/~01551cbdc32d9260be</small></a></li>
+			<li><a href="https://x.com/hjr265">x.com<small class="muted">/hjr265</small></a></li>
+		</ul>
+		<p>You can reach me by email at <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a> or on <a href="https://t.me/hjr265">Telegram (hjr265)</a>.</p>
+	</section>
+
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -18,4 +49,9 @@
 			]
 		}
 	</script>
+{{end}}
+
+{{define "styles"}}
+	{{$homescss := resources.Get "home.scss" | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$homescss.RelPermalink}}">
 {{end}}

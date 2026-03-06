@@ -196,3 +196,28 @@ code {
         vertical-align: text-top;
     }
 }
+.section {
+    margin-top: 2.5em;
+    padding-top: 1.5em;
+    border-top: 1px dashed #5c6873;
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 1.125rem;
+        font-weight: normal;
+        color: #5c6873;
+        margin: 0 0 0.75em;
+    }
+
+    &__icon {
+        height: 1em;
+        opacity: 0.6;
+    }
+
+    &__more {
+        display: inline-block;
+        margin-top: 0.5em;
+    }
+}

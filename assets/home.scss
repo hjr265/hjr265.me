@@ -1,0 +1,19 @@
+.page {
+    width: 65ch;
+}
+.experience {
+    line-height: 2rem;
+
+    &__sep {
+        margin: 0 0.15em;
+    }
+}
+.elsewhere {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em 1em;
+    line-height: 2rem;
+}
