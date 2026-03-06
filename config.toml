@@ -14,34 +14,6 @@ images = ["/avatar.png"]
 name = "Mahmud Ridwan"
 email = "m@hjr265.me"
 
-[[params.skills]]
-group = "Languages"
-items = ["Go", "TypeScript", "JavaScript", "Python", "Rust", "C", "C++"]
-
-[[params.skills]]
-group = "Frontend"
-items = ["React", "Svelte"]
-
-[[params.skills]]
-group = "Backend"
-items = ["Node.js", "Django"]
-
-[[params.skills]]
-group = "Databases"
-items = ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Firebase"]
-
-[[params.skills]]
-group = "DevOps"
-items = ["Docker", "Kubernetes", "Terraform", "Ansible", "CI/CD Pipelines"]
-
-[[params.skills]]
-group = "Blockchain"
-items = ["Alchemy", "BitQuery", "Web3"]
-
-[[params.skills]]
-group = "QA"
-items = ["Cypress", "Ginkgo", "Mocha"]
-
 [markup.goldmark.parser.attribute]
 block = true
 

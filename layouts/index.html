@@ -6,7 +6,7 @@
 	{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
 	<section class="section -skills">
 		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$stacksvg.RelPermalink}}" alt="">Skills</h2>
-		{{range .Site.Params.skills}}
+		{{range .Site.Data.skills}}
 		<div class="skills">
 			<span class="skills__label muted">{{.group}}</span>
 			<span class="skills__items">{{range $i, $t := .items}}{{if $i}}<span class="muted"> · </span>{{end}}{{$t}}{{end}}</span>
