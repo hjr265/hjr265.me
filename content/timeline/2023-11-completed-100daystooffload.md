@@ -1,7 +1,7 @@
 ---
 title: "Completed #100DaysToOffload"
 date: 2023-11-23
-color: red
+color: green
 branch: "competition"
 flairs:
   - text: Challenge
