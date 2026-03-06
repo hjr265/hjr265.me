@@ -1,6 +1,16 @@
 .page {
     width: 65ch;
 }
+.skills {
+    display: flex;
+    gap: 1em;
+    line-height: 2rem;
+
+    &__label {
+        min-width: 6em;
+        flex-shrink: 0;
+    }
+}
 .post {
     display: flex;
     justify-content: space-between;

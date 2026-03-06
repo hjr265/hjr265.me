@@ -22,5 +22,7 @@ stack:
   - Linux
   - Blockchain
   - Web3
+  - Alchemy
+  - BitQuery
 agency: Toptal
 ---
