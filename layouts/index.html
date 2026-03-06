@@ -5,7 +5,7 @@
 
 	{{$pencilsvg := resources.GetMatch "pencil.svg" | fingerprint}}
 	<section class="section">
-		<h2 class="section__heading"><img class="section__icon" src="{{$pencilsvg.RelPermalink}}" alt="">Recent Posts</h2>
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$pencilsvg.RelPermalink}}" alt="">Recent Posts</h2>
 		{{$blog := site.GetPage "blog"}}
 		{{range first 3 $blog.Pages.ByWeight}}
 		<div class="post">
@@ -18,7 +18,7 @@
 
 	{{$companysvg := resources.GetMatch "company.svg" | fingerprint}}
 	<section class="section -experience">
-		<h2 class="section__heading"><img class="section__icon" src="{{$companysvg.RelPermalink}}" alt="">Recent Experience</h2>
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$companysvg.RelPermalink}}" alt="">Recent Experience</h2>
 		{{$experience := site.GetPage "experience"}}
 		{{range sort (where ($experience.Resources.Match "*.md") "Params.featured" true) "Params.order" "desc"}}
 		<div class="experience">
@@ -32,7 +32,7 @@
 
 	{{$atsvg := resources.GetMatch "at.svg" | fingerprint}}
 	<section class="section">
-		<h2 class="section__heading"><img class="section__icon" src="{{$atsvg.RelPermalink}}" alt="">Elsewhere</h2>
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$atsvg.RelPermalink}}" alt="">Elsewhere</h2>
 		<ul class="elsewhere">
 			<li><a rel="me" href="https://fosstodon.org/@hjr265">fosstodon.org<small class="muted">/@hjr265</small></a></li>
 			<li><a rel="me" href="https://floss.social/@hjr265">floss.social<small class="muted">/@hjr265</small></a></li>
