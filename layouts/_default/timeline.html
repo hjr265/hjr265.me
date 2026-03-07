@@ -21,6 +21,7 @@
 				</div>
 				<div class="timeline__body">
 					{{.Title}}
+					{{with .Params.excerpt}}<div class="timeline__excerpt">{{.}}</div>{{end}}
 					<div class="timeline__meta flair">
 						<span class="flair__item">{{.Date.Format "January"}}</span>
 						{{with .Params.agency}}
