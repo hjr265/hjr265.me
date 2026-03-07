@@ -11,9 +11,9 @@ stack:
   - Redis
   - Python
   - IronMQ
-company: Mukto Software Ltd.
+company: Mukto Software
 ---
 
 CodeMarshal is a programming contest hosting platform. The platform successfully hosted the preliminary mock, preliminary, live, and semi-live contests of ACM ICPC 2014 Dhaka Regional.
 
-I built CodeMarshal while employed at Mukto Software Ltd. under the leadership of then Chairman and CEO Mahmudur Rahman.
+I built CodeMarshal while employed at Mukto Software under the leadership of then Chairman and CEO Mahmudur Rahman.
