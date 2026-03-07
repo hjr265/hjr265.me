@@ -1,3 +1,27 @@
+.imagegrid {
+    display: grid;
+    gap: 1rem;
+
+    figure {
+        margin: 0;
+    }
+
+    &.-two {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &.-three {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 575.98px) {
+    .imagegrid {
+        &.-two,
+        &.-three {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
 ul.posts {
     list-style: none;
     margin-left: 0;
