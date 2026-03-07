@@ -2,7 +2,7 @@
 	{{partial "header.html" .Title}}
 	{{partial "nav.html" .}}
 
-	{{$projects := .Resources.Match "*.md"}}
+	{{$projects := sort .Pages "Params.weight"}}
 
 	<div class="wide">
 		<div class="main">
@@ -61,9 +61,27 @@
 					{{end}}
 
 					{{with .Params.screenshot}}
-						{{$img := resources.GetMatch . | fingerprint}}
+						{{$image := $project.Resources.GetMatch .}}
+						{{$resized := $image}}
+						{{- if gt $resized.Width 800 -}}{{- $resized = $image.Resize (printf "%dx" 800) -}}{{- end -}}
+						{{$resized2x := $image}}
+						{{- if gt $resized2x.Width (mul 2 800) -}}{{- $resized2x = $image.Resize (printf "%dx" (mul 2 800)) -}}{{- end -}}
+						{{$mobile := $image}}
+						{{- if gt $mobile.Width 504 -}}{{- $mobile = $image.Resize (printf "%dx" 504) -}}{{- end -}}
+						{{$mobile2x := $image}}
+						{{- if gt $mobile2x.Width (mul 2 504) -}}{{- $mobile2x = $image.Resize (printf "%dx" (mul 2 504)) -}}{{- end -}}
 						<div class="project__screenshot">
-							<img src="{{$img.RelPermalink}}" alt="{{$project.Title}} screenshot">
+							<picture>
+								{{- if eq $image.MediaType.Type "image/jpeg" -}}
+									{{- $resizedWebp := $resized.Resize (printf "%dx%d webp" $resized.Width $resized.Height) -}}
+									{{- $resized2xWebp := $resized2x.Resize (printf "%dx%d webp" $resized2x.Width $resized2x.Height) -}}
+									{{- $mobileWebp := $mobile.Resize (printf "%dx%d webp" $mobile.Width $mobile.Height) -}}
+									{{- $mobile2xWebp := $mobile2x.Resize (printf "%dx%d webp" $mobile2x.Width $mobile2x.Height) -}}
+									<source type="image/webp" media="(max-width: 575.98px)" srcset="{{$mobileWebp.RelPermalink}} 1x, {{$mobile2xWebp.RelPermalink}} 2x">
+									<source type="image/webp" media="(min-width: 576px)" srcset="{{$resizedWebp.RelPermalink}} 1x, {{$resized2xWebp.RelPermalink}} 2x">
+								{{- end -}}
+								<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$project.Title}} screenshot" loading="lazy">
+							</picture>
 						</div>
 					{{else}}
 						<div class="project__screenshot project__screenshot--placeholder"></div>
