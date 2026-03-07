@@ -114,14 +114,24 @@ figure {
     margin: 0;
     text-align: center;
 
+    a {
+        display: block;
+        max-width: fit-content;
+        margin: 0 auto;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+        line-height: 0;
+    }
+
     figcaption {
+        margin-top: 0.5rem;
         text-align: center;
         color: #5c6873;
     }
 
     picture img {
         max-width: 100%;
-        margin: 0 auto;
     }
 }
 blockquote {
