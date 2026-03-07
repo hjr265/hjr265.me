@@ -173,7 +173,7 @@ I got my screenshots. The platform looks exactly as I remembered it.
 
 {{< imagegrid layout="three" >}}
 {{< image src="problem-view.png" alt="Problem view" caption="Problem view" >}}
-{{< image src="problem-edit-outline.png" alt="Outline edit form" caption="Problem outline edit form" >}}
+{{< image src="problem-edit-outline.png" alt="Problem outline edit form" caption="Outline edit form" >}}
 {{< image src="problem-edit-parameters.png" alt="Problem parameters edit form" caption="Parameters edit form" >}}
 {{< /imagegrid >}}
 
