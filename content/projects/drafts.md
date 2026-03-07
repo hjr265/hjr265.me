@@ -3,6 +3,7 @@ title: "Drafts"
 weight: 2
 date: 2015-04-01
 website: https://drafts.toph.co/
+screenshot: drafts.png
 stack:
   - Go
   - React

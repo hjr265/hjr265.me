@@ -2,71 +2,97 @@
 	{{partial "header.html" .Title}}
 	{{partial "nav.html" .}}
 
-	{{range .Resources.Match "*.md"}}
-		{{$website := .Params.website}}
-		{{$stars := 0}}
-		{{$downloads := 0}}
+	{{$projects := .Resources.Match "*.md"}}
 
-		{{with .Params.github}}
-			{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
-			{{$website = . | printf "https://github.com/%s"}}
-			{{with $githubData}}
-				{{$stars = .stargazers_count}}
-			{{end}}
-		{{end}}
+	<div class="wide">
+		<div class="main">
+			{{range $project := $projects}}
+				{{$website := .Params.website}}
+				{{$stars := 0}}
+				{{$downloads := 0}}
 
-		{{with .Params.npm}}
-			{{$npmData := resources.GetRemote (printf "https://api.npmjs.org/versions/%s/last-week" .) | transform.Unmarshal}}
-			{{with $npmData}}
-				{{range .downloads}}
-					{{$downloads = add $downloads .}}
+				{{with .Params.github}}
+					{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
+					{{$website = . | printf "https://github.com/%s"}}
+					{{with $githubData}}
+						{{$stars = .stargazers_count}}
+					{{end}}
 				{{end}}
+
+				{{with .Params.npm}}
+					{{$npmData := resources.GetRemote (printf "https://api.npmjs.org/versions/%s/last-week" .) | transform.Unmarshal}}
+					{{with $npmData}}
+						{{range .downloads}}
+							{{$downloads = add $downloads .}}
+						{{end}}
+					{{end}}
+				{{end}}
+
+				<article id="{{$project.Title | urlize}}">
+					<h2>{{.Title}}</h2>
+
+					{{if or $website $stars $downloads .Params.flairs .Params.company}}
+						<div class="flair">
+							<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
+							{{with $stars}}
+								<span class="flair__item">
+									{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
+									<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
+								</span>
+							{{end}}
+							{{if $downloads}}
+								<span class="flair__item">
+									{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
+									<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
+								</span>
+							{{end}}
+							{{range .Params.flairs}}
+								{{$iconsvg := resources.GetMatch .icon | fingerprint}}
+								<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
+							{{end}}
+							{{with .Params.company}}
+								{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
+								<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
+							{{end}}
+							{{with .Params.period}}
+								<span class="flair__item">{{.}}</span>
+							{{end}}
+						</div>
+					{{end}}
+
+					{{with .Params.screenshot}}
+						{{$img := resources.GetMatch . | fingerprint}}
+						<div class="project__screenshot">
+							<img src="{{$img.RelPermalink}}" alt="{{$project.Title}} screenshot">
+						</div>
+					{{else}}
+						<div class="project__screenshot project__screenshot--placeholder"></div>
+					{{end}}
+
+					{{.Content}}
+
+					{{with .Params.stack}}
+						<p class="meta">
+							{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
+							<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
+							<span class="meta__text">{{delimit . ", "}}</span>
+						</p>
+					{{end}}
+				</article>
 			{{end}}
-		{{end}}
+		</div>
 
-		<article>
-			<h2>{{.Title}}</h2>
-
-			{{if or $website $stars $downloads .Params.flairs .Params.company}}
-				<div class="flair">
-					<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
-					{{with $stars}}
-						<span class="flair__item">
-							{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
-							<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
-						</span>
+		<div class="side">
+			<div class="toc">
+				<div class="muted">Projects</div>
+				<ul>
+					{{range $projects}}
+						<li><a href="#{{.Title | urlize}}">{{.Title}}</a></li>
 					{{end}}
-					{{if $downloads}}
-						<span class="flair__item">
-							{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
-							<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
-						</span>
-					{{end}}
-					{{range .Params.flairs}}
-						{{$iconsvg := resources.GetMatch .icon | fingerprint}}
-						<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
-					{{end}}
-					{{with .Params.company}}
-						{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
-						<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
-					{{end}}
-					{{with .Params.period}}
-						<span class="flair__item">{{.}}</span>
-					{{end}}
-				</div>
-			{{end}}
-
-			{{.Content}}
-
-			{{with .Params.stack}}
-				<p class="meta">
-					{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
-					<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
-					<span class="meta__text">{{delimit . ", "}}</span>
-				</p>
-			{{end}}
-		</article>
-	{{end}}
+				</ul>
+			</div>
+		</div>
+	</div>
 {{end}}
 
 {{define "styles"}}

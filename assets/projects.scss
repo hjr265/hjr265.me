@@ -1,3 +1,43 @@
 article {
     margin-bottom: 3.75rem;
+
+    h2 {
+        margin-bottom: 0.25rem;
+    }
+}
+
+.project__screenshot {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.project__screenshot--placeholder {
+    height: 160px;
+    background-color: #f3f4f6;
+}
+
+.toc {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1.75rem;
+    }
+    li {
+        margin: 0.25rem 0;
+    }
+    li::before {
+        content: "›";
+        margin-right: 0.5rem;
+        color: #5c6873;
+    }
 }

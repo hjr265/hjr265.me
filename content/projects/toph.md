@@ -1,8 +1,9 @@
 ---
-title: "Toph - Competitive Programming Platform"
+title: "Toph"
 weight: 1
 date: 2015-04-01
 website: https://toph.co/
+screenshot: toph.png
 stack:
   - Go
   - Backbone.js

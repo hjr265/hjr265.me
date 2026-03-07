@@ -4,6 +4,7 @@ weight: 10
 date: 2012-08-01
 period: 2013 - 2014
 website: https://algo.codemarshal.org
+screenshot: codemarshal.png
 stack:
   - Node.js
   - MongoDB
