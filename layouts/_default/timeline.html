@@ -3,7 +3,17 @@
 	{{partial "nav.html" .}}
 
 	<div class="timeline">
-		{{$lastYear := 0}}
+		<div class="timeline__year">{{now.Year}}</div>
+		{{$calendarsvg := resources.GetMatch "calendar.svg"}}
+		<div class="timeline__event">
+			<div class="timeline__icon -blue">
+				{{$calendarsvg.Content | safeHTML}}
+			</div>
+			<div class="timeline__body">
+				<a href="/now/">See what I am focused on right now →</a>
+			</div>
+		</div>
+		{{$lastYear := now.Year}}
 		{{range sort (.Resources.Match "*.md") "Date" "desc"}}
 			{{if ne $lastYear .Date.Year}}
 				{{$lastYear = .Date.Year}}
