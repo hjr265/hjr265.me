@@ -1,5 +1,5 @@
 ---
-title: "Started at Cruise"
+title: "Started at [Cruise](/experience/#software-engineer-cruise)"
 date: 2023-01-01
 color: orange
 branch: "work"

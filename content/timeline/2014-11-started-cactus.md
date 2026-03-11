@@ -1,5 +1,5 @@
 ---
-title: "Started working on Cactus"
+title: "Started working on [Cactus](/projects/#cactus)"
 date: 2014-11-01
 color: blue
 branch: "work"

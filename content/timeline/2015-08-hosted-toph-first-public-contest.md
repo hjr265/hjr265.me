@@ -1,5 +1,5 @@
 ---
-title: "Hosted Toph's first public programming contest"
+title: "Hosted [Toph](/projects/#toph)'s first public programming contest"
 date: 2015-08-29
 color: blue
 branch: "work"

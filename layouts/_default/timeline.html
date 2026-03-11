@@ -30,7 +30,7 @@
 					{{$iconsvg.Content | safeHTML}}
 				</div>
 				<div class="timeline__body">
-					{{.Title}}
+					{{.Title | transform.Markdownify}}
 					{{with .Params.excerpt}}<div class="timeline__excerpt">{{.}}</div>{{end}}
 					<div class="timeline__meta flair">
 						<span class="flair__item">{{.Date.Format "January"}}</span>
