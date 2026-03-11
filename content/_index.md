@@ -16,4 +16,4 @@ I take on freelance work through networks like Toptal, collaborating on diverse 
 
 I have been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
 
-See what I am focused on right now on my [now page](/now/).
+See what I am focused on right now on my [now page →](/now/)
