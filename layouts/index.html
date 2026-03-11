@@ -16,7 +16,7 @@
 
 	{{$pencilsvg := resources.GetMatch "pencil.svg" | fingerprint}}
 	<section class="section">
-		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$pencilsvg.RelPermalink}}" alt="">Recent Writings</h2>
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$pencilsvg.RelPermalink}}" alt="">Latest Blog Posts</h2>
 		{{$blog := site.GetPage "blog"}}
 		{{range first 3 $blog.Pages.ByWeight}}
 		<div class="post">
