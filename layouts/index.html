@@ -41,9 +41,9 @@
 		<a class="section__more" href="/experience/">See full experience →</a>
 	</section>
 
-	{{$atsvg := resources.GetMatch "at.svg" | fingerprint}}
+	{{$sharesvg := resources.GetMatch "share.svg" | fingerprint}}
 	<section class="section">
-		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$atsvg.RelPermalink}}" alt="">Elsewhere</h2>
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$sharesvg.RelPermalink}}" alt="">Elsewhere</h2>
 		<ul class="elsewhere">
 			<li><a rel="me" href="https://fosstodon.org/@hjr265">fosstodon.org<small class="muted">/@hjr265</small></a></li>
 			<li><a rel="me" href="https://floss.social/@hjr265">floss.social<small class="muted">/@hjr265</small></a></li>
@@ -55,7 +55,12 @@
 			<li><a href="https://www.upwork.com/freelancers/~01551cbdc32d9260be">upwork.com<small class="muted">/freelancers/~01551cbdc32d9260be</small></a></li>
 			<li><a href="https://x.com/hjr265">x.com<small class="muted">/hjr265</small></a></li>
 		</ul>
-		<p>You can reach me by email at <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a> or on <a href="https://t.me/hjr265">Telegram (hjr265)</a>.</p>
+	</section>
+
+	{{$atsvg2 := resources.GetMatch "at.svg" | fingerprint}}
+	<section class="section -contact">
+		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$atsvg2.RelPermalink}}" alt="">Get in Touch</h2>
+		<p>Reach me by email at <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a> or on <a href="https://t.me/hjr265">Telegram (hjr265)</a>.</p>
 	</section>
 
 	<script type="application/ld+json">
