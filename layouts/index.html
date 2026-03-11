@@ -18,7 +18,8 @@
 	<section class="section">
 		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$pencilsvg.RelPermalink}}" alt="">Latest Blog Posts</h2>
 		{{$blog := site.GetPage "blog"}}
-		{{range first 3 $blog.Pages.ByWeight}}
+		{{$cutoff := now.AddDate 0 -2 0}}
+		{{range first 3 (where $blog.Pages.ByWeight ".PublishDate" "ge" $cutoff)}}
 		<div class="post">
 			<div><a href="{{.Permalink}}">{{.Title}}</a></div>
 			<div class="muted">{{.PublishDate.Format "January 2, 2006"}}</div>
