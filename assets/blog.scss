@@ -179,6 +179,7 @@ blockquote {
 }
 .box {
     border: 1px dashed #5c6873;
+    border-radius: 0.25rem;
 
     &__body {
         padding: 1rem 1.25rem;
