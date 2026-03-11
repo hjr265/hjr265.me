@@ -1,6 +1,7 @@
 ---
 title: "Cactus"
-weight: 6
+weight: 2
+group: legacy
 date: 2006-01-01
 openSource: true
 stack:

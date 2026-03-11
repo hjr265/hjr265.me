@@ -1,6 +1,7 @@
 ---
 title: "Dots"
-weight: 10
+weight: 7
+group: utilities
 date: 2006-01-01
 openSource: true
 stack:

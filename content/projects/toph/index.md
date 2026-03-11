@@ -1,6 +1,7 @@
 ---
 title: "Toph"
 weight: 1
+group: featured
 date: 2015-04-01
 website: https://toph.co/
 screenshot: toph.png

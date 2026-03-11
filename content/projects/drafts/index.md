@@ -1,6 +1,7 @@
 ---
 title: "Drafts"
 weight: 2
+group: featured
 date: 2015-04-01
 website: https://drafts.toph.co/
 screenshot: drafts.png

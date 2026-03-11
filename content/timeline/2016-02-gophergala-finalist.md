@@ -5,5 +5,5 @@ color: green
 branch: "competition"
 flairs:
   - text: Papyrus
-    link: /open-source/#papyrus
+    link: /projects/#papyrus
 ---

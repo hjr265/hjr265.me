@@ -2,115 +2,137 @@
 	{{partial "header.html" .Title}}
 	{{partial "nav.html" .}}
 
-	{{$projects := sort .Pages "Params.weight"}}
+	{{$allProjects := sort .Pages "Params.weight"}}
+	{{$groups := slice
+		(dict "key" "featured" "label" "Featured")
+		(dict "key" "traction" "label" "Open Source")
+		(dict "key" "hackathon" "label" "Hackathon")
+		(dict "key" "utilities" "label" "Utilities")
+		(dict "key" "legacy" "label" "Legacy")
+	}}
 
 	<div class="wide">
 		<div class="main">
-			{{range $project := $projects}}
-				{{$website := .Params.website}}
-				{{$stars := 0}}
-				{{$downloads := 0}}
-
-				{{with .Params.github}}
-					{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
-					{{$website = . | printf "https://github.com/%s"}}
-					{{with $githubData}}
-						{{$stars = .stargazers_count}}
+			{{range $group := $groups}}
+				{{$items := where $allProjects ".Params.group" $group.key}}
+				{{if $items}}
+					<h1>{{$group.label}}</h1>
+					{{range $project := $items}}
+						{{template "project-article" $project}}
 					{{end}}
 				{{end}}
-
-				{{with .Params.npm}}
-					{{$npmData := resources.GetRemote (printf "https://api.npmjs.org/versions/%s/last-week" .) | transform.Unmarshal}}
-					{{with $npmData}}
-						{{range .downloads}}
-							{{$downloads = add $downloads .}}
-						{{end}}
-					{{end}}
-				{{end}}
-
-				<article id="{{$project.Title | urlize}}">
-					<h2>{{.Title}}</h2>
-
-					{{if or $website $stars $downloads .Params.flairs .Params.company}}
-						<div class="flair">
-							<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
-							{{with $stars}}
-								<span class="flair__item">
-									{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
-									<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
-								</span>
-							{{end}}
-							{{if $downloads}}
-								<span class="flair__item">
-									{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
-									<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
-								</span>
-							{{end}}
-							{{range .Params.flairs}}
-								{{$iconsvg := resources.GetMatch .icon | fingerprint}}
-								<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
-							{{end}}
-							{{with .Params.company}}
-								{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
-								<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
-							{{end}}
-							{{with .Params.period}}
-								<span class="flair__item">{{.}}</span>
-							{{end}}
-						</div>
-					{{end}}
-
-					{{with .Params.screenshot}}
-						{{$image := $project.Resources.GetMatch .}}
-						{{$resized := $image}}
-						{{- if gt $resized.Width 800 -}}{{- $resized = $image.Resize (printf "%dx" 800) -}}{{- end -}}
-						{{$resized2x := $image}}
-						{{- if gt $resized2x.Width (mul 2 800) -}}{{- $resized2x = $image.Resize (printf "%dx" (mul 2 800)) -}}{{- end -}}
-						{{$mobile := $image}}
-						{{- if gt $mobile.Width 504 -}}{{- $mobile = $image.Resize (printf "%dx" 504) -}}{{- end -}}
-						{{$mobile2x := $image}}
-						{{- if gt $mobile2x.Width (mul 2 504) -}}{{- $mobile2x = $image.Resize (printf "%dx" (mul 2 504)) -}}{{- end -}}
-						<div class="project__screenshot">
-							<picture>
-								{{- if eq $image.MediaType.Type "image/jpeg" -}}
-									{{- $resizedWebp := $resized.Resize (printf "%dx%d webp" $resized.Width $resized.Height) -}}
-									{{- $resized2xWebp := $resized2x.Resize (printf "%dx%d webp" $resized2x.Width $resized2x.Height) -}}
-									{{- $mobileWebp := $mobile.Resize (printf "%dx%d webp" $mobile.Width $mobile.Height) -}}
-									{{- $mobile2xWebp := $mobile2x.Resize (printf "%dx%d webp" $mobile2x.Width $mobile2x.Height) -}}
-									<source type="image/webp" media="(max-width: 575.98px)" srcset="{{$mobileWebp.RelPermalink}} 1x, {{$mobile2xWebp.RelPermalink}} 2x">
-									<source type="image/webp" media="(min-width: 576px)" srcset="{{$resizedWebp.RelPermalink}} 1x, {{$resized2xWebp.RelPermalink}} 2x">
-								{{- end -}}
-								<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$project.Title}} screenshot" loading="lazy">
-							</picture>
-						</div>
-					{{else}}
-						<div class="project__screenshot project__screenshot--placeholder"></div>
-					{{end}}
-
-					{{.Content}}
-
-					{{with .Params.stack}}
-						<p class="meta">
-							{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
-							<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
-							<span class="meta__text">{{delimit . ", "}}</span>
-						</p>
-					{{end}}
-				</article>
 			{{end}}
 		</div>
 
 		<div class="side">
 			<div class="toc">
-				<div class="muted">Projects</div>
-				<ul>
-					{{range $projects}}
-						<li><a href="#{{.Title | urlize}}">{{.Title}}</a></li>
+				{{range $group := $groups}}
+					{{$items := where $allProjects ".Params.group" $group.key}}
+					{{if $items}}
+						<div class="muted">{{$group.label}}</div>
+						<ul>
+							{{range $items}}
+								<li><a href="#{{.Title | urlize}}">{{.Title}}</a></li>
+							{{end}}
+						</ul>
+						<br>
 					{{end}}
-				</ul>
+				{{end}}
 			</div>
 		</div>
 	</div>
+{{end}}
+
+{{define "project-article"}}
+	{{$project := .}}
+	{{$website := .Params.website}}
+	{{$stars := 0}}
+	{{$downloads := 0}}
+
+	{{with .Params.github}}
+		{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
+		{{$website = . | printf "https://github.com/%s"}}
+		{{with $githubData}}
+			{{$stars = .stargazers_count}}
+		{{end}}
+	{{end}}
+
+	{{with .Params.npm}}
+		{{$npmData := resources.GetRemote (printf "https://api.npmjs.org/versions/%s/last-week" .) | transform.Unmarshal}}
+		{{with $npmData}}
+			{{range .downloads}}
+				{{$downloads = add $downloads .}}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	<article id="{{$project.Title | urlize}}">
+		<h2>{{.Title}}</h2>
+
+		{{if or $website $stars $downloads .Params.flairs .Params.company}}
+			<div class="flair">
+				<a class="flair__item" href="{{$website}}" target="_blank">{{partial "prettyurl" $website}}</a>
+				{{with $stars}}
+					<span class="flair__item">
+						{{$starsvg := resources.GetMatch "star-solid.svg" | fingerprint}}
+						<img src="{{$starsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $stars}}
+					</span>
+				{{end}}
+				{{if $downloads}}
+					<span class="flair__item">
+						{{$downloadsvg := resources.GetMatch "download.svg" | fingerprint}}
+						<img src="{{$downloadsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{template "intmetric" $downloads}}/week <a href="https://www.npmjs.com/package/{{.Params.npm}}" target="_blank">via npmjs.com</a>
+					</span>
+				{{end}}
+				{{range .Params.flairs}}
+					{{$iconsvg := resources.GetMatch .icon | fingerprint}}
+					<a href="{{.link}}" target="_blank"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.text}}</a>
+				{{end}}
+				{{with .Params.company}}
+					{{$iconsvg := resources.GetMatch "company.svg" | fingerprint}}
+					<span class="flair__item"><img src="{{$iconsvg.RelPermalink}}" style="height: 1em; vertical-align: text-top;"> {{.}}</span>
+				{{end}}
+				{{with .Params.period}}
+					<span class="flair__item">{{.}}</span>
+				{{end}}
+			</div>
+		{{end}}
+
+		{{with .Params.screenshot}}
+			{{$image := $project.Resources.GetMatch .}}
+			{{$resized := $image}}
+			{{- if gt $resized.Width 800 -}}{{- $resized = $image.Resize (printf "%dx" 800) -}}{{- end -}}
+			{{$resized2x := $image}}
+			{{- if gt $resized2x.Width (mul 2 800) -}}{{- $resized2x = $image.Resize (printf "%dx" (mul 2 800)) -}}{{- end -}}
+			{{$mobile := $image}}
+			{{- if gt $mobile.Width 504 -}}{{- $mobile = $image.Resize (printf "%dx" 504) -}}{{- end -}}
+			{{$mobile2x := $image}}
+			{{- if gt $mobile2x.Width (mul 2 504) -}}{{- $mobile2x = $image.Resize (printf "%dx" (mul 2 504)) -}}{{- end -}}
+			<div class="project__screenshot">
+				<picture>
+					{{- if eq $image.MediaType.Type "image/jpeg" -}}
+						{{- $resizedWebp := $resized.Resize (printf "%dx%d webp" $resized.Width $resized.Height) -}}
+						{{- $resized2xWebp := $resized2x.Resize (printf "%dx%d webp" $resized2x.Width $resized2x.Height) -}}
+						{{- $mobileWebp := $mobile.Resize (printf "%dx%d webp" $mobile.Width $mobile.Height) -}}
+						{{- $mobile2xWebp := $mobile2x.Resize (printf "%dx%d webp" $mobile2x.Width $mobile2x.Height) -}}
+						<source type="image/webp" media="(max-width: 575.98px)" srcset="{{$mobileWebp.RelPermalink}} 1x, {{$mobile2xWebp.RelPermalink}} 2x">
+						<source type="image/webp" media="(min-width: 576px)" srcset="{{$resizedWebp.RelPermalink}} 1x, {{$resized2xWebp.RelPermalink}} 2x">
+					{{- end -}}
+					<img srcset="{{$resized.RelPermalink}} 1x, {{$resized2x.RelPermalink}} 2x" src="{{$resized.RelPermalink}}" alt="{{$project.Title}} screenshot" loading="lazy">
+				</picture>
+			</div>
+		{{end}}
+
+		{{.Content}}
+
+		{{with .Params.stack}}
+			<p class="meta">
+				{{$stacksvg := resources.GetMatch "stack.svg" | fingerprint}}
+				<img class="meta__icon" src="{{$stacksvg.RelPermalink}}">
+				<span class="meta__text">{{delimit . ", "}}</span>
+			</p>
+		{{end}}
+	</article>
 {{end}}
 
 {{define "styles"}}

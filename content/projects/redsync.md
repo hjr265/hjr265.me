@@ -1,6 +1,7 @@
 ---
 title: "Redsync"
-weight: 2
+weight: 1
+group: traction
 date: 2006-01-01
 openSource: true
 stack:

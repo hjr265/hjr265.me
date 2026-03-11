@@ -9,7 +9,7 @@ tags:
 
 Static site generators are one of my favourite things about the Internet. I remember when almost every website built around me was based on Joomla or WordPress. I dread that time.
 
-My website, which you are on right now, is built with Hugo. I have a page on this website listing some of [my open-source projects](/open-source/). And I wanted an easy way to show the number of GitHub stars on my Hugo-based website for my open-source projects.
+My website, which you are on right now, is built with Hugo. I have a page on this website listing some of [my open-source projects](/projects/). And I wanted an easy way to show the number of GitHub stars on my Hugo-based website for my open-source projects.
 
 Something like this (e.g. for my [Go implementation of Redlock](https://github.com/go-redsync/redsync)):
 

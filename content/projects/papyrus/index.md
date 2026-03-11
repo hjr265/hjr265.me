@@ -1,8 +1,10 @@
 ---
 title: "Papyrus"
-weight: 5
+weight: 1
+group: hackathon
 date: 2016-02-23
-website: https://github.com/FurqanSoftware/papyrus
+openSource: true
+github: "FurqanSoftware/papyrus"
 screenshot: papyrus.gif
 stack:
   - Go

@@ -1,6 +1,7 @@
 ---
 title: "Scanlib"
-weight: 9
+weight: 4
+group: utilities
 date: 2006-01-01
 openSource: true
 stack:

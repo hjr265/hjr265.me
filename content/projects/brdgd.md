@@ -1,6 +1,7 @@
 ---
 title: "Brdgd"
-weight: 11
+weight: 6
+group: utilities
 date: 2006-01-01
 openSource: true
 stack:

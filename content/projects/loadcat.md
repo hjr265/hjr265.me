@@ -1,6 +1,7 @@
 ---
 title: "Loadcat"
-weight: 12
+weight: 3
+group: utilities
 date: 2006-01-01
 openSource: true
 stack:

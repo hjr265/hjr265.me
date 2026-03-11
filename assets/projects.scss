@@ -1,8 +1,16 @@
 article {
-    margin-bottom: 3.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px dashed #d1d5db;
+    border-radius: 0.25rem;
 
     h2 {
+        margin-top: 0;
         margin-bottom: 0.25rem;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -18,11 +26,6 @@ article {
         width: 100%;
         height: auto;
     }
-}
-
-.project__screenshot--placeholder {
-    height: 160px;
-    background-color: #f3f4f6;
 }
 
 .toc {

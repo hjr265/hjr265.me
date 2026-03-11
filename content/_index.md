@@ -12,7 +12,7 @@ sitemap:
 
 In 2015, I founded [Furqan Software](https://furqansoftware.com/) and turned a side project into [Toph](https://toph.co/), now Bangladesh's leading competitive programming platform. Before that, I spent years honing my craft as a developer and discovered a deep love for competitive programming during my B.Sc. in Computer Science (2012).
 
-I take on freelance work through networks like Toptal, collaborating on diverse engineering challenges across the stack. I am also an open-source enthusiast. You can find much of what I have built and contributed to on my [open-source page](/open-source/).
+I take on freelance work through networks like Toptal, collaborating on diverse engineering challenges across the stack. I am also an open-source enthusiast. You can find much of what I have built and contributed to on my [projects page](/projects/).
 
 I have been writing software professionally since 2010. I care about <dfn title="as in freedom">free</dfn> software, elegant solutions, and shipping things that actually work.
 

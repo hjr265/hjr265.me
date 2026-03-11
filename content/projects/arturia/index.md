@@ -1,6 +1,7 @@
 ---
 title: "Arturia"
-weight: 7
+weight: 1
+group: utilities
 date: 2006-01-01
 stack:
   - Go

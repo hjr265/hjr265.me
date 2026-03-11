@@ -1,6 +1,7 @@
 ---
 title: "CodeMarshal"
-weight: 10
+weight: 1
+group: legacy
 date: 2012-08-01
 period: 2013 - 2014
 website: https://algo.codemarshal.org
