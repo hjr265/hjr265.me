@@ -1,9 +1,7 @@
 [
-  { "group": "Languages", "items": ["Go", "TypeScript", "JavaScript", "Python", "Rust", "C", "C++"] },
+  { "group": "Languages", "items": ["Go", "TypeScript", "JavaScript", "Python", "Rust"] },
   { "group": "Frontend", "items": ["React", "Svelte"] },
-  { "group": "Backend", "items": ["Node.js", "Django"] },
-  { "group": "Databases", "items": ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Firebase"] },
-  { "group": "DevOps", "items": ["Docker", "Kubernetes", "Terraform", "Ansible", "CI/CD Pipelines"] },
-  { "group": "Blockchain", "items": ["Alchemy", "BitQuery", "Web3"] },
-  { "group": "QA", "items": ["Cypress", "Ginkgo", "Mocha"] }
+  { "group": "Backend", "items": ["Node.js"] },
+  { "group": "Databases", "items": ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ"] },
+  { "group": "DevOps", "items": ["Docker", "Terraform", "Ansible"] }
 ]
