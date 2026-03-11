@@ -10,4 +10,4 @@ stack:
 github: "go-redsync/redsync"
 ---
 
-Redsync is a Redis-based distributed lock implementation in Go. It is also mentioned on the official Redis website (https://redis.io/topics/distlock) as a reference Go implementation of the Redlock algorithm.
+Redsync is a Redis-based distributed lock implementation in Go. It is also mentioned on the [official Redis website](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/) as a reference Go implementation of the Redlock algorithm.
