@@ -1,14 +1,14 @@
 ---
 title: 'Ditching MongoDB Text Indexes for Edge N-Grams'
-htmltitle: 'How I Built Partial-Word Search in MongoDB With Edge N-Grams'
-htmldescription: 'MongoDB text indexes only match whole words. I switched to pregenerated edge n-grams and a simple relevance scoring pipeline and got prefix search working without any external search engine.'
+htmlTitle: 'How I Built Partial-Word Search in MongoDB With Edge N-Grams'
+htmlDescription: 'MongoDB text indexes only match whole words. I switched to pregenerated edge n-grams and a simple relevance scoring pipeline and got prefix search working without any external search engine.'
 date: 2026-03-02T11:00:00+06:00
 tags:
   - Go
   - MongoDB
   - Toph
 toc: yes
-jsonldtype: TechArticle
+jsonLdType: TechArticle
 ---
 
 I like software that just works. If I type "North South" into a search box, I expect to find "North South University". But if I type "North So", I should still find it. Maybe not at the top, but it should be there.

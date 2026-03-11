@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>{{or .Params.htmltitle .Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
-		{{$desc := or .Params.htmldescription .Description (and .IsPage .Summary)}}
+		<title>{{or .Params.htmlTitle .Title}}{{if not .IsHome}} &middot; hjr265.me{{end}}</title>
+		{{$desc := or .Params.htmlDescription .Description (and .IsPage .Summary)}}
 		{{with $desc}}<meta name="description" content="{{. | plainify | truncate 160}}">{{end}}
 
 		<link rel="canonical" href="{{.Permalink}}" />

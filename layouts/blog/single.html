@@ -136,7 +136,7 @@
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
-			"@type": {{with .Params.jsonldtype}}{{. | jsonify}}{{else}}"BlogPosting"{{end}},
+			"@type": {{with .Params.jsonLdType}}{{. | jsonify}}{{else}}"BlogPosting"{{end}},
 			"headline": {{.Title | jsonify}},
 			"image": {{(or .Params.featuredImage "/avatar.png") | absURL | jsonify}},
 			"datePublished": {{.PublishDate.Format "2006-01-02T15:04:05-07:00" | jsonify}},
