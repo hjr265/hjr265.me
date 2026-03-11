@@ -1,7 +1,7 @@
 ---
 title: "μTools"
 weight: 3
-group: traction
+group: open-source
 date: 2025-01-01
 openSource: true
 github: "hjr265/utools"

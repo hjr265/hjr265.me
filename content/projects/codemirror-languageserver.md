@@ -1,7 +1,7 @@
 ---
 title: "CodeMirror LanguageServer"
 weight: 3
-group: traction
+group: open-source
 date: 2006-01-01
 openSource: true
 stack:
