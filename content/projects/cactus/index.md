@@ -4,6 +4,7 @@ weight: 2
 group: legacy
 date: 2006-01-01
 openSource: true
+screenshot: cactus.png
 stack:
   - Go
   - SQLite
