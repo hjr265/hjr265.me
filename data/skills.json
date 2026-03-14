@@ -1,5 +1,5 @@
 [
-  { "group": "Languages", "items": ["Go", "TypeScript", "JavaScript", "Python", "Rust"] },
+  { "group": "Languages", "items": ["Go", "TypeScript", "JavaScript", "Python", "Rust", "C/C++"] },
   { "group": "Frontend", "items": ["React", "Svelte"] },
   { "group": "Backend", "items": ["Node.js"] },
   { "group": "Databases", "items": ["PostgreSQL", "MongoDB", "Redis", "RabbitMQ"] },
