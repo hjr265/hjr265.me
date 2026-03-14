@@ -2,9 +2,9 @@
 title: "Resurrecting a 12-Year-Old Node.js Project With Claude Code"
 date: 2026-03-07T17:30:00+06:00
 tags:
-  - Node.js
+  - NodeJS
   - Docker
-  - Claude Code
+  - ClaudeCode
 toc: yes
 ---
 
