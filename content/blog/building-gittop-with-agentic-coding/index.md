@@ -18,6 +18,8 @@ Commit timestamps felt like the right place to look. A quick one-off script coul
 
 That became GitTop.
 
+{{< image src="screenshot-1.png" alt="GitTop Summary page showing commit distribution" caption="GitTop Summary page showing commit distribution" >}}
+
 ## How It Was Built
 
 This weekend I tried something I had not done before: fully agentic coding with Claude Code. I described what I wanted, guided it through one feature at a time, and let it write everything.
@@ -39,7 +41,7 @@ The stack is Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea) fo
 
 <br>
 
-{{< image src="screenshot.png" alt="GitTop Activity page showing commit distribution by hour" caption="GitTop Activity page showing commit distribution by hour" >}}
+{{< image src="screenshot-2.png" alt="GitTop Activity page showing commit distribution by hour" caption="GitTop Activity page showing commit distribution by hour" >}}
 
 The activity page answered my original question immediately. I commit to Toph mostly between 10:00 and 16:00, with a clear peak around noon. Apparently, I am a morning-to-afternoon programmer on that project.
 
