@@ -17,7 +17,9 @@ build:
       - ".npm"
 
 deploy production:
-  image: amazon/aws-cli:latest
+  image:
+    name: amazon/aws-cli:latest
+    entrypoint: [""]
   stage: production
   environment:
     name: production
