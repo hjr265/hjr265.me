@@ -16,7 +16,7 @@ build:
     paths:
       - ".npm"
 
-deploy:production:
+deploy production:
   image: registry.furqansoftware.net/cardboard/hugo:0.157.0-0
   stage: production
   environment:
