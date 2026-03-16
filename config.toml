@@ -60,22 +60,3 @@ lineNos = true
 
 [markup.goldmark.renderer]
 unsafe = true
-
-[deployment]
-order = [".jpg$", ".gif$"]
-
-[[deployment.targets]]
-name = "production"
-url = "s3://hjr265.me?region=ap-south-1&endpoint=ap-south-1.linodeobjects.com&s3ForcePathStyle=true"
-
-[[deployment.matchers]]
-pattern = "^.+\\.(js|css|svg|ttf)$"
-cacheControl = "max-age=31536000, no-transform, public"
-
-[[deployment.matchers]]
-pattern = "^.+\\.(png|jpg|woff|woff2)$"
-cacheControl = "max-age=31536000, no-transform, public"
-
-[[deployment.matchers]]
-pattern = "^.+\\.(html|xml|json)$"
-cacheControl = "max-age=0, no-cache, public"

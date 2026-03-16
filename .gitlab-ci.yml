@@ -17,7 +17,7 @@ build:
       - ".npm"
 
 deploy production:
-  image: registry.furqansoftware.net/cardboard/hugo:0.157.0-0
+  image: amazon/aws-cli:latest
   stage: production
   environment:
     name: production
@@ -27,11 +27,27 @@ deploy production:
   dependencies:
     - build
   script:
-    - hugo deploy
+    - aws s3 sync public/ s3://hjr265.me/
+      --endpoint-url https://ap-south-1.linodeobjects.com
+      --exclude '*'
+      --include '*.js' --include '*.css' --include '*.svg' --include '*.ttf'
+      --cache-control 'max-age=31536000, no-transform, public'
+    - aws s3 sync public/ s3://hjr265.me/
+      --endpoint-url https://ap-south-1.linodeobjects.com
+      --exclude '*'
+      --include '*.png' --include '*.jpg' --include '*.woff' --include '*.woff2'
+      --cache-control 'max-age=31536000, no-transform, public'
+    - aws s3 sync public/ s3://hjr265.me/
+      --endpoint-url https://ap-south-1.linodeobjects.com
+      --exclude '*'
+      --include '*.html' --include '*.xml' --include '*.json'
+      --cache-control 'max-age=0, no-cache, public'
+    - aws s3 sync public/ s3://hjr265.me/
+      --endpoint-url https://ap-south-1.linodeobjects.com
+      --exclude '*.js' --exclude '*.css' --exclude '*.svg' --exclude '*.ttf'
+      --exclude '*.png' --exclude '*.jpg' --exclude '*.woff' --exclude '*.woff2'
+      --exclude '*.html' --exclude '*.xml' --exclude '*.json'
   variables:
     AWS_ACCESS_KEY_ID: "$PRODUCTION_AWS_ACCESS_KEY_ID"
     AWS_SECRET_ACCESS_KEY: "$PRODUCTION_AWS_SECRET_ACCESS_KEY"
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - public/
+    AWS_DEFAULT_REGION: "ap-south-1"
