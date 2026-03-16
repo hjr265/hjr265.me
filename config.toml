@@ -14,6 +14,9 @@ images = ["/avatar.png"]
 name = "Mahmud Ridwan"
 email = "m@hjr265.me"
 
+[security.funcs]
+getenv = ['^HUGO_', '^CI$', '^GITHUB_TOKEN$']
+
 [markup.goldmark.parser.attribute]
 block = true
 
