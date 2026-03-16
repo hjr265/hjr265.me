@@ -3,7 +3,7 @@ stages:
   - production
 
 build:
-  image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
+  image: registry.furqansoftware.net/cardboard/hugo:0.157.0-0
   stage: build
   script:
     - hugo --minify
@@ -17,7 +17,7 @@ build:
       - ".npm"
 
 deploy:production:
-  image: registry.furqansoftware.net/cardboard/hugo:0.121.0-1
+  image: registry.furqansoftware.net/cardboard/hugo:0.157.0-0
   stage: production
   environment:
     name: production
