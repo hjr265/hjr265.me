@@ -10,8 +10,6 @@ tags:
 toc: yes
 ---
 
-# Building GitTop With Claude Code: A Weekend of Agentic Coding
-
 I have been running [Toph](https://toph.co/) for over ten years. Somewhere along the way, I started wondering: what hours of the day do I actually work on it?
 
 Commit timestamps felt like the right place to look. A quick one-off script could answer the question, and there are Git stats tools that spit out HTML reports. But I thought: this could be a good excuse to build a TUI application. Something like htop, but for a Git repository instead of system metrics.
