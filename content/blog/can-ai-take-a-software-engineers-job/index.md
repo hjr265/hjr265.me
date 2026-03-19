@@ -1,5 +1,5 @@
 ---
-title: Can AI Take A Software Engineer's Job?
+title: Can AI Take a Software Engineer's Job?
 htmldescription: A real conversation with an AI coding assistant that confidently fabricated a GitLab CI feature, got called out, and needed a human to suggest the actual solution.
 date: 2026-03-19T20:20:00+06:00
 tags:
