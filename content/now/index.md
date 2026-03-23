@@ -1,7 +1,7 @@
 ---
 title: "Now"
 layout: now
-date: 2026-03-07T00:00:00+06:00
+date: 2026-03-23T00:00:00+06:00
 sitemap:
   changeFreq: 'monthly'
   priority: 1
