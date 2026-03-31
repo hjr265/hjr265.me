@@ -4,7 +4,7 @@
 
 {{define "content"}}
 	<article>
-		<div><a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
+		<div class="breadcrumb">{{$avatarsrc := resources.Get "avatar.png"}}{{$avatar := $avatarsrc.Resize "84x84 webp" | fingerprint}}<a href="/"><img src="{{$avatar.RelPermalink}}" alt="Mahmud Ridwan" width="21" height="21"></a> <a href="/">hjr265.me</a> / <a href="/blog/">blog</a> /</div>
 		<header class="-leaf">
 			<h1>{{.Title}}</h1>
 			<div class="flair">
