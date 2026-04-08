@@ -3,6 +3,7 @@ title: "CodeMirror LanguageServer"
 weight: 3
 group: open-source
 date: 2006-01-01
+website: "https://furqansoftware.github.io/codemirror-languageserver/"
 openSource: true
 stack:
   - TypeScript
