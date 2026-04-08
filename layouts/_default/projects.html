@@ -51,7 +51,9 @@
 
 	{{with .Params.github}}
 		{{$githubData := resources.GetRemote (printf "https://api.github.com/repos/%s" .) | transform.Unmarshal}}
-		{{$website = . | printf "https://github.com/%s"}}
+		{{if not $website}}
+			{{$website = . | printf "https://github.com/%s"}}
+		{{end}}
 		{{with $githubData}}
 			{{$stars = .stargazers_count}}
 		{{end}}
