@@ -16,6 +16,6 @@ Software Engineer in Dhaka, Bangladesh 🇧🇩
   - Networks: [Toptal](https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent) and [Upwork](https://www.upwork.com/freelancers/~01551cbdc32d9260be)
   - Strong Suits: Go, TypeScript, JavaScript, Node.js, Rust, Python, React, Svelte, PostgreSQL, MongoDB, Redis, RabbitMQ, Docker, Terraform, Ansible
   - Building a geospatial intelligence platform for a client, through Toptal
-  - Helping revamp a disability-focused social & activity application for a client, through Toptal
+  <!--- Helping revamp a disability-focused social & activity application for a client, through Toptal-->
 - Maintaining [open-source projects](/projects/)
 - Reading [Begum Khaleda Zia: Her Life, Her Story](https://www.goodreads.com/en/book/show/42855446-begum-khaleda-zia) by Mahfuz Ullah
