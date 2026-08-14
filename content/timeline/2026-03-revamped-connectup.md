@@ -1,5 +1,5 @@
 ---
-title: "Revamped [ConnectUp](/experience/#full-stack-developer-spark-digital)'s React frontend"
+title: "Revamped a social app's React frontend"
 date: 2026-03-02
 color: orange
 branch: "work"
