@@ -20,6 +20,9 @@
 						<a class="flair__item muted" href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent" target="_blank">Toptal Engagement</a>
 					{{end}}
 				{{end}}
+				{{with .Params.detail}}
+					<span class="flair__item muted">{{.}}</span>
+				{{end}}
 			</div>
 
 			{{.Content}}

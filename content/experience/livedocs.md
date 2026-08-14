@@ -15,4 +15,5 @@ stack:
   - Language Server Protocol (LSP)
   - Rust
 agency: Toptal
+detail: 'Short-term'
 ---
