@@ -24,6 +24,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="color-scheme" content="light dark">
 
+		<script>
+			try {
+				var t = localStorage.getItem('theme');
+				if (t) document.documentElement.dataset.theme = t;
+			} catch (e) {}
+			document.documentElement.dataset.js = '1';
+		</script>
+
 		{{$bgpng := resources.Get "crossword.png" | fingerprint}}
 		{{$bgpngdark := resources.Get "crossword-dark.png" | fingerprint}}
 		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" (dict "BodyBackground" $bgpng "BodyBackgroundDark" $bgpngdark) | toCSS | minify}}
@@ -54,6 +62,31 @@
 				var email = el.textContent;
 				el.textContent = email;
 				el.href = 'mailto:' + email;
+			});
+
+			document.querySelectorAll('.themetoggle').forEach(function(el) {
+				el.addEventListener('click', function() {
+					var root = document.documentElement
+					  , sysDark = matchMedia('(prefers-color-scheme: dark)').matches
+					  , isDark = root.dataset.theme ? root.dataset.theme === 'dark' : sysDark
+					  , next = isDark ? 'light' : 'dark';
+					try {
+						if ((next === 'dark') === sysDark) {
+							delete root.dataset.theme;
+							localStorage.removeItem('theme');
+						} else {
+							root.dataset.theme = next;
+							localStorage.setItem('theme', next);
+						}
+					} catch (e) {}
+					if (window.DISQUS) DISQUS.reset({reload: true});
+				});
+			});
+
+			addEventListener('storage', function(e) {
+				if (e.key !== 'theme') return;
+				if (e.newValue) document.documentElement.dataset.theme = e.newValue;
+				else delete document.documentElement.dataset.theme;
 			});
 		</script>
 

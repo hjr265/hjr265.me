@@ -79,6 +79,9 @@
     --icon-invert: 0;
     --icon-opacity: 0.6;
 
+    --toggle-sun: inline-flex;
+    --toggle-moon: none;
+
     --tl-line: grey;
     --tl-muted: grey;
     --tl-badge-bg: #fff;
@@ -121,6 +124,9 @@
 
     --icon-invert: 1;
     --icon-opacity: 0.5;
+
+    --toggle-sun: none;
+    --toggle-moon: inline-flex;
 
     --tl-line: #4a525c;
     --tl-muted: #8a94a0;
@@ -241,7 +247,15 @@ header {
     margin-bottom: 1.5em;
 
     &:not(.-leaf) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 1.1725rem;
         text-transform: lowercase;
+
+        h1 {
+            margin: 0;
+        }
     }
 
     h1 {
@@ -337,4 +351,45 @@ code {
 .flair img[src*="star-solid"],
 .flair img[src*="trophy-solid-blue"] {
     filter: none;
+}
+
+.themetoggle {
+    // Hidden until the inline head script sets [data-js]. That runs before the
+    // first paint, so there is no flash and no layout shift -- and visitors
+    // without JS never see a control that cannot work.
+    display: none;
+    margin-left: auto;
+    padding: 0.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    background: none;
+    color: var(--fg-muted);
+    line-height: 0;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--fg-muted-hover);
+    }
+
+    svg {
+        display: block;
+        width: 1.125rem;
+        height: 1.125rem;
+        fill: currentColor;
+    }
+
+    &__sun {
+        display: var(--toggle-sun);
+    }
+
+    &__moon {
+        display: var(--toggle-moon);
+    }
+}
+[data-js] .themetoggle {
+    display: inline-flex;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
 }

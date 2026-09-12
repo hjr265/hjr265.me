@@ -1,0 +1,6 @@
+{{- $sun := resources.Get "sun.svg" -}}
+{{- $moon := resources.Get "moon.svg" -}}
+<button type="button" class="themetoggle" title="Switch theme" aria-label="Switch between light and dark theme">
+	<span class="themetoggle__sun">{{$sun.Content | safeHTML}}</span>
+	<span class="themetoggle__moon">{{$moon.Content | safeHTML}}</span>
+</button>
