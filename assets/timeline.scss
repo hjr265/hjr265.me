@@ -7,10 +7,10 @@
     z-index: -1;
     height: 100%;
     margin-left: 13px;
-    border-left: 1px solid grey;
+    border-left: 1px solid var(--tl-line);
 }
 .timeline__year {
-    color: grey;
+    color: var(--tl-muted);
     text-decoration: underline;
     font-size: 1.125rem;
     margin: 2em 0 0.5em 40px;
@@ -27,8 +27,8 @@
     margin-right: 20px;
     margin-left: -4px;
     border-radius: 22%;
-    border: 1.5px solid #aaa;
-    background-color: white;
+    border: 1.5px solid var(--tl-badge-bd);
+    background-color: var(--tl-badge-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,34 +40,34 @@
     }
 }
 .timeline__icon.-blue {
-    background-color: #e0f2fe;
-    border-color: #0ea5e9;
-    color: #0ea5e9;
+    background-color: var(--tl-blue-bg);
+    border-color: var(--tl-blue-fg);
+    color: var(--tl-blue-fg);
 }
 .timeline__icon.-red {
-    background-color: #fee2e2;
-    border-color: #ef4444;
-    color: #ef4444;
+    background-color: var(--tl-red-bg);
+    border-color: var(--tl-red-fg);
+    color: var(--tl-red-fg);
 }
 .timeline__icon.-green {
-    background-color: #dcfce7;
-    border-color: #22c55e;
-    color: #22c55e;
+    background-color: var(--tl-green-bg);
+    border-color: var(--tl-green-fg);
+    color: var(--tl-green-fg);
 }
 .timeline__icon.-orange {
-    background-color: #ffedd5;
-    border-color: #f97316;
-    color: #f97316;
+    background-color: var(--tl-orange-bg);
+    border-color: var(--tl-orange-fg);
+    color: var(--tl-orange-fg);
 }
 .timeline__icon.-purple {
-    background-color: #f3e8ff;
-    border-color: #a855f7;
-    color: #a855f7;
+    background-color: var(--tl-purple-bg);
+    border-color: var(--tl-purple-fg);
+    color: var(--tl-purple-fg);
 }
 .timeline__excerpt {
-    color: #555;
+    color: var(--fg-soft);
     margin-top: 0.1em;
 }
 .timeline__meta {
-    color: grey;
+    color: var(--tl-muted);
 }

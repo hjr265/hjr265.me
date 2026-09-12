@@ -52,6 +52,103 @@
     font-style: normal;
     font-display: swap;
 }
+:root {
+    color-scheme: light;
+
+    --bg: #fbfbfb;
+    --bg-image: url({{.BodyBackground.RelPermalink}});
+
+    --fg: #000000;
+    --fg-strong: #000000;
+    --fg-soft: #555555;
+    --fg-muted: #5c6873;
+    --fg-muted-hover: #23282c;
+
+    --link: #207cbb;
+    --link-hover: #0d344e;
+    --accent: #0099e5;
+
+    --surface: #eef3ef;
+    --figure-bg: transparent;
+    --border: lightgrey;
+    --border-soft: #e5e7eb;
+    --border-dashed: #5c6873;
+    --border-table: #eef3ef;
+    --border-card: #d1d5db;
+
+    --icon-invert: 0;
+    --icon-opacity: 0.6;
+
+    --tl-line: grey;
+    --tl-muted: grey;
+    --tl-badge-bg: #fff;
+    --tl-badge-bd: #aaa;
+    --tl-blue-bg: #e0f2fe;
+    --tl-blue-fg: #0ea5e9;
+    --tl-red-bg: #fee2e2;
+    --tl-red-fg: #ef4444;
+    --tl-green-bg: #dcfce7;
+    --tl-green-fg: #22c55e;
+    --tl-orange-bg: #ffedd5;
+    --tl-orange-fg: #f97316;
+    --tl-purple-bg: #f3e8ff;
+    --tl-purple-fg: #a855f7;
+}
+
+@mixin theme-dark {
+    color-scheme: dark;
+
+    --bg: #14161a;
+    --bg-image: url({{.BodyBackgroundDark.RelPermalink}});
+
+    --fg: #e6e8eb;
+    --fg-strong: #f5f7fa;
+    --fg-soft: #c2cad3;
+    --fg-muted: #8a94a0;
+    --fg-muted-hover: #c2cad3;
+
+    --link: #4fb0ee;
+    --link-hover: #8ccdf7;
+    --accent: #3ab4f5;
+
+    --surface: #22262c;
+    --figure-bg: #fff;
+    --border: #2e333a;
+    --border-soft: #2a2f36;
+    --border-dashed: #454c55;
+    --border-table: #2e333a;
+    --border-card: #454c55;
+
+    --icon-invert: 1;
+    --icon-opacity: 0.5;
+
+    --tl-line: #4a525c;
+    --tl-muted: #8a94a0;
+    --tl-badge-bg: #1e2228;
+    --tl-badge-bd: #545c66;
+    --tl-blue-bg: #0b2b3d;
+    --tl-blue-fg: #38bdf8;
+    --tl-red-bg: #3a1616;
+    --tl-red-fg: #f87171;
+    --tl-green-bg: #10301d;
+    --tl-green-fg: #4ade80;
+    --tl-orange-bg: #3a2410;
+    --tl-orange-fg: #fb923c;
+    --tl-purple-bg: #2b1b40;
+    --tl-purple-fg: #c084fc;
+}
+
+// Follow OS preference, unless forced to light.
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        @include theme-dark;
+    }
+}
+
+:root[data-theme="dark"] {
+    @include theme-dark;
+}
+
 *,
 ::before,
 ::after {
@@ -73,7 +170,9 @@ body {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.875rem;
-    background: url({{.BodyBackground.RelPermalink}});
+    color: var(--fg);
+    background-color: var(--bg);
+    background-image: var(--bg-image);
 }
 @media (min-width: 1200px) {
     body {
@@ -93,8 +192,8 @@ body {
     .side {
         margin-top: 2.5em;
         padding-top: 2.5em;
-        border-top: 1px solid lightgrey;
-        border-image: linear-gradient(to right, lightgrey 80%, transparent) 100%
+        border-top: 1px solid var(--border);
+        border-image: linear-gradient(to right, var(--border) 80%, transparent) 100%
             1;
     }
 }
@@ -107,32 +206,32 @@ body {
         margin-left: 2.5em;
         padding-bottom: 2.5em;
         padding-left: 2.5em;
-        border-left: 1px solid lightgrey;
-        border-image: linear-gradient(to bottom, lightgrey 80%, transparent) 1
+        border-left: 1px solid var(--border);
+        border-image: linear-gradient(to bottom, var(--border) 80%, transparent) 1
             100%;
     }
 }
 a {
     text-decoration: none;
-    color: #207cbb;
+    color: var(--link);
 }
 a:hover {
-    color: darken(#207cbb, 25%);
+    color: var(--link-hover);
 }
 a.muted {
     text-decoration: none;
-    color: #5c6873;
+    color: var(--fg-muted);
 }
 a.muted:hover {
-    color: darken(#5c6873, 25%);
+    color: var(--fg-muted-hover);
 }
 a.subtle,
 a.subtle:hover {
     text-decoration: none;
-    color: black;
+    color: var(--fg-strong);
 }
 .muted {
-    color: #5c6873;
+    color: var(--fg-muted);
 }
 .breadcrumb img {
     vertical-align: text-bottom;
@@ -170,10 +269,10 @@ h1 {
     content: " ]";
 }
 .menu .-active {
-    color: black;
+    color: var(--fg-strong);
 }
 dfn {
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted currentColor;
     font-style: normal;
     cursor: help;
 }
@@ -203,7 +302,7 @@ code {
 .section {
     margin-top: 2.5em;
     padding-top: 1.5em;
-    border-top: 1px dashed #5c6873;
+    border-top: 1px dashed var(--border-dashed);
 
     &__heading {
         display: flex;
@@ -211,17 +310,31 @@ code {
         gap: 0.4em;
         font-size: 1.125rem;
         font-weight: normal;
-        color: #5c6873;
+        color: var(--fg-muted);
         margin: 0 0 0.75em;
     }
 
     &__icon {
         height: 1em;
-        opacity: 0.6;
+        opacity: var(--icon-opacity);
     }
 
     &__more {
         display: inline-block;
         margin-top: 0.5em;
     }
+}
+
+.section__icon,
+.meta__icon,
+.hlink img,
+.flair img,
+.bookmarklet__anchor img {
+    // unquote() so Sass doesn't evaluate the custom property.
+    filter: unquote("invert(var(--icon-invert))");
+}
+
+.flair img[src*="star-solid"],
+.flair img[src*="trophy-solid-blue"] {
+    filter: none;
 }

@@ -22,9 +22,11 @@
 		{{template "_internal/twitter_cards.html" .}}
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="color-scheme" content="light dark">
 
 		{{$bgpng := resources.Get "crossword.png" | fingerprint}}
-		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" (dict "BodyBackground" $bgpng) | toCSS | minify}}
+		{{$bgpngdark := resources.Get "crossword-dark.png" | fingerprint}}
+		{{$criticalcss := resources.Get "critical.scss" | resources.ExecuteAsTemplate "" (dict "BodyBackground" $bgpng "BodyBackgroundDark" $bgpngdark) | toCSS | minify}}
 		<style type="text/css">
 			{{$criticalcss.Content | safeCSS}}
 		</style>

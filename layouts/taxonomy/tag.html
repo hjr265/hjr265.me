@@ -74,7 +74,7 @@
 						<a class="muted" href="/tags/{{. | lower}}/">#{{.}}</a>
 					{{end}}
 					{{if gt (len .) 3}}
-						<span class="flair__more muted" style="border-bottom: 1px dotted black; cursor: help;">+{{sub (len .) 3}}</span>
+						<span class="flair__more muted" style="border-bottom: 1px dotted currentColor; cursor: help;">+{{sub (len .) 3}}</span>
 					{{end}}
 					{{range sort (after 3 .)}}
 						<a class="muted" href="/tags/{{. | lower}}/" style="display: none;">#{{.}}</a>

@@ -1,7 +1,7 @@
 article {
     margin-bottom: 1.5rem;
     padding: 1.5rem;
-    border: 1px dashed #d1d5db;
+    border: 1px dashed var(--border-card);
     border-radius: 0.25rem;
 
     h2 {
@@ -19,7 +19,8 @@ article {
     margin-bottom: 1rem;
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border-soft);
+    background-color: var(--figure-bg);
 
     img {
         display: block;
@@ -41,6 +42,6 @@ article {
     li::before {
         content: "·";
         margin-right: 0.5rem;
-        color: #5c6873;
+        color: var(--fg-muted);
     }
 }
