@@ -248,13 +248,16 @@ header {
 
     &:not(.-leaf) {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.5rem;
         padding-top: 1.1725rem;
         text-transform: lowercase;
 
         h1 {
             margin: 0;
+            font-size: clamp(1.35rem, 6.2vw, 1.75rem);
+            line-height: 1.2;
+            align-items: baseline;
         }
     }
 
@@ -266,6 +269,16 @@ header {
         img {
             border-radius: 22%;
         }
+    }
+
+    .header__avatar {
+        flex: none;
+        align-self: center;
+    }
+
+    .header__title {
+        min-width: 0;
+        overflow-wrap: break-word;
     }
 }
 h1 {
@@ -356,6 +369,7 @@ code {
 .themetoggle {
     // Hidden until the inline head script sets [data-js].
     display: none;
+    flex: none;
     margin-left: auto;
     padding: 0.25rem;
     border: none;
