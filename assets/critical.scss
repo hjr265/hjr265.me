@@ -354,9 +354,7 @@ code {
 }
 
 .themetoggle {
-    // Hidden until the inline head script sets [data-js]. That runs before the
-    // first paint, so there is no flash and no layout shift -- and visitors
-    // without JS never see a control that cannot work.
+    // Hidden until the inline head script sets [data-js].
     display: none;
     margin-left: auto;
     padding: 0.25rem;
