@@ -257,7 +257,6 @@ header {
             margin: 0;
             font-size: clamp(1.35rem, 6.2vw, 1.75rem);
             line-height: 1.2;
-            align-items: baseline;
         }
     }
 
@@ -272,6 +271,7 @@ header {
     }
 
     .header__avatar {
+        display: flex;
         flex: none;
         align-self: center;
     }
