@@ -1,6 +1,6 @@
 ---
 title: "Where Is This Screenshot From? Asking Three AIs"
-date: 2026-10-21
+date: 2026-10-21T20:50:00+06:00
 tags:
   - AI
   - Claude
