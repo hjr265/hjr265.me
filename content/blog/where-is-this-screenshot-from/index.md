@@ -6,6 +6,8 @@ tags:
   - Claude
   - ChatGPT
   - Toph
+images:
+  - screenshot.png
 ---
 
 I ran a quick experiment with a few AI services.
