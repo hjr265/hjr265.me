@@ -9,7 +9,7 @@ tags:
 
 I have been meaning to do a few short-form blog posts lately. This blog post is going to be one of them.
 
-In Go, on Linux, if you want to know when the terminal window is resized, you can listen for the `SIGWINCH` signal using the `signal.Notify` (or the `signal.NotifyContext`) function.
+In Go, on Linux, if you want to know when the terminal window is resized, you can listen for the `SIGWINCH` signal using the `signal.Notify` (or the [`signal.NotifyContext`](/blog/go-tidbit-handling-signals-exitting-gracefully/)) function.
 
 The code will look something like this:
 

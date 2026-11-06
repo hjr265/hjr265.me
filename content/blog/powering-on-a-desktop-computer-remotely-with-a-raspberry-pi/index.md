@@ -9,7 +9,7 @@ toc: yes
 
 I access my primary computer remotely for various reasons.
 
-Take playing video games using Steam Remote Play, for example. I have a Windows virtual machine with a GPU passed through. With Steam running on it, I can connect from my phone, my laptop, or any device with the Steam Link app and play remotely. For games that are not on Steam, I can use Moonlight.
+Take playing video games using Steam Remote Play, for example. I have a Windows virtual machine with a GPU passed through. With Steam running on it, I can connect from my phone, my laptop, or any device with the [Steam Link](/blog/steam-link-black-screen-on-a-retro-pie-raspberry-pi-4/) app and play remotely. For games that are not on Steam, I can use Moonlight.
 
 But imagine the frustration when the computer is not powered on, and I am not at home. Only a fellow video gamer may understand it.
 

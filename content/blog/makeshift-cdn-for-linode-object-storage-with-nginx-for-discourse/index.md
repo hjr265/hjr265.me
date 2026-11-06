@@ -14,7 +14,7 @@ If you use S3-like object storage for Discourse uploads, you will quickly realiz
 
 If you were to use Amazon S3, their Cloudfront service would be the easy solution. But not all cloud providers (e.g. [Linode](https://www.linode.com/lp/refer/?r=8d4f388136825d3d04a90d3f7b0ce6b29732a835) _referral_) providing S3-like services has CDN offerings. For such cases [NGINX with reverse proxy caching](https://www.nginx.com/resources/wiki/start/topics/examples/reverseproxycachingexample/) can work well as a makeshift CDN.
 
-Since objects uploaded by Discourse to S3 buckets are marked to be publicly available, you can use NGINX to reverse proxy the bucket.
+Since objects uploaded by Discourse to [S3 buckets](/blog/serving-hjr265-me-from-an-s3-like-bucket-using-a-caddy-module/) are marked to be publicly available, you can use NGINX to reverse proxy the bucket.
 
 In your NGINX configuration file, [define a proxy cache](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path) followed by a server using it and reverse proxying to the bucket:
 

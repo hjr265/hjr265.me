@@ -8,7 +8,7 @@ tags:
 
 MTR combines the functionality of the traceroute and ping programs in a single network diagnostic tool. And, I am certain internet service providers (ISPs) of third-world countries hate it when customers discover this tool.
 
-I came across the tool again recently while investigating a WireGuard connection issue between an on-premises Toph server and one in Singapore.
+I came across the tool again recently while investigating a [WireGuard connection](/blog/check-if-a-wireguard-connection-is-up/) issue between an on-premises Toph server and one in Singapore.
 
 Was it our router? Was it Linode's infrastructure? Was it our local ISP?
 

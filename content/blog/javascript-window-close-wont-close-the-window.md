@@ -14,7 +14,7 @@ It got in the way.
 
 I was adding a page endpoint that I would link to. The link would open the page in a new tab with `target="_blank"`. And it would call `window.print` and `window.close` back to back.
 
-The intent was so that the page loads, shows the print dialog, and closes after the user confirms or cancels the print dialog.
+The intent was so that the page loads, shows the [print dialog](/blog/web-browser-javascript-how-hard-can-it-be-close-window-after-print/), and closes after the user confirms or cancels the print dialog.
 
 The solution was to use the `onclick` attribute with `window.open` in the link:
 
