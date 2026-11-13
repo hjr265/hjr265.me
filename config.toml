@@ -1,5 +1,5 @@
 baseURL = "https://hjr265.me/"
-languageCode = "en-us"
+languageCode = "en-US"
 title = "hjr265.me"
 enableRobotsTXT = true
 disqusShortname = "https-hjr265-me"
@@ -53,6 +53,11 @@ weight = 5
 name = "Timeline"
 url = "/timeline/"
 weight = 6
+
+[[menu.main]]
+name = "Contact"
+url = "/#contact"
+weight = 7
 
 
 [markup.highlight]
