@@ -1,0 +1,41 @@
+- group: Professional
+  links:
+    - name: GitHub
+      handle: hjr265
+      url: https://github.com/hjr265
+      featured: true
+    - name: LinkedIn
+      handle: hjr265
+      url: https://www.linkedin.com/in/hjr265/
+      featured: true
+    - name: Toph
+      handle: hjr265
+      url: https://toph.co/u/hjr265
+      featured: true
+    - name: Toptal
+      url: https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent
+    - name: Upwork
+      url: https://www.upwork.com/freelancers/~01551cbdc32d9260be
+- group: Community
+  links:
+    - name: Mastodon
+      handle: "@hjr265@fosstodon.org"
+      url: https://fosstodon.org/@hjr265
+      rel: me
+      featured: true
+    - name: Mastodon
+      handle: "@hjr265@floss.social"
+      url: https://floss.social/@hjr265
+      rel: me
+    - name: X
+      handle: "@hjr265"
+      url: https://x.com/hjr265
+    - name: Facebook
+      handle: hjr265
+      url: https://www.facebook.com/hjr265
+    - name: Reddit
+      handle: u/hjr265
+      url: https://www.reddit.com/user/hjr265/
+    - name: Steam
+      handle: hjr265
+      url: https://steamcommunity.com/id/hjr265/

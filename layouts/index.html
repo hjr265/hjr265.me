@@ -45,18 +45,9 @@
 	<section class="section">
 		<h2 class="section__heading"><img class="section__icon" loading="lazy" src="{{$sharesvg.RelPermalink}}" alt="">Elsewhere</h2>
 		<ul class="elsewhere">
-			<li><a href="https://github.com/hjr265">GitHub <small class="muted">hjr265</small></a></li>
-			<li><a href="https://www.linkedin.com/in/hjr265/">LinkedIn <small class="muted">hjr265</small></a></li>
-			<li><a href="https://toph.co/u/hjr265">Toph <small class="muted">hjr265</small></a></li>
-			<li><a rel="me" href="https://fosstodon.org/@hjr265">Mastodon <small class="muted">@hjr265@fosstodon.org</small></a></li>
-			<li><a rel="me" href="https://floss.social/@hjr265">Mastodon <small class="muted">@hjr265@floss.social</small></a></li>
-			<li><a href="https://x.com/hjr265">X <small class="muted">@hjr265</small></a></li>
-			<li><a href="https://www.facebook.com/hjr265">Facebook <small class="muted">hjr265</small></a></li>
-			<li><a href="https://www.reddit.com/user/hjr265/">Reddit <small class="muted">u/hjr265</small></a></li>
-			<li><a href="https://steamcommunity.com/id/hjr265/">Steam <small class="muted">hjr265</small></a></li>
-			<li><a href="https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent">Toptal</a></li>
-			<li><a href="https://www.upwork.com/freelancers/~01551cbdc32d9260be">Upwork</a></li>
+			{{range .Site.Data.elsewhere}}{{range where .links "featured" true}}{{partial "elsewherelink.html" .}}{{end}}{{end}}
 		</ul>
+		<a class="section__more" href="/elsewhere/">See all profiles →</a>
 	</section>
 
 	{{$atsvg2 := resources.GetMatch "at.svg" | fingerprint}}

@@ -352,6 +352,16 @@ code {
     }
 }
 
+.elsewhere {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em 1em;
+    line-height: 2rem;
+}
+
 .section__icon,
 .meta__icon,
 .hlink img,

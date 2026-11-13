@@ -1,0 +1,15 @@
+{{define "content"}}
+	{{partial "header.html" "Elsewhere"}}
+	{{partial "nav.html" .}}
+
+	{{.Content}}
+
+	{{range .Site.Data.elsewhere}}
+	<section class="section">
+		<h2 class="section__heading">{{.group}}</h2>
+		<ul class="elsewhere">
+			{{range .links}}{{partial "elsewherelink.html" .}}{{end}}
+		</ul>
+	</section>
+	{{end}}
+{{end}}
