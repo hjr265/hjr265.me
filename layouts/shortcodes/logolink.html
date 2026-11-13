@@ -1,0 +1,3 @@
+{{- $logo := resources.Get (.Get "logo") -}}
+<a class="logolink" href="{{.Get "href"}}">{{$logo.Content | safeHTML}}{{.Inner}}</a>
+{{- /**/ -}}

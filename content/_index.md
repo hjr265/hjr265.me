@@ -10,7 +10,7 @@ sitemap:
 
 **Hi, I am Mahmud Ridwan** — a software engineer based in Dhaka, Bangladesh, building tools that help programmers compete, learn, and grow.
 
-In 2015, I founded [Furqan Software](https://furqansoftware.com/) and turned a side project into [Toph](https://toph.co/), now Bangladesh's leading competitive programming platform. Before that, I got hooked on the sport during my B.Sc. in Computer Science (2012).
+In 2015, I founded [Furqan Software](https://furqansoftware.com/) and turned a side project into {{< logolink href="https://toph.co/" logo="toph.svg" >}}Toph{{< /logolink >}}, now Bangladesh's leading competitive programming platform. Before that, I got hooked on the sport during my B.Sc. in Computer Science (2012).
 
 I take on freelance work through networks like Toptal, collaborating on diverse engineering challenges across the stack. I am also an open-source enthusiast. You can find much of what I have built and contributed to on my [projects page](/projects/).
 
