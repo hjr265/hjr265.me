@@ -56,21 +56,20 @@
 		<p>Reach me by email at <a class="email">&#109;&#64;&#104;&#106;&#114;&#50;&#54;&#53;&#46;&#109;&#101;</a> or on <a href="https://t.me/hjr265">Telegram (hjr265)</a>.</p>
 	</section>
 
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": {{.Site.Params.author.name | jsonify}},
-			"url": {{.Site.BaseURL | jsonify}},
-			"sameAs": [
-				"https://github.com/{{.Site.Params.github}}",
-				"https://fosstodon.org/@hjr265",
-				"https://floss.social/@hjr265",
-				"https://www.linkedin.com/in/hjr265/",
-				"https://twitter.com/hjr265"
-			]
-		}
-	</script>
+	{{$sameAs := slice}}
+	{{range .Site.Data.elsewhere}}{{range .links}}{{$sameAs = $sameAs | append .url}}{{end}}{{end}}
+	{{$person := dict
+		"@context" "https://schema.org"
+		"@type" "Person"
+		"name" .Site.Params.author.name
+		"alternateName" .Site.Params.github
+		"url" .Site.BaseURL
+		"image" (absURL "/avatar.png")
+		"jobTitle" "Founder & CEO"
+		"worksFor" (dict "@type" "Organization" "name" "Furqan Software" "url" "https://furqansoftware.com/")
+		"sameAs" $sameAs
+	}}
+	<script type="application/ld+json">{{$person | jsonify | safeJS}}</script>
 {{end}}
 
 {{define "styles"}}
