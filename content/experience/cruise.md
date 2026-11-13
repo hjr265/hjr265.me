@@ -1,7 +1,6 @@
 ---
 title: Software Engineer
 order: 202312
-featured: true
 period: Jan ‘23 - Dec ‘23
 company: Cruise
 website: https://getcruise.com/

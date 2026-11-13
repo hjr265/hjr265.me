@@ -1,7 +1,6 @@
 ---
 title: Software Engineer
 order: 202506
-featured: true
 period: Jan ‘24 - Jun ‘25
 company: Hivello
 website: https://www.hivello.com/
