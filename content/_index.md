@@ -2,6 +2,9 @@
 title: 'Mahmud Ridwan (hjr265) — Software Engineer & Founder of Toph'
 description: "Founder of Furqan Software. Built Toph, Bangladesh's leading competitive programming platform. Software engineer based in Dhaka 🇧🇩."
 images: [/avatar.png]
+ongoing:
+  - title: Freelance Software Engineer
+    company: a geospatial intelligence platform
 date: 2026-03-05T15:25:00+06:00
 sitemap:
   changeFreq: 'monthly'

@@ -38,6 +38,14 @@
 			<span>{{.Params.company}}</span>
 		</div>
 		{{end}}
+		{{range .Params.ongoing}}
+		<div class="experience">
+			<span class="experience__title">{{.title}}</span>
+			<span class="experience__sep muted">@</span>
+			<span>{{.company}}</span>
+			{{with .note}}<span class="muted">({{.}})</span>{{end}}
+		</div>
+		{{end}}
 		<a class="section__more" href="/experience/">See full experience →</a>
 	</section>
 
