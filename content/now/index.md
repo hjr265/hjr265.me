@@ -1,5 +1,6 @@
 ---
 title: "Now"
+ogSubtitle: "What I am focused on right now"
 layout: now
 date: 2026-07-28T00:00:00+06:00
 sitemap:

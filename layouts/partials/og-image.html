@@ -1,0 +1,226 @@
+{{- /*
+Outputs og:image, twitter:card and twitter:image meta tags. The home page uses
+assets/og/home.png as-is, published as /og.png. Every other page gets a 1200×630
+image drawn on the section's base image and published as og.png next to the page:
+the date (regular pages only), the title, and a subtitle from the ogSubtitle or
+subtitle parameter (tag pages get a post count instead).
+*/ -}}
+{{- $title := or .Params.ogTitle .Title | plainify | htmlUnescape | strings.TrimSpace }}
+{{- $subtitle := "" }}
+{{- with or .Params.ogSubtitle .Params.subtitle }}
+	{{- $subtitle = . | plainify | htmlUnescape | strings.TrimSpace }}
+{{- else }}
+	{{- if and (eq .Kind "term") (eq .Data.Plural "tags") }}
+		{{- $n := len .Pages }}
+		{{- $subtitle = printf "%d %s tagged %s" $n (cond (eq $n 1) "post" "posts") $title }}
+	{{- end }}
+{{- end }}
+{{- $img := "" }}
+{{- if .IsHome }}
+	{{- with resources.Get "og/home.png" }}
+		{{- $img = . | resources.Copy "og.png" }}
+	{{- end }}
+{{- else }}
+	{{- with or (resources.Get (printf "og/base-%s.png" .Section)) (resources.Get "og/base.png") }}
+		{{- $img = . }}
+		{{- if $title }}
+			{{- $semibold := resources.Get "og/SpaceGrotesk-SemiBold.ttf" }}
+			{{- $regular := resources.Get "og/SpaceGrotesk-Regular.ttf" }}
+			{{- $semiboldWidths := resources.Get "og/SpaceGrotesk-SemiBold.widths.json" | transform.Unmarshal }}
+			{{- $regularWidths := resources.Get "og/SpaceGrotesk-Regular.widths.json" | transform.Unmarshal }}
+
+			{{- /* Free area for text: x 80–1120, y 150–490. $fitHeight is the tallest block of
+			lines (first capitals to last baseline) that leaves room around it in that area. */}}
+			{{- $x := 80 }}
+			{{- $top := 150 }}
+			{{- $bottom := 490 }}
+			{{- $maxWidth := 1000 }}
+			{{- $fitHeight := 290 }}
+
+			{{- /* Ascent and cap height of Space Grotesk, per 1000 units of font size. */}}
+			{{- $ascent := 984 }}
+			{{- $capHeight := 700 }}
+
+			{{- $date := "" }}
+			{{- if and $.IsPage (not $.Date.IsZero) }}
+				{{- $date = $.Date.Format "January 2, 2006" }}
+			{{- end }}
+			{{- $dateSize := 26 }}
+			{{- $dateGap := 43 }}
+			{{- $subSize := 30 }}
+			{{- $subLineHeight := 40 }}
+			{{- $subGap := 44 }}
+
+			{{- /* Layouts to try in order; the first that fits is used, else the last. */}}
+			{{- $candidates := slice
+				(dict "size" 66 "lineHeight" 74 "maxLines" 3 "subMaxLines" 2 "truncate" false)
+				(dict "size" 54 "lineHeight" 60 "maxLines" 4 "subMaxLines" 2 "truncate" true)
+				(dict "size" 54 "lineHeight" 60 "maxLines" 3 "subMaxLines" 2 "truncate" true)
+				(dict "size" 54 "lineHeight" 60 "maxLines" 3 "subMaxLines" 1 "truncate" true)
+			}}
+			{{- $layout := dict }}
+			{{- range $i, $c := $candidates }}
+				{{- if not $layout }}
+					{{- $titleLines := partial "inline/og-wrap.html" (dict "text" $title "size" $c.size "maxWidth" $maxWidth "widths" $semiboldWidths) }}
+					{{- $ok := true }}
+					{{- if gt (len $titleLines) $c.maxLines }}
+						{{- if $c.truncate }}
+							{{- $titleLines = partial "inline/og-truncate.html" (dict "lines" $titleLines "maxLines" $c.maxLines "size" $c.size "maxWidth" $maxWidth "widths" $semiboldWidths) }}
+						{{- else }}
+							{{- $ok = false }}
+						{{- end }}
+					{{- end }}
+					{{- $subLines := slice }}
+					{{- with $subtitle }}
+						{{- $subLines = partial "inline/og-wrap.html" (dict "text" . "size" $subSize "maxWidth" $maxWidth "widths" $regularWidths) }}
+						{{- if gt (len $subLines) $c.subMaxLines }}
+							{{- $subLines = partial "inline/og-truncate.html" (dict "lines" $subLines "maxLines" $c.subMaxLines "size" $subSize "maxWidth" $maxWidth "widths" $regularWidths) }}
+						{{- end }}
+					{{- end }}
+
+					{{- /* Height from the top of the first line's capitals to the last baseline. */}}
+					{{- $height := add (div (mul $c.size $capHeight) 1000.0) (mul (sub (len $titleLines) 1) $c.lineHeight) }}
+					{{- if $date }}
+						{{- $height = add $height (div (mul $dateSize $capHeight) 1000.0) $dateGap }}
+					{{- end }}
+					{{- if $subLines }}
+						{{- $height = add $height $subGap (div (mul $subSize $capHeight) 1000.0) (mul (sub (len $subLines) 1) $subLineHeight) }}
+					{{- end }}
+
+					{{- if and $ok (or (le $height $fitHeight) (eq $i (sub (len $candidates) 1))) }}
+						{{- $layout = dict "size" $c.size "lineHeight" $c.lineHeight "titleLines" $titleLines "subLines" $subLines "height" $height }}
+					{{- end }}
+				{{- end }}
+			{{- end }}
+
+			{{- /* Each row is drawn with its top at baseline minus ascent. */}}
+			{{- $rows := slice }}
+			{{- if $date }}
+				{{- $rows = $rows | append (dict "text" $date "font" $regular "size" $dateSize "color" "#9CA1AB" "advance" $dateGap "next" "cap") }}
+			{{- end }}
+			{{- range $i, $line := $layout.titleLines }}
+				{{- $rows = $rows | append (dict "text" $line "font" $semibold "size" $layout.size "color" "#ECEDEF" "advance" $layout.lineHeight "next" "baseline") }}
+			{{- end }}
+			{{- range $layout.subLines }}
+				{{- $rows = $rows | append (dict "text" . "font" $regular "size" $subSize "color" "#9CA1AB" "advance" $subLineHeight "next" "baseline") }}
+			{{- end }}
+
+			{{- $filters := slice }}
+			{{- $baseline := 0.0 }}
+			{{- $prev := dict }}
+			{{- range $rows }}
+				{{- $cap := div (mul .size $capHeight) 1000.0 }}
+				{{- if not $prev }}
+					{{- $baseline = add $top (div (sub (sub $bottom $top) $layout.height) 2) $cap }}
+				{{- else if eq $prev.next "cap" }}
+					{{- $baseline = add $baseline $prev.advance $cap }}
+				{{- else if ne $prev.font .font }}
+					{{- /* Gap from the last title baseline to the subtitle's capitals. */}}
+					{{- $baseline = add $baseline $subGap $cap }}
+				{{- else }}
+					{{- $baseline = add $baseline $prev.advance }}
+				{{- end }}
+				{{- $filters = $filters | append (images.Text .text (dict
+					"font" .font "size" .size "color" .color
+					"x" $x "y" (int (math.Round (sub $baseline (math.Ceil (div (mul .size $ascent) 1000.0)))))
+					"alignx" "left" "aligny" "top"
+				)) }}
+				{{- $prev = . }}
+			{{- end }}
+
+			{{- /* Pages at a file URL such as /404.html publish to /404/og.png. */}}
+			{{- $dir := strings.TrimPrefix "/" $.RelPermalink }}
+			{{- if not (strings.HasSuffix $dir "/") }}
+				{{- $dir = strings.TrimSuffix (path.Ext $dir) $dir }}
+			{{- end }}
+			{{- $img = $img | images.Filter $filters | resources.Copy (path.Join $dir "og.png") }}
+		{{- end }}
+	{{- end }}
+{{- end }}
+{{- with $img }}
+<meta property="og:image" content="{{ $img.Permalink }}">
+<meta property="og:image:width" content="{{ $img.Width }}">
+<meta property="og:image:height" content="{{ $img.Height }}">
+<meta property="og:image:alt" content="{{ $title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $img.Permalink }}">
+{{- else }}
+	{{- warnf "og-image: assets/og/%s not found; falling back to /avatar.png" (cond .IsHome "home.png" "base.png") }}
+<meta property="og:image" content="{{ absURL "/avatar.png" }}">
+<meta property="og:image:alt" content="Portrait of Mahmud Ridwan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ absURL "/avatar.png" }}">
+{{- end }}
+
+{{- /* Returns the lines of .text wrapped so each is at most .maxWidth px wide at .size px. */}}
+{{- define "_partials/inline/og-wrap.html" }}
+	{{- $lines := slice }}
+	{{- $line := "" }}
+	{{- $lineWidth := 0.0 }}
+	{{- $space := mul (index .widths " ") .size 0.001 }}
+	{{- range split (replaceRE `\s+` " " (trim .text " \t\n")) " " }}
+		{{- $words := slice . }}
+		{{- $wordWidth := partial "inline/og-measure.html" (dict "text" . "size" $.size "widths" $.widths) }}
+		{{- if gt $wordWidth $.maxWidth }}
+			{{- /* Break a word wider than a whole line into pieces that fit. */}}
+			{{- $words = slice }}
+			{{- $piece := "" }}
+			{{- range split . "" }}
+				{{- if gt (partial "inline/og-measure.html" (dict "text" (print $piece .) "size" $.size "widths" $.widths)) $.maxWidth }}
+					{{- $words = $words | append $piece }}
+					{{- $piece = "" }}
+				{{- end }}
+				{{- $piece = print $piece . }}
+			{{- end }}
+			{{- $words = $words | append $piece }}
+		{{- end }}
+		{{- range $words }}
+			{{- $w := partial "inline/og-measure.html" (dict "text" . "size" $.size "widths" $.widths) }}
+			{{- if eq $line "" }}
+				{{- $line = . }}
+				{{- $lineWidth = $w }}
+			{{- else if le (add $lineWidth $space $w) $.maxWidth }}
+				{{- $line = print $line " " . }}
+				{{- $lineWidth = add $lineWidth $space $w }}
+			{{- else }}
+				{{- $lines = $lines | append $line }}
+				{{- $line = . }}
+				{{- $lineWidth = $w }}
+			{{- end }}
+		{{- end }}
+	{{- end }}
+	{{- with $line }}
+		{{- $lines = $lines | append . }}
+	{{- end }}
+	{{- return $lines }}
+{{- end }}
+
+
+{{- /* Returns the first .maxLines of .lines, with the last one shortened to end in "…". */}}
+{{- define "_partials/inline/og-truncate.html" }}
+	{{- $last := partial "inline/og-ellipsize.html" (dict "text" (index .lines (sub .maxLines 1)) "size" .size "maxWidth" .maxWidth "widths" .widths) }}
+	{{- $lines := (first (sub .maxLines 1) .lines) | append $last }}
+	{{- return $lines }}
+{{- end }}
+
+{{- /* Returns .text shortened word by word until it fits .maxWidth px with "…" appended. */}}
+{{- define "_partials/inline/og-ellipsize.html" }}
+	{{- $words := split (replaceRE `\s+` " " (trim .text " \t\n")) " " }}
+	{{- $result := "…" }}
+	{{- range seq (len $words) 1 }}
+		{{- $candidate := print (strings.TrimRight ",.:;-–— " (delimit (first . $words) " ")) "…" }}
+		{{- if and (eq $result "…") (le (partial "inline/og-measure.html" (dict "text" $candidate "size" $.size "widths" $.widths)) $.maxWidth) }}
+			{{- $result = $candidate }}
+		{{- end }}
+	{{- end }}
+	{{- return $result }}
+{{- end }}
+
+{{- /* Returns the width in px of .text at .size px, using per-character advance widths in 1/1000 em. */}}
+{{- define "_partials/inline/og-measure.html" }}
+	{{- $units := 0 }}
+	{{- range split .text "" }}
+		{{- $units = add $units (or (index $.widths .) 600) }}
+	{{- end }}
+	{{- return mul $units .size 0.001 }}
+{{- end }}
