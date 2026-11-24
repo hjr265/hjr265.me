@@ -14,7 +14,7 @@ Software Engineer in Dhaka, Bangladesh 🇧🇩
 - Software Engineer / CEO at [Furqan Software](https://furqansoftware.com/) — Sep '15 - present
   - Spending as much time as I can crafting [Toph](https://toph.co/), the premier Bangladeshi sport programming platform
 - Freelance software engineer
-  - Networks: [Toptal](https://www.toptal.com/resume/mahmud-ridwan/N8D73N/worlds-top-talent) and [Upwork](https://www.upwork.com/freelancers/~01551cbdc32d9260be)
+  - Networks: [Toptal](https://www.toptal.com/developers/resume/mahmud-ridwan) and [Upwork](https://www.upwork.com/freelancers/~01551cbdc32d9260be)
   - Strong Suits: Go, TypeScript, JavaScript, Node.js, Rust, Python, React, Svelte, PostgreSQL, MongoDB, Redis, RabbitMQ, Docker, Terraform, Ansible
   - Building a geospatial intelligence platform for a client, through Toptal
   <!--- Helping revamp a disability-focused social & activity application for a client, through Toptal-->
