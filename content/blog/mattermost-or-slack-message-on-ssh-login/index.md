@@ -49,7 +49,7 @@ Here is how you can do it:
     Related documentations:
 
     - [Mattermost Webhooks](https://developers.mattermost.com/integrate/webhooks/)
-    - [Posting Slack Messages Using Curl](https://api.slack.com/tutorials/tracks/posting-messages-with-curl)
+    - [Slack `chat.postMessage` Method](https://docs.slack.dev/reference/methods/chat.postMessage/)
 
 2. Add the following line to the bottom of `/etc/pam.d/sshd`.
 
